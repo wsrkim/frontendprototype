@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — Wingstop</title>
+  <meta name="description" content="Wingstop Terms of Use and legal information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .legal-toc-title {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      margin-bottom: 14px;
+    }
+    .legal-toc-list { display: flex; flex-direction: column; gap: 2px; }
+    .legal-toc-item {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,.4);
+      padding: 7px 12px;
+      border-radius: 3px;
+      transition: all .2s;
+      border-left: 2px solid transparent;
+    }
+    .legal-toc-item:hover { color: white; background: rgba(255,255,255,.04); }
+    .legal-toc-item.active { color: var(--yellow); border-left-color: var(--yellow); }
+
+    @media (max-width: 900px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 40px; }
+      .legal-toc { position: static; display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="../legal/"         class="nav__mobile-link">Legal</a>
+  <a href="../privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero page-hero--sm">
+  <div class="page-hero__bg">
+    <div class="page-hero__grid"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(120px,22vw,280px);font-weight:900;color:rgba(255,255,255,.016);line-height:1;pointer-events:none;user-select:none;">LEGAL</div>
+  </div>
+  <div class="page-hero__content">
+    <div class="page-hero__eyebrow fade-up">
+      <span class="page-hero__eyebrow-line"></span>
+      <span class="overline">Legal</span>
+    </div>
+    <h1 class="disp-lg fade-up d1">Terms of Use</h1>
+    <p class="lead fade-up d2" style="margin-top:16px;">Please read these terms carefully before using Wingstop's digital properties.</p>
+  </div>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<section class="section">
+  <div class="container">
+    <div class="legal-layout">
+
+      <!-- TOC -->
+      <div class="legal-toc fade-in">
+        <div class="legal-toc-title">On This Page</div>
+        <nav class="legal-toc-list">
+          <a href="#acceptance"    class="legal-toc-item">Acceptance</a>
+          <a href="#use"           class="legal-toc-item">Use of Site</a>
+          <a href="#ip"            class="legal-toc-item">Intellectual Property</a>
+          <a href="#accounts"      class="legal-toc-item">User Accounts</a>
+          <a href="#ordering"      class="legal-toc-item">Online Ordering</a>
+          <a href="#disclaimers"   class="legal-toc-item">Disclaimers</a>
+          <a href="#liability"     class="legal-toc-item">Limitation of Liability</a>
+          <a href="#indemnification" class="legal-toc-item">Indemnification</a>
+          <a href="#disputes"      class="legal-toc-item">Disputes</a>
+          <a href="#changes"       class="legal-toc-item">Changes to Terms</a>
+          <a href="#contact-legal" class="legal-toc-item">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Prose -->
+      <div class="prose fade-up">
+        <p class="last-updated">Last Updated: January 1, 2026</p>
+
+        <p>Welcome to Wingstop. These Terms of Use ("Terms") govern your access to and use of Wingstop Inc.'s websites, mobile applications, and online ordering platforms (collectively, the "Services"). By using our Services, you agree to be bound by these Terms.</p>
+
+        <h2 id="acceptance">1. Acceptance of Terms</h2>
+        <p>By accessing or using any part of our Services, you represent that you are at least 13 years of age (or the minimum age of digital consent in your jurisdiction, whichever is higher) and that you have read, understood, and agree to be bound by these Terms, along with our <a href="../privacy/">Privacy Policy</a>.</p>
+        <p>If you are using our Services on behalf of an organization, you represent that you have authority to bind that organization to these Terms, and "you" refers to both you and that organization.</p>
+
+        <h2 id="use">2. Permitted Use of Services</h2>
+        <p>You may use our Services for lawful, personal, non-commercial purposes. You agree not to:</p>
+        <ul>
+          <li>Use the Services to transmit any unlawful, harmful, threatening, or otherwise objectionable content</li>
+          <li>Attempt to gain unauthorized access to any portion of the Services or related systems</li>
+          <li>Use automated tools, scrapers, or bots to access or extract data from our Services</li>
+          <li>Reproduce, distribute, or create derivative works based on our content without written permission</li>
+          <li>Impersonate Wingstop, its employees, or any other person or entity</li>
+          <li>Use the Services in any manner that could damage, disable, or impair the functionality of our systems</li>
+        </ul>
+
+        <h2 id="ip">3. Intellectual Property</h2>
+        <p>All content on the Services — including text, graphics, logos, images, audio clips, video, data compilations, and software — is the property of Wingstop Inc. or its content suppliers and is protected by applicable intellectual property laws.</p>
+        <p>The Wingstop name, logo, and all related marks are trademarks of Wingstop Inc. You may not use our trademarks without prior written consent. Nothing in these Terms grants you any right or license to use our trademarks.</p>
+
+        <h2 id="accounts">4. User Accounts and Rewards</h2>
+        <p>To access certain features (including Wingstop Rewards), you must create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
+        <p>You agree to provide accurate and complete information when creating your account and to update this information to keep it accurate. Wingstop reserves the right to suspend or terminate accounts that violate these Terms or that we believe to have been compromised.</p>
+        <p>Rewards points and account balances have no cash value and may not be transferred, sold, or exchanged outside the Wingstop Rewards program.</p>
+
+        <h2 id="ordering">5. Online Ordering</h2>
+        <p>By placing an order through our digital platforms, you agree that:</p>
+        <ul>
+          <li>All order information submitted is accurate and complete</li>
+          <li>You are authorized to use any payment method submitted</li>
+          <li>Prices are subject to change without notice and are confirmed at the time of order</li>
+          <li>Order availability depends on your selected location and time</li>
+          <li>Substitutions and modifications are honored where operationally possible but not guaranteed</li>
+        </ul>
+        <p>Wingstop is not responsible for errors in orders resulting from incorrect information provided by users, or for delays caused by third-party delivery partners.</p>
+
+        <h2 id="disclaimers">6. Disclaimers</h2>
+        <p>Our Services and all content are provided "as is" and "as available," without warranties of any kind, either express or implied. Wingstop does not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+        <p>Nutritional information provided on our Services is for general informational purposes and may vary based on product preparation and location.</p>
+
+        <h2 id="liability">7. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by applicable law, Wingstop Inc. and its affiliates, officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to lost profits, data loss, or business interruption, arising from your use of or inability to use the Services.</p>
+        <p>In no event shall our total liability exceed the greater of (a) the amount you paid Wingstop in the 90 days preceding the claim, or (b) $100 USD.</p>
+
+        <h2 id="indemnification">8. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless Wingstop Inc. and its affiliates from and against any claims, liabilities, damages, judgments, awards, losses, costs, or expenses arising out of your violation of these Terms or your use of the Services.</p>
+
+        <h2 id="disputes">9. Governing Law and Dispute Resolution</h2>
+        <p>These Terms shall be governed by and construed under the laws of the State of Texas, United States, without regard to conflict of law principles.</p>
+        <p>Any dispute arising under these Terms shall first be subject to informal resolution through good-faith negotiation. If unresolved within 30 days, disputes shall be submitted to binding arbitration under the rules of the American Arbitration Association, conducted in Dallas, Texas.</p>
+        <p>You agree to waive any right to a class action lawsuit or class-wide arbitration.</p>
+
+        <h2 id="changes">10. Changes to These Terms</h2>
+        <p>We may revise these Terms at any time. When we do, we will update the "Last Updated" date at the top of this page and, where appropriate, provide notice via email or a prominent notice on our Services. Your continued use of our Services after changes constitutes your acceptance of the revised Terms.</p>
+
+        <h2 id="contact-legal">11. Contact</h2>
+        <p>For questions about these Terms, please contact us at:</p>
+        <p><strong>Wingstop Inc. — Legal Department</strong><br>
+        5501 LBJ Freeway, 5th Floor<br>
+        Dallas, TX 75240<br>
+        <a href="mailto:legal@wingstop.com">legal@wingstop.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a><a href="../international/">International</a>
+          <a href="../events/">Events</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Highlight TOC on scroll
+  const tocItems = document.querySelectorAll('.legal-toc-item');
+  const sections = Array.from(document.querySelectorAll('.prose h2[id]'));
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocItems.forEach(i => i.classList.remove('active'));
+        const active = document.querySelector(`.legal-toc-item[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  sections.forEach(s => secObs.observe(s));
+</script>
+</body>
+</html>

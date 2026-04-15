@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wingstop — Flavor Is Everything</title>
+  <meta name="description" content="11 bold flavors. 1,900+ locations. One relentless obsession. This is fast food done boldly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Homepage-specific ── */
+    .events-split {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .events-split__cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .intl-teaser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .intl-globe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .globe-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .globe-core {
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,.04);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .globe-num {
+      text-align: center;
+    }
+    .globe-num strong {
+      font-family: var(--font-display);
+      font-size: 64px; font-weight: 900;
+      line-height: 1; display: block;
+    }
+    .globe-num span {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    @media (max-width: 900px) {
+      .events-split,
+      .intl-teaser { grid-template-columns: 1fr; gap: 40px; }
+      .events-split__cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAVIGATION
+══════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="about/"         class="nav__link">About</a></li>
+      <li><a href="events/"        class="nav__link">Events</a></li>
+      <li><a href="international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">
+          More <span class="nav__dropdown-arrow">▾</span>
+        </a>
+        <div class="nav__dropdown-menu">
+          <a href="faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#" class="btn btn-primary btn-sm">Order Now</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav__mobile">
+  <a href="about/"         class="nav__mobile-link">About</a>
+  <a href="events/"        class="nav__mobile-link">Events</a>
+  <a href="international/" class="nav__mobile-link">International</a>
+  <a href="faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="legal/"         class="nav__mobile-link">Legal</a>
+  <a href="privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__glow-2"></div>
+    <div class="hero__bg-w" aria-hidden="true">W</div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__eyebrow fade-up">
+      <span class="hero__eyebrow-line"></span>
+      <span class="overline">Bold Flavor Since 1994</span>
+    </div>
+    <h1 class="hero__headline fade-up d1">
+      WINGS.<br>
+      <span class="stroke">ELEVATED.</span>
+    </h1>
+    <p class="hero__sub fade-up d2">
+      11 craveable flavors crafted with obsession. Over 1,900 locations.
+      One relentless mission — flavor is everything.
+    </p>
+    <div class="hero__actions fade-up d3">
+      <a href="#" class="btn btn-primary btn-lg">Order Now</a>
+      <a href="#flavors" class="btn btn-outline btn-lg">Explore Flavors</a>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     STATS BAR
+══════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-bar__inner">
+    <div class="stat-item">
+      <span class="stat-item__num" data-count="1994">1994</span>
+      <span class="stat-item__lbl">Year Founded</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-item__num" data-count="1900" data-suffix="+">1,900+</span>
+      <span class="stat-item__lbl">Locations</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-item__num" data-count="11">11</span>
+      <span class="stat-item__lbl">Signature Flavors</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-item__num" data-count="12" data-suffix="+">12+</span>
+      <span class="stat-item__lbl">Countries</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     MARQUEE
+══════════════════════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <!-- set A -->
+    <span class="marquee__item hi">Lemon Pepper <span class="sep">✦</span></span>
+    <span class="marquee__item">Original Hot <span class="sep">✦</span></span>
+    <span class="marquee__item">Atomic <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Garlic Parmesan <span class="sep">✦</span></span>
+    <span class="marquee__item">Mango Habanero <span class="sep">✦</span></span>
+    <span class="marquee__item">Cajun <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Korean Q <span class="sep">✦</span></span>
+    <span class="marquee__item">Hickory Smoked BBQ <span class="sep">✦</span></span>
+    <span class="marquee__item">Hawaiian <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Louisiana Rub <span class="sep">✦</span></span>
+    <span class="marquee__item">Mild <span class="sep">✦</span></span>
+    <!-- set B (duplicate for seamless loop) -->
+    <span class="marquee__item hi">Lemon Pepper <span class="sep">✦</span></span>
+    <span class="marquee__item">Original Hot <span class="sep">✦</span></span>
+    <span class="marquee__item">Atomic <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Garlic Parmesan <span class="sep">✦</span></span>
+    <span class="marquee__item">Mango Habanero <span class="sep">✦</span></span>
+    <span class="marquee__item">Cajun <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Korean Q <span class="sep">✦</span></span>
+    <span class="marquee__item">Hickory Smoked BBQ <span class="sep">✦</span></span>
+    <span class="marquee__item">Hawaiian <span class="sep">✦</span></span>
+    <span class="marquee__item hi">Louisiana Rub <span class="sep">✦</span></span>
+    <span class="marquee__item">Mild <span class="sep">✦</span></span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     FLAVORS
+══════════════════════════════════ -->
+<section class="section bg-dark1" id="flavors">
+  <div class="container">
+    <div class="sh sh-split">
+      <div>
+        <p class="overline fade-up">The Lineup</p>
+        <h2 class="disp-lg fade-up d1">11 Signature<br>Flavors</h2>
+      </div>
+      <a href="#" class="btn btn-outline fade-up d2">Full Menu →</a>
+    </div>
+
+    <div class="flavor-grid">
+      <!-- 1 -->
+      <div class="flavor-item" style="--accent:#F5E642">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#F5E642"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Lemon Pepper</div>
+        <div class="flavor-item__tag">Classic · Mild Heat</div>
+      </div>
+      <!-- 2 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#C8102E"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Original Hot</div>
+        <div class="flavor-item__tag">Signature · Medium Heat</div>
+      </div>
+      <!-- 3 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#FF2200"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Atomic</div>
+        <div class="flavor-item__tag">Extreme · Max Heat</div>
+      </div>
+      <!-- 4 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#8B3A00"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Cajun</div>
+        <div class="flavor-item__tag">Southern · Medium Heat</div>
+      </div>
+      <!-- 5 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#D4AA70"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Garlic Parmesan</div>
+        <div class="flavor-item__tag">Savory · No Heat</div>
+      </div>
+      <!-- 6 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#FF9A3C"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Hawaiian</div>
+        <div class="flavor-item__tag">Sweet & Tangy · Mild Heat</div>
+      </div>
+      <!-- 7 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#5C3010"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Hickory Smoked BBQ</div>
+        <div class="flavor-item__tag">Smoky · No Heat</div>
+      </div>
+      <!-- 8 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#B85C30"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Korean Q</div>
+        <div class="flavor-item__tag">Global · Mild-Medium</div>
+      </div>
+      <!-- 9 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#FF7B00"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Mango Habanero</div>
+        <div class="flavor-item__tag">Tropical · Hot</div>
+      </div>
+      <!-- 10 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#C85020"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Louisiana Rub</div>
+        <div class="flavor-item__tag">Dry Rub · Medium Heat</div>
+      </div>
+      <!-- 11 -->
+      <div class="flavor-item">
+        <div class="flavor-item__color">
+          <span class="flavor-item__swatch" style="background:#FFD700"></span>
+          <div class="flavor-item__heat">
+            <span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+          </div>
+        </div>
+        <div class="flavor-item__name">Mild</div>
+        <div class="flavor-item__tag">Classic · No Heat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     EVENTS TEASER
+══════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="events-split">
+      <div>
+        <p class="overline fade-up">What's On</p>
+        <h2 class="disp-lg fade-up d1">Events &amp;<br>Experiences</h2>
+        <p class="lead fade-up d2" style="margin-top:20px;">
+          From global flavor drops to community events and championship-level competitions —
+          Wingstop keeps the energy alive all year long.
+        </p>
+        <a href="events/" class="btn btn-primary btn-lg fade-up d3" style="margin-top:32px;">See All Events</a>
+      </div>
+      <div class="events-split__cards">
+        <div class="card fade-up d1">
+          <div class="card__thumb">
+            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#C8102E,#2a0008)">
+              <span style="font-family:var(--font-display);font-size:64px;font-weight:900;opacity:.15;">W</span>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__tag">Annual</div>
+            <div class="card__title">Wing Week</div>
+            <p class="card__desc">Seven days. Seven deals. One wing obsession.</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__date">June 2026</span>
+            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+          </div>
+        </div>
+        <div class="card fade-up d2">
+          <div class="card__thumb">
+            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#FFC72C,#7a5a00)">
+              <span style="font-family:var(--font-display);font-size:64px;font-weight:900;opacity:.15;">F</span>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__tag">Limited Drop</div>
+            <div class="card__title">Flavor Lab</div>
+            <p class="card__desc">Test-drive exclusive new flavors before the world does.</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__date">Ongoing</span>
+            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+          </div>
+        </div>
+        <div class="card fade-up d3">
+          <div class="card__thumb">
+            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#1a1a2e,#C8102E)">
+              <span style="font-family:var(--font-display);font-size:44px;font-weight:900;opacity:.15;">🏆</span>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__tag">Community</div>
+            <div class="card__title">Wingstop Bowl</div>
+            <p class="card__desc">The ultimate eating competition. Fame awaits.</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__date">Sep 2026</span>
+            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+          </div>
+        </div>
+        <div class="card fade-up d4">
+          <div class="card__thumb">
+            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#003a1a,#FFC72C55)">
+              <span style="font-family:var(--font-display);font-size:44px;font-weight:900;opacity:.15;">♻</span>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__tag">Impact</div>
+            <div class="card__title">Flavor for Good</div>
+            <p class="card__desc">Local giveback programs every quarter.</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__date">Ongoing</span>
+            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     INTERNATIONAL TEASER
+══════════════════════════════════ -->
+<section class="highlight-red">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="intl-teaser">
+      <div>
+        <p class="overline fade-up" style="color:rgba(255,255,255,.7)">Global Reach</p>
+        <h2 class="disp-xl fade-up d1">The World<br>Eats Wings.</h2>
+        <p class="lead fade-up d2" style="margin-top:20px;color:rgba(255,255,255,.7);">
+          From London to Manila, Dubai to Mexico City — Wingstop's bold flavors
+          have crossed every ocean. Our global footprint is just getting started.
+        </p>
+        <a href="international/" class="btn btn-outline fade-up d3" style="margin-top:32px;border-color:rgba(255,255,255,.5)">
+          See Our Presence →
+        </a>
+      </div>
+      <div class="intl-globe fade-in d2">
+        <div class="globe-ring" style="width:340px;height:340px;animation:spin 40s linear infinite;"></div>
+        <div class="globe-ring" style="width:280px;height:280px;animation:spin 28s linear infinite reverse;"></div>
+        <div class="globe-ring" style="width:220px;height:220px;opacity:.4;"></div>
+        <div class="globe-core">
+          <div class="globe-num">
+            <strong data-count="12" data-suffix="+">12+</strong>
+            <span>Countries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@keyframes spin {
+  from { transform: rotate(0); }
+  to   { transform: rotate(360deg); }
+}
+</style>
+
+<!-- ══════════════════════════════════
+     ABOUT TEASER
+══════════════════════════════════ -->
+<section class="section bg-dark1">
+  <div class="container">
+    <div style="max-width:860px;margin:0 auto;text-align:center;">
+      <p class="overline fade-up">Our Story</p>
+      <h2 class="disp-xl fade-up d1" style="margin-top:16px;">Born in Garland,<br>Texas. Built for the World.</h2>
+      <p class="lead fade-up d2" style="margin-top:24px;max-width:600px;margin-left:auto;margin-right:auto;">
+        Antonio Swad opened the first Wingstop in 1994 with a simple belief —
+        that great wings deserved bold flavors and full dedication.
+        Thirty years later, that obsession powers every location, every order, every bite.
+      </p>
+      <a href="about/" class="btn btn-yellow btn-lg fade-up d3" style="margin-top:36px;">Our Full Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">
+          The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.
+          Flavor is not just what we do — it's who we are.
+        </p>
+        <div class="footer__social">
+          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Twitter/X">X</a>
+          <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+          <a href="#" class="social-btn" aria-label="TikTok">TT</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="about/">About Wingstop</a>
+          <a href="international/">International</a>
+          <a href="events/">Events</a>
+          <a href="#">Careers</a>
+          <a href="#">Franchising</a>
+          <a href="#">Press</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a>
+          <a href="#">Tenders</a>
+          <a href="#">Sides</a>
+          <a href="#">Drinks</a>
+          <a href="#">Family Packs</a>
+          <a href="#">Nutrition Info</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="faq/">FAQ</a>
+          <a href="#">Find a Location</a>
+          <a href="#">Wingstop Rewards</a>
+          <a href="#">Catering</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="legal/">Terms of Use</a>
+        <a href="privacy/">Privacy Policy</a>
+        <a href="#">Cookie Preferences</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

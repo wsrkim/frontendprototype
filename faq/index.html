@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Wingstop</title>
+  <meta name="description" content="Frequently asked questions about Wingstop orders, flavors, nutrition, rewards, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .faq-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .faq-sidebar-title {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 16px;
+    }
+    .faq-sidebar-links { display: flex; flex-direction: column; gap: 4px; }
+    .faq-sidebar-link {
+      padding: 10px 16px;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.45);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all .2s;
+      border-left: 2px solid transparent;
+    }
+    .faq-sidebar-link:hover { color: white; background: rgba(255,255,255,.05); }
+    .faq-sidebar-link.active { color: var(--yellow); border-left-color: var(--yellow); }
+
+    .faq-section { margin-bottom: 56px; }
+    .faq-section-title {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 4px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .faq-section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(255,199,44,.2);
+    }
+
+    .contact-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 4px;
+      padding: 40px 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    .contact-option {
+      text-align: center;
+    }
+    .contact-option__icon {
+      font-size: 28px; margin-bottom: 12px;
+    }
+    .contact-option__title {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .contact-option__desc {
+      font-size: 13px; color: rgba(255,255,255,.45);
+      line-height: 1.7; margin-bottom: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; gap: 32px; }
+      .faq-sidebar { position: static; }
+      .faq-sidebar-links { flex-direction: row; flex-wrap: wrap; }
+      .faq-sidebar-link { border-left: none; border-bottom: 2px solid transparent; border-radius: 2px; }
+      .faq-sidebar-link.active { border-bottom-color: var(--yellow); }
+      .contact-card { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="../legal/"         class="nav__mobile-link">Legal</a>
+  <a href="../privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero page-hero--sm">
+  <div class="page-hero__bg">
+    <div class="page-hero__grid"></div>
+    <div class="page-hero__glow" style="background:radial-gradient(ellipse at 60% 50%, rgba(255,199,44,.08) 0%, transparent 60%);"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(160px,28vw,360px);font-weight:900;color:rgba(255,255,255,.018);line-height:1;pointer-events:none;user-select:none;">FAQ</div>
+  </div>
+  <div class="page-hero__content">
+    <div class="page-hero__eyebrow fade-up">
+      <span class="page-hero__eyebrow-line"></span>
+      <span class="overline">Help Center</span>
+    </div>
+    <h1 class="disp-xl fade-up d1">Got <span class="text-yellow">Questions?</span></h1>
+    <p class="lead fade-up d2" style="max-width:440px;margin-top:16px;">We've got answers. Everything you need to know about wings, ordering, rewards, and more.</p>
+  </div>
+</section>
+
+<!-- ══ FAQ CONTENT ══ -->
+<section class="section">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Sidebar -->
+      <div class="faq-sidebar fade-in">
+        <div class="faq-sidebar-title">Jump To</div>
+        <nav class="faq-sidebar-links">
+          <a class="faq-sidebar-link active" href="#ordering">Ordering</a>
+          <a class="faq-sidebar-link" href="#menu">Menu &amp; Flavors</a>
+          <a class="faq-sidebar-link" href="#nutrition">Nutrition</a>
+          <a class="faq-sidebar-link" href="#rewards">Rewards</a>
+          <a class="faq-sidebar-link" href="#franchise">Franchising</a>
+          <a class="faq-sidebar-link" href="#international">International</a>
+        </nav>
+      </div>
+
+      <!-- Accordion sections -->
+      <div>
+
+        <!-- ORDERING -->
+        <div class="faq-section fade-up" id="ordering">
+          <div class="faq-section-title">Ordering</div>
+          <div class="accordion">
+
+            <div class="acc-item open" data-cat="ordering">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">How do I place an order online?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Visit <a href="#">wingstop.com</a> or download the Wingstop app, select your nearest location, build your order from our full menu, and check out. You can order for pickup or delivery through our partners.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="ordering">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">What delivery services does Wingstop use?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Wingstop partners with DoorDash, Uber Eats, Grubhub, and Postmates depending on your region. Delivery availability varies by location. Order directly through our app or website for the best experience and to earn Rewards points.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="ordering">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Can I customize my order?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Absolutely. You can mix flavors across a single order, request extra sauce on the side, choose bone-in or boneless wings, and add or remove items from combo packs. Use the notes field for specific requests.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="ordering">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Do you offer catering for large groups?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Yes — Wingstop offers catering trays and bulk packs for events, parties, and office orders. Contact your local Wingstop or use our catering page to place large orders in advance.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MENU -->
+        <div class="faq-section fade-up" id="menu">
+          <div class="faq-section-title">Menu &amp; Flavors</div>
+          <div class="accordion">
+
+            <div class="acc-item" data-cat="menu">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">How many flavors does Wingstop have?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Wingstop offers 11 signature flavors: Lemon Pepper, Original Hot, Atomic, Cajun, Garlic Parmesan, Hawaiian, Hickory Smoked BBQ, Korean Q, Mango Habanero, Louisiana Rub, and Mild. Limited edition flavors are introduced seasonally via our Flavor Lab program.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="menu">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">What's the difference between bone-in and boneless?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Bone-in wings are the classic whole wings — drumette and flat — known for their juicy, rich meat. Boneless wings are whole chunks of white breast meat, breaded and sauced. Both can be ordered in any of our 11 flavors.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="menu">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Does Wingstop offer anything besides wings?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Yes. Our menu includes Chicken Tenders, seasoned Fries (in multiple flavors), Cheese Sauce, Veggie Sticks, soft drinks, and bottled water. We regularly introduce limited-time sides and dipping sauces.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="menu">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Which flavor is the spiciest?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Atomic is our hottest flavor — it's a five-pepper blend designed for serious heat seekers. A close second is Mango Habanero, which brings both fruity sweetness and significant heat. Mild and Garlic Parmesan are on the opposite end with no heat at all.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NUTRITION -->
+        <div class="faq-section fade-up" id="nutrition">
+          <div class="faq-section-title">Nutrition</div>
+          <div class="accordion">
+
+            <div class="acc-item" data-cat="nutrition">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Where can I find nutritional information?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Full nutritional details are available on our website's Nutrition page and within the Wingstop app when ordering. Calorie counts are shown directly on the menu at all locations.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="nutrition">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Does Wingstop have gluten-free options?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Bone-in wings in our dry rub flavors (Louisiana Rub, Lemon Pepper) are gluten-free. However, our kitchens are not certified gluten-free environments. If you have a severe allergy, please consult our nutrition guide and speak with your local location before ordering.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="nutrition">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Are there vegetarian or vegan options?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Currently, Wingstop's menu is centered on chicken. We offer seasoned fries and veggie sticks as sides. We're always exploring menu innovation and appreciate the feedback.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- REWARDS -->
+        <div class="faq-section fade-up" id="rewards">
+          <div class="faq-section-title">Rewards</div>
+          <div class="accordion">
+
+            <div class="acc-item" data-cat="rewards">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">What is Wingstop Rewards?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Wingstop Rewards is our free loyalty program. Earn 1 point per $1 spent. Redeem points for free wings and menu items. Members also get early access to new flavors, exclusive event invites, and birthday perks.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="rewards">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">How do I sign up for Rewards?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Sign up for free at <a href="#">wingstop.com/rewards</a> or in the Wingstop app. Create an account with your email, and you'll start earning points immediately on your first order.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="rewards">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Do Rewards points expire?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Points expire after 6 months of account inactivity. Any qualifying purchase resets the inactivity clock. Check your account balance anytime in the app or on our website.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FRANCHISE -->
+        <div class="faq-section fade-up" id="franchise">
+          <div class="faq-section-title">Franchising</div>
+          <div class="accordion">
+
+            <div class="acc-item" data-cat="franchise">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">How do I open a Wingstop franchise?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Start by submitting a franchise inquiry through our website. You'll connect with our development team to discuss market availability, financial requirements, and the application process. We look for passionate operators with strong business backgrounds.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="franchise">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">What is the investment required?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  The total investment for a new Wingstop varies by market and location. Initial franchise fees, build-out costs, and working capital requirements are detailed in our Franchise Disclosure Document, which is shared during the qualification process.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- INTERNATIONAL -->
+        <div class="faq-section fade-up" id="international">
+          <div class="faq-section-title">International</div>
+          <div class="accordion">
+
+            <div class="acc-item" data-cat="international">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Which countries have Wingstop locations?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Wingstop operates in 12+ countries including the United States, Mexico, Canada, Colombia, Panama, United Kingdom, France, Netherlands, UAE, Saudi Arabia, Bahrain, Singapore, Indonesia, and the Philippines.
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item" data-cat="international">
+              <button class="acc-trigger">
+                <span class="acc-trigger__q">Are the flavors the same in every country?</span>
+                <span class="acc-trigger__icon">+</span>
+              </button>
+              <div class="acc-body">
+                <div class="acc-body__inner">
+                  Core flavors are consistent worldwide. Some markets also offer locally inspired limited editions. International operators work with our culinary team to introduce flavors that resonate locally while maintaining the Wingstop quality standard.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="section bg-dark1">
+  <div class="container">
+    <div class="sh sh-center">
+      <p class="overline fade-up">Still Need Help?</p>
+      <h2 class="disp-md fade-up d1" style="margin-top:12px;">Reach Our Team</h2>
+    </div>
+    <div class="contact-card fade-up d2">
+      <div class="contact-option">
+        <div class="contact-option__icon">💬</div>
+        <div class="contact-option__title">Live Chat</div>
+        <p class="contact-option__desc">Connect with a team member instantly. Available 10AM–10PM daily.</p>
+        <a href="#" class="btn btn-primary btn-sm">Start Chat</a>
+      </div>
+      <div class="contact-option">
+        <div class="contact-option__icon">📧</div>
+        <div class="contact-option__title">Email</div>
+        <p class="contact-option__desc">Send us a message and we'll respond within 24 hours.</p>
+        <a href="#" class="btn btn-outline btn-sm">Send Email</a>
+      </div>
+      <div class="contact-option">
+        <div class="contact-option__icon">📞</div>
+        <div class="contact-option__title">Phone</div>
+        <p class="contact-option__desc">Speak directly to a guest services rep. 9AM–9PM, Mon–Fri.</p>
+        <a href="#" class="btn btn-outline btn-sm">Call Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a><a href="../international/">International</a>
+          <a href="../events/">Events</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Sidebar link highlighting
+  const sidebarLinks = document.querySelectorAll('.faq-sidebar-link');
+  const faqSections  = document.querySelectorAll('.faq-section');
+
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.faq-sidebar-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  faqSections.forEach(s => secObs.observe(s));
+</script>
+</body>
+</html>

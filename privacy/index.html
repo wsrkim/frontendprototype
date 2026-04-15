@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Wingstop</title>
+  <meta name="description" content="How Wingstop collects, uses, and protects your personal information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .legal-toc-title {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      margin-bottom: 14px;
+    }
+    .legal-toc-list { display: flex; flex-direction: column; gap: 2px; }
+    .legal-toc-item {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,.4);
+      padding: 7px 12px;
+      border-radius: 3px;
+      transition: all .2s;
+      border-left: 2px solid transparent;
+    }
+    .legal-toc-item:hover { color: white; background: rgba(255,255,255,.04); }
+    .legal-toc-item.active { color: var(--yellow); border-left-color: var(--yellow); }
+
+    .privacy-highlight {
+      background: rgba(255,199,44,.06);
+      border: 1px solid rgba(255,199,44,.15);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      font-size: 14px; line-height: 1.8;
+      color: rgba(255,255,255,.7);
+    }
+    .privacy-highlight strong { color: var(--yellow); }
+
+    @media (max-width: 900px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 40px; }
+      .legal-toc { position: static; display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="../legal/"         class="nav__mobile-link">Legal</a>
+  <a href="../privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero page-hero--sm">
+  <div class="page-hero__bg">
+    <div class="page-hero__grid"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(100px,20vw,260px);font-weight:900;color:rgba(255,255,255,.016);line-height:1;pointer-events:none;user-select:none;">PRIVACY</div>
+  </div>
+  <div class="page-hero__content">
+    <div class="page-hero__eyebrow fade-up">
+      <span class="page-hero__eyebrow-line"></span>
+      <span class="overline">Your Data</span>
+    </div>
+    <h1 class="disp-lg fade-up d1">Privacy Policy</h1>
+    <p class="lead fade-up d2" style="margin-top:16px;">Your privacy matters to us. Here's exactly how we handle your information.</p>
+  </div>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<section class="section">
+  <div class="container">
+    <div class="legal-layout">
+
+      <!-- TOC -->
+      <div class="legal-toc fade-in">
+        <div class="legal-toc-title">On This Page</div>
+        <nav class="legal-toc-list">
+          <a href="#overview"    class="legal-toc-item">Overview</a>
+          <a href="#collection"  class="legal-toc-item">What We Collect</a>
+          <a href="#use-data"    class="legal-toc-item">How We Use It</a>
+          <a href="#sharing"     class="legal-toc-item">Sharing Data</a>
+          <a href="#cookies"     class="legal-toc-item">Cookies</a>
+          <a href="#retention"   class="legal-toc-item">Retention</a>
+          <a href="#security"    class="legal-toc-item">Security</a>
+          <a href="#rights"      class="legal-toc-item">Your Rights</a>
+          <a href="#children"    class="legal-toc-item">Children</a>
+          <a href="#california"  class="legal-toc-item">California &amp; CCPA</a>
+          <a href="#gdpr"        class="legal-toc-item">GDPR (EU/UK)</a>
+          <a href="#changes-privacy" class="legal-toc-item">Changes</a>
+          <a href="#contact-privacy" class="legal-toc-item">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Prose -->
+      <div class="prose fade-up">
+        <p class="last-updated">Last Updated: January 1, 2026</p>
+
+        <div class="privacy-highlight">
+          <strong>Summary:</strong> We collect information to process your orders, power Wingstop Rewards, and improve our services. We do not sell your personal information to third parties. You have rights over your data — including access, correction, and deletion.
+        </div>
+
+        <h2 id="overview">1. Overview</h2>
+        <p>Wingstop Inc. ("Wingstop," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you interact with our websites, mobile applications, in-restaurant kiosks, and other digital services (collectively, "Services").</p>
+
+        <h2 id="collection">2. Information We Collect</h2>
+        <h3>Information You Provide Directly</h3>
+        <ul>
+          <li>Account registration information (name, email address, password)</li>
+          <li>Order details (menu selections, special instructions, delivery addresses)</li>
+          <li>Payment information (processed securely; we do not store full card numbers)</li>
+          <li>Wingstop Rewards profile and preferences</li>
+          <li>Communications you send us (support inquiries, feedback, survey responses)</li>
+        </ul>
+
+        <h3>Information Collected Automatically</h3>
+        <ul>
+          <li>Device identifiers (IP address, device type, operating system, browser type)</li>
+          <li>Usage data (pages visited, features used, time spent, clickstream data)</li>
+          <li>Location data (approximate geolocation when permitted, for finding nearby locations)</li>
+          <li>Transaction history and order patterns</li>
+          <li>Cookie and tracking technology data (see Section 5)</li>
+        </ul>
+
+        <h3>Information from Third Parties</h3>
+        <ul>
+          <li>Delivery partner platforms (DoorDash, Uber Eats, Grubhub) when you order through them</li>
+          <li>Social media platforms if you connect or log in via a social account</li>
+          <li>Marketing and analytics partners, within applicable privacy laws</li>
+        </ul>
+
+        <h2 id="use-data">3. How We Use Your Information</h2>
+        <p>We use your information for the following purposes:</p>
+        <ul>
+          <li>Processing and fulfilling your orders</li>
+          <li>Operating and improving the Wingstop Rewards program</li>
+          <li>Sending order confirmations, updates, and customer support communications</li>
+          <li>Personalizing your experience and menu recommendations</li>
+          <li>Sending promotional emails and special offers (with your consent or where permitted by law)</li>
+          <li>Analyzing usage trends to improve our products and services</li>
+          <li>Detecting and preventing fraud, abuse, and security threats</li>
+          <li>Complying with legal obligations and enforcing our Terms of Use</li>
+        </ul>
+
+        <h2 id="sharing">4. How We Share Your Information</h2>
+        <p>We do not sell your personal information. We may share your information with:</p>
+        <ul>
+          <li><strong>Franchise operators:</strong> To fulfill your order at a specific location</li>
+          <li><strong>Service providers:</strong> Technology, payment processing, analytics, and marketing vendors who process data on our behalf under strict data agreements</li>
+          <li><strong>Delivery partners:</strong> When you use third-party delivery, your order information is shared as necessary for fulfillment</li>
+          <li><strong>Legal authorities:</strong> When required by law, regulation, or legal process</li>
+          <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets, with appropriate notice</li>
+        </ul>
+
+        <h2 id="cookies">5. Cookies and Tracking Technologies</h2>
+        <p>We use cookies, web beacons, and similar technologies to enhance your experience, analyze traffic, and deliver targeted advertising. Types of cookies we use include:</p>
+        <ul>
+          <li><strong>Essential cookies:</strong> Required for basic site functionality and security</li>
+          <li><strong>Performance cookies:</strong> Help us understand how visitors interact with our Services</li>
+          <li><strong>Functional cookies:</strong> Remember your preferences and settings</li>
+          <li><strong>Marketing cookies:</strong> Used to deliver relevant advertisements with your consent</li>
+        </ul>
+        <p>You can manage cookie preferences through your browser settings or our Cookie Preferences tool. Disabling certain cookies may affect functionality.</p>
+
+        <h2 id="retention">6. Data Retention</h2>
+        <p>We retain your personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law. Account data is generally retained for the duration of your account plus 3 years. You may request deletion of your account and data at any time.</p>
+
+        <h2 id="security">7. Security</h2>
+        <p>We implement industry-standard technical and organizational measures to protect your personal information, including encryption, access controls, and regular security assessments. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+        <p>Please notify us immediately at <a href="mailto:privacy@wingstop.com">privacy@wingstop.com</a> if you suspect unauthorized access to your account.</p>
+
+        <h2 id="rights">8. Your Privacy Rights</h2>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+          <li>Access the personal information we hold about you</li>
+          <li>Correct inaccurate or incomplete information</li>
+          <li>Delete your personal information (subject to legal obligations)</li>
+          <li>Object to or restrict certain processing activities</li>
+          <li>Data portability — receive your data in a structured, machine-readable format</li>
+          <li>Opt out of marketing communications at any time</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@wingstop.com">privacy@wingstop.com</a> or through the Wingstop app's privacy settings.</p>
+
+        <h2 id="children">9. Children's Privacy</h2>
+        <p>Our Services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly. If you believe a child has provided us personal information, contact us at <a href="mailto:privacy@wingstop.com">privacy@wingstop.com</a>.</p>
+
+        <h2 id="california">10. California Residents — CCPA</h2>
+        <p>Under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), California residents have additional rights including:</p>
+        <ul>
+          <li>The right to know what personal information is collected, used, shared, or sold</li>
+          <li>The right to delete personal information (with certain exceptions)</li>
+          <li>The right to opt-out of the sale or sharing of personal information</li>
+          <li>The right to non-discrimination for exercising these rights</li>
+          <li>The right to correct inaccurate personal information</li>
+          <li>The right to limit use of sensitive personal information</li>
+        </ul>
+        <p>To submit a California privacy request, visit our <a href="#">Privacy Request Center</a> or call our toll-free privacy line.</p>
+
+        <h2 id="gdpr">11. European Union and UK Residents — GDPR</h2>
+        <p>For users in the European Union and United Kingdom, we process personal data under the following legal bases: contract performance (to fulfill your order), legitimate interests (service improvement, fraud prevention), legal obligations, and consent (for marketing).</p>
+        <p>You have the right to lodge a complaint with your local supervisory authority. Our EU/UK representative can be contacted at <a href="mailto:eu-privacy@wingstop.com">eu-privacy@wingstop.com</a>.</p>
+
+        <h2 id="changes-privacy">12. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy periodically. We will notify you of material changes via email or a prominent notice on our Services before the changes take effect. Your continued use of our Services after changes are posted constitutes your acceptance of the updated policy.</p>
+
+        <h2 id="contact-privacy">13. Contact Us</h2>
+        <p>For privacy-related questions, requests, or concerns, please contact our Privacy Team:</p>
+        <p><strong>Wingstop Inc. — Privacy Team</strong><br>
+        5501 LBJ Freeway, 5th Floor<br>
+        Dallas, TX 75240<br>
+        <a href="mailto:privacy@wingstop.com">privacy@wingstop.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a><a href="../international/">International</a>
+          <a href="../events/">Events</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  const tocItems = document.querySelectorAll('.legal-toc-item');
+  const sections = Array.from(document.querySelectorAll('.prose h2[id]'));
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocItems.forEach(i => i.classList.remove('active'));
+        const active = document.querySelector(`.legal-toc-item[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  sections.forEach(s => secObs.observe(s));
+</script>
+</body>
+</html>

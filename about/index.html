@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Wingstop</title>
+  <meta name="description" content="The Wingstop story — from a single location in Garland, Texas to the world's flavor authority.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .mission-statement {
+      border-left: 3px solid var(--red);
+      padding: 20px 0 20px 40px;
+    }
+    .mission-statement p {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800; line-height: 1.1;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-split__visual {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .about-split__visual-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(145deg, rgba(200,16,46,.2), transparent 60%);
+    }
+    .about-split__visual-text {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 12vw, 160px);
+      font-weight: 900; line-height: 1;
+      color: rgba(255,255,255,.06);
+      position: absolute;
+      letter-spacing: -.04em;
+    }
+    .about-split__visual-badge {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .about-split__visual-badge strong {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 9vw, 120px);
+      font-weight: 900; line-height: 1;
+      display: block;
+      background: linear-gradient(135deg, var(--red), var(--yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-split__visual-badge span {
+      font-size: 13px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+
+    @media (max-width: 768px) {
+      .about-split { grid-template-columns: 1fr; gap: 36px; }
+      .mission-statement { padding-left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="../legal/"         class="nav__mobile-link">Legal</a>
+  <a href="../privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero" style="min-height:65vh;">
+  <div class="page-hero__bg">
+    <div class="page-hero__grid"></div>
+    <div class="page-hero__glow" style="background:radial-gradient(ellipse at 70% 50%, rgba(200,16,46,.12) 0%, transparent 60%);"></div>
+    <div style="position:absolute;right:-60px;bottom:-30px;font-family:var(--font-display);font-size:clamp(200px,32vw,420px);font-weight:900;color:rgba(255,255,255,.018);line-height:1;pointer-events:none;user-select:none;">STORY</div>
+  </div>
+  <div class="page-hero__content">
+    <div class="page-hero__eyebrow fade-up">
+      <span class="page-hero__eyebrow-line"></span>
+      <span class="overline">Our Story</span>
+    </div>
+    <h1 class="disp-xl fade-up d1">Born in<br>Garland, <span class="text-red">TX.</span></h1>
+    <p class="lead fade-up d2" style="max-width:540px;margin-top:20px;">
+      A single store. Eleven flavors. Thirty years of bold, unapologetic obsession
+      with getting wings exactly right.
+    </p>
+  </div>
+</section>
+
+<!-- ══ MISSION ══ -->
+<section class="section">
+  <div class="container">
+    <div class="about-split">
+      <div>
+        <p class="overline fade-up">What We Stand For</p>
+        <div class="mission-statement fade-up d1">
+          <p>Flavor is not a side note. It's everything.</p>
+        </div>
+        <p class="lead fade-up d2" style="margin-top:28px;">
+          We don't sell chicken. We sell the experience of tasting something
+          so good it stops you mid-conversation. Everything we do — every sauce,
+          every cook, every location — exists to deliver that moment.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;" class="fade-up d3">
+          <a href="#" class="btn btn-primary">Join the Team</a>
+          <a href="#" class="btn btn-outline">Franchise</a>
+        </div>
+      </div>
+      <div class="about-split__visual fade-in d2">
+        <div class="about-split__visual-bg"></div>
+        <div class="about-split__visual-text" aria-hidden="true">BOLD</div>
+        <div class="about-split__visual-badge">
+          <strong>30</strong>
+          <span>Years of Flavor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="section bg-dark1" id="history">
+  <div class="container">
+    <div class="sh">
+      <p class="overline fade-up">Our History</p>
+      <h2 class="disp-lg fade-up d1">The Journey</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item active fade-up">
+        <div class="timeline-year">1994</div>
+        <div class="timeline-content">
+          <h3>Garland, Texas — The Beginning</h3>
+          <p>Antonio Swad opens the first Wingstop in Garland, Texas. The concept is simple: dedicated to the wing, nothing else. The focus and the flavors immediately resonate with guests.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-content">
+          <h3>First Franchise Opens</h3>
+          <p>The franchise model launches, inviting passionate entrepreneurs to bring Wingstop's bold flavor to their communities. The response is immediate and overwhelming.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2003</div>
+        <div class="timeline-content">
+          <h3>200 Locations</h3>
+          <p>A major milestone: 200 locations serving wings across the United States. The brand's focus on flavor — not gimmicks — earns a deeply loyal following.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2007</div>
+        <div class="timeline-content">
+          <h3>International Expansion Begins</h3>
+          <p>Wingstop crosses its first border, entering the Mexican market. The bold flavors translate instantly, laying the groundwork for a global brand.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-content">
+          <h3>IPO on NASDAQ: WING</h3>
+          <p>Wingstop Inc. goes public on the NASDAQ exchange, cementing its status as one of the fastest-growing restaurant chains in America.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-content">
+          <h3>1,000+ Locations</h3>
+          <p>The network crosses 1,000 locations — a landmark that speaks to the brand's unique power: simple, focused, bold. Digital ordering begins reshaping the experience.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-content">
+          <h3>Digital-First Transformation</h3>
+          <p>Wingstop commits fully to a digital-first model — one of the first major QSR brands to do so. Digital orders account for 65%+ of total sales.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item active fade-up">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <h3>The World's Flavor Authority</h3>
+          <p>1,900+ locations. 12+ countries. A billion wings served. Wingstop enters its next chapter — more flavors, more markets, and an unwavering obsession with what made it great.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALUES ══ -->
+<section class="section">
+  <div class="container">
+    <div class="sh sh-center">
+      <p class="overline fade-up">What We Believe</p>
+      <h2 class="disp-lg fade-up d1" style="margin-top:12px;">Our Pillars</h2>
+    </div>
+    <div class="grid-3" style="gap:20px;">
+
+      <div class="value-card fade-up d1">
+        <div class="value-card__num">01</div>
+        <h3 class="value-card__title">Flavor First</h3>
+        <p class="value-card__text">
+          Every menu decision starts with one question: is it bold enough? We reject mediocrity in every sauce, every seasoning, every plate.
+        </p>
+      </div>
+
+      <div class="value-card fade-up d2">
+        <div class="value-card__num">02</div>
+        <h3 class="value-card__title">Community Roots</h3>
+        <p class="value-card__text">
+          We're franchise-powered, which means we're locally rooted. Our operators aren't just business owners — they're neighbors.
+        </p>
+      </div>
+
+      <div class="value-card fade-up d3">
+        <div class="value-card__num">03</div>
+        <h3 class="value-card__title">Relentless Craft</h3>
+        <p class="value-card__text">
+          The wing is simple. Doing it right is not. We obsess over cook temperatures, marination time, and sauce balance every single day.
+        </p>
+      </div>
+
+      <div class="value-card fade-up d1">
+        <div class="value-card__num">04</div>
+        <h3 class="value-card__title">Bold by Design</h3>
+        <p class="value-card__text">
+          We aren't a timid brand. We push flavors to the edge, celebrate those who love heat, and respect those who love sweet. All bold. All welcome.
+        </p>
+      </div>
+
+      <div class="value-card fade-up d2">
+        <div class="value-card__num">05</div>
+        <h3 class="value-card__title">Digital Native</h3>
+        <p class="value-card__text">
+          We moved digital-first before it was a trend. Technology is part of how we deliver a better experience — from order to pick-up to rewards.
+        </p>
+      </div>
+
+      <div class="value-card fade-up d3">
+        <div class="value-card__num">06</div>
+        <h3 class="value-card__title">Global Soul</h3>
+        <p class="value-card__text">
+          Flavor is a universal language. We build menus that respect local tastes while honoring the bold spirit that defines Wingstop everywhere.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMMUNITY CTA ══ -->
+<section class="highlight-red">
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;">
+      <div>
+        <p class="overline fade-up" style="color:rgba(255,255,255,.7)">Join the Team</p>
+        <h2 class="disp-xl fade-up d1">Help Us Feed<br>The World.</h2>
+        <p class="lead fade-up d2" style="color:rgba(255,255,255,.7);margin-top:16px;max-width:440px;">
+          From kitchen to corporate, we're looking for people who care as much about flavor as we do.
+        </p>
+      </div>
+      <div style="flex-shrink:0;" class="fade-up d2">
+        <a href="#" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);display:block;margin-bottom:12px;">See Open Roles</a>
+        <a href="#" class="btn btn-lg" style="background:white;color:var(--red);display:block;">Franchising</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a><a href="../international/">International</a>
+          <a href="../events/">Events</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

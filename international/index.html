@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International — Wingstop</title>
+  <meta name="description" content="Wingstop's bold flavors span 12+ countries across North America, Europe, the Middle East, and Asia Pacific.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .intl-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+      margin-bottom: 80px;
+    }
+    .intl-stat {
+      background: var(--dark-1);
+      padding: 40px 32px;
+    }
+    .intl-stat__num {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 900; line-height: 1;
+      color: white; display: block;
+    }
+    .intl-stat__lbl {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--yellow); margin-top: 8px;
+    }
+
+    .regions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .spotlight-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all .3s var(--ease);
+    }
+    .spotlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+      border-color: rgba(255,255,255,.14);
+    }
+    .spotlight-card__flag {
+      height: 120px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 60px;
+    }
+    .spotlight-card__body { padding: 20px 24px; }
+    .spotlight-card__country {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .spotlight-card__since {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.3); margin-bottom: 12px;
+    }
+    .spotlight-card__locs {
+      font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6;
+    }
+
+    .coming-soon-grid {
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .cs-chip {
+      padding: 10px 22px;
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 2px;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.5);
+      display: flex; align-items: center; gap: 8px;
+      transition: all .2s;
+    }
+    .cs-chip:hover { border-color: var(--yellow); color: var(--yellow); }
+    .cs-chip .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--yellow); opacity: .6;
+    }
+
+    @media (max-width: 900px) {
+      .intl-stats { grid-template-columns: repeat(2, 1fr); }
+      .regions-grid { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .intl-stats { grid-template-columns: 1fr 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="../legal/"         class="nav__mobile-link">Legal</a>
+  <a href="../privacy/"       class="nav__mobile-link">Privacy</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="page-hero__bg">
+    <div class="page-hero__grid"></div>
+    <div class="page-hero__glow" style="background:radial-gradient(ellipse at 60% 40%, rgba(200,16,46,.12) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(255,199,44,.07) 0%, transparent 55%);"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(140px,24vw,300px);font-weight:900;color:rgba(255,255,255,.018);line-height:1;pointer-events:none;user-select:none;">GLOBAL<br>FLAVOR</div>
+  </div>
+  <div class="page-hero__content">
+    <div class="page-hero__eyebrow fade-up">
+      <span class="page-hero__eyebrow-line"></span>
+      <span class="overline">Global Presence</span>
+    </div>
+    <h1 class="disp-xl fade-up d1">The World<br>Eats <span class="text-red">Wings.</span></h1>
+    <p class="lead fade-up d2" style="max-width:520px;margin-top:20px;">
+      From Texas to Tokyo, our bold flavors have crossed every ocean.
+      Wingstop's international footprint is growing — and we're just getting started.
+    </p>
+  </div>
+</section>
+
+<!-- ══ GLOBAL STATS ══ -->
+<div class="container">
+  <div class="intl-stats fade-in" style="margin-top:0;">
+    <div class="intl-stat">
+      <span class="intl-stat__num" data-count="12" data-suffix="+">12+</span>
+      <span class="intl-stat__lbl">Countries</span>
+    </div>
+    <div class="intl-stat">
+      <span class="intl-stat__num" data-count="700" data-suffix="+">700+</span>
+      <span class="intl-stat__lbl">Int'l Locations</span>
+    </div>
+    <div class="intl-stat">
+      <span class="intl-stat__num" data-count="4">4</span>
+      <span class="intl-stat__lbl">Continents</span>
+    </div>
+    <div class="intl-stat">
+      <span class="intl-stat__num" data-count="2007">2007</span>
+      <span class="intl-stat__lbl">Int'l Since</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ REGIONS ══ -->
+<section class="section">
+  <div class="container">
+    <div class="sh">
+      <p class="overline fade-up">Where We Are</p>
+      <h2 class="disp-lg fade-up d1">Our Regions</h2>
+    </div>
+    <div class="regions-grid">
+
+      <div class="region-card fade-up">
+        <div class="region-card__num" aria-hidden="true">01</div>
+        <div class="region-card__region">Americas</div>
+        <h3 class="region-card__title">North & Latin<br>America</h3>
+        <div class="region-card__count" data-count="1200" data-suffix="+">1,200+</div>
+        <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__markets">
+          <span class="market-chip">🇺🇸 United States</span>
+          <span class="market-chip">🇲🇽 Mexico</span>
+          <span class="market-chip">🇨🇦 Canada</span>
+          <span class="market-chip">🇨🇴 Colombia</span>
+          <span class="market-chip">🇵🇦 Panama</span>
+        </div>
+      </div>
+
+      <div class="region-card fade-up d1">
+        <div class="region-card__num" aria-hidden="true">02</div>
+        <div class="region-card__region">Europe</div>
+        <h3 class="region-card__title">Europe</h3>
+        <div class="region-card__count" data-count="150" data-suffix="+">150+</div>
+        <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__markets">
+          <span class="market-chip">🇬🇧 United Kingdom</span>
+          <span class="market-chip">🇫🇷 France</span>
+          <span class="market-chip">🇳🇱 Netherlands</span>
+        </div>
+      </div>
+
+      <div class="region-card fade-up d2">
+        <div class="region-card__num" aria-hidden="true">03</div>
+        <div class="region-card__region">Middle East & North Africa</div>
+        <h3 class="region-card__title">MENA</h3>
+        <div class="region-card__count" data-count="200" data-suffix="+">200+</div>
+        <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__markets">
+          <span class="market-chip">🇦🇪 UAE</span>
+          <span class="market-chip">🇸🇦 Saudi Arabia</span>
+          <span class="market-chip">🇧🇭 Bahrain</span>
+        </div>
+      </div>
+
+      <div class="region-card fade-up d3">
+        <div class="region-card__num" aria-hidden="true">04</div>
+        <div class="region-card__region">Asia Pacific</div>
+        <h3 class="region-card__title">Asia<br>Pacific</h3>
+        <div class="region-card__count" data-count="180" data-suffix="+">180+</div>
+        <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__markets">
+          <span class="market-chip">🇸🇬 Singapore</span>
+          <span class="market-chip">🇮🇩 Indonesia</span>
+          <span class="market-chip">🇵🇭 Philippines</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ MARKET SPOTLIGHT ══ -->
+<section class="section bg-dark1">
+  <div class="container">
+    <div class="sh">
+      <p class="overline fade-up">Market Spotlight</p>
+      <h2 class="disp-lg fade-up d1">Where We Shine</h2>
+    </div>
+    <div class="spotlight-grid">
+      <div class="spotlight-card fade-up">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169,#C8102E);">🇬🇧</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">United Kingdom</div>
+          <div class="spotlight-card__since">Market Since 2019</div>
+          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow, Leeds and growing. Lemon Pepper is the #1 flavor.</p>
+        </div>
+      </div>
+      <div class="spotlight-card fade-up d1">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#002395,#ED2939);">🇫🇷</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">France</div>
+          <div class="spotlight-card__since">Market Since 2021</div>
+          <p class="spotlight-card__locs">Paris locations driving rapid growth. Korean Q has become an unexpected local phenomenon.</p>
+        </div>
+      </div>
+      <div class="spotlight-card fade-up d2">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006C35,#CE1126);">🇸🇦</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">Saudi Arabia</div>
+          <div class="spotlight-card__since">Market Since 2012</div>
+          <p class="spotlight-card__locs">One of our strongest international markets with 80+ locations and massive brand loyalty.</p>
+        </div>
+      </div>
+      <div class="spotlight-card fade-up d3">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#EF3340,#FFFFFF);">🇸🇬</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">Singapore</div>
+          <div class="spotlight-card__since">Market Since 2013</div>
+          <p class="spotlight-card__locs">Asia Pacific hub. Our Singapore locations rank among the highest per-capita wing consumption worldwide.</p>
+        </div>
+      </div>
+      <div class="spotlight-card fade-up d4">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006847,#FFFFFF,#CE1126);">🇲🇽</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">Mexico</div>
+          <div class="spotlight-card__since">Market Since 2010</div>
+          <p class="spotlight-card__locs">Our largest Latin American market with locations across CDMX, Guadalajara, Monterrey and beyond.</p>
+        </div>
+      </div>
+      <div class="spotlight-card fade-up d5">
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#CE1126,#FFFFFF,#0038A8);">🇵🇭</div>
+        <div class="spotlight-card__body">
+          <div class="spotlight-card__country">Philippines</div>
+          <div class="spotlight-card__since">Market Since 2014</div>
+          <p class="spotlight-card__locs">Manila leads with passionate wing culture. Hawaiian and Mango Habanero top the charts here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMING SOON ══ -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:760px;">
+      <p class="overline fade-up">Expansion</p>
+      <h2 class="disp-lg fade-up d1">Coming Soon</h2>
+      <p class="lead fade-up d2" style="margin-top:16px;margin-bottom:36px;">
+        Bold flavors don't stop at borders. Here's where Wingstop is headed next.
+      </p>
+      <div class="coming-soon-grid fade-up d3">
+        <span class="cs-chip"><span class="dot"></span>🇩🇪 Germany</span>
+        <span class="cs-chip"><span class="dot"></span>🇪🇸 Spain</span>
+        <span class="cs-chip"><span class="dot"></span>🇯🇵 Japan</span>
+        <span class="cs-chip"><span class="dot"></span>🇦🇺 Australia</span>
+        <span class="cs-chip"><span class="dot"></span>🇧🇷 Brazil</span>
+        <span class="cs-chip"><span class="dot"></span>🇮🇳 India</span>
+        <span class="cs-chip"><span class="dot"></span>🇵🇹 Portugal</span>
+        <span class="cs-chip"><span class="dot"></span>🇰🇷 South Korea</span>
+        <span class="cs-chip"><span class="dot"></span>🇹🇭 Thailand</span>
+        <span class="cs-chip"><span class="dot"></span>🇮🇹 Italy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FRANCHISE CTA ══ -->
+<section class="highlight-red">
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="text-align:center;">
+      <p class="overline fade-up" style="color:rgba(255,255,255,.7);">Grow With Us</p>
+      <h2 class="disp-xl fade-up d1" style="margin-top:12px;">Bring Wingstop<br>To Your Market.</h2>
+      <p class="lead fade-up d2" style="color:rgba(255,255,255,.7);max-width:460px;margin:20px auto 0;">
+        We're looking for passionate franchise partners who believe in bold flavor and bold growth.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;">
+        <a href="#" class="btn btn-outline btn-lg fade-up d3" style="border-color:rgba(255,255,255,.5);">Franchise Inquiry</a>
+        <a href="#" class="btn fade-up d4" style="background:white;color:var(--red);padding:17px 42px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;">Download Deck</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a><a href="../international/">International</a>
+          <a href="../events/">Events</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
