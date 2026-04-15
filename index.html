@@ -8,73 +8,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- jsVectorMap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* ── Homepage-specific ── */
-    .events-split {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: center;
+    .events-split { display:grid; grid-template-columns:1fr 1.2fr; gap:72px; align-items:center; }
+    .events-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:900px) {
+      .events-split { grid-template-columns:1fr; gap:40px; }
+      .events-cards { grid-template-columns:1fr 1fr; }
     }
-    .events-split__cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .intl-teaser {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .intl-globe {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .globe-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.15);
-    }
-    .globe-core {
-      width: 220px; height: 220px;
-      background: rgba(255,255,255,.04);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      z-index: 1;
-    }
-    .globe-num {
-      text-align: center;
-    }
-    .globe-num strong {
-      font-family: var(--font-display);
-      font-size: 64px; font-weight: 900;
-      line-height: 1; display: block;
-    }
-    .globe-num span {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: .15em; text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-    }
-    @media (max-width: 900px) {
-      .events-split,
-      .intl-teaser { grid-template-columns: 1fr; gap: 40px; }
-      .events-split__cards { grid-template-columns: 1fr; }
+    @media (max-width:480px) { .events-cards { grid-template-columns:1fr; } }
+
+    /* Flavor section on cream */
+    .flavor-section { background:var(--cream); }
+
+    /* yellow stripe divider */
+    .stripe {
+      height:6px;
+      background:repeating-linear-gradient(
+        90deg,
+        var(--red) 0px, var(--red) 40px,
+        var(--yellow) 40px, var(--yellow) 80px
+      );
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     NAVIGATION
-══════════════════════════════════ -->
+<!-- ══ NAV ══ -->
 <nav class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
+    <a href="./" class="nav__logo">
       <div class="nav__logo-mark">W</div>
       <span class="nav__logo-text">Wingstop</span>
     </a>
@@ -101,8 +66,6 @@
     </button>
   </div>
 </nav>
-
-<!-- Mobile nav -->
 <div class="nav__mobile">
   <a href="about/"         class="nav__mobile-link">About</a>
   <a href="events/"        class="nav__mobile-link">Events</a>
@@ -113,15 +76,12 @@
   <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
 </div>
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+<!-- ══ HERO — deep red ══ -->
 <section class="hero">
   <div class="hero__bg">
-    <div class="hero__grid"></div>
+    <div class="hero__pattern"></div>
     <div class="hero__glow"></div>
-    <div class="hero__glow-2"></div>
-    <div class="hero__bg-w" aria-hidden="true">W</div>
+    <div class="hero__wing" aria-hidden="true">W</div>
   </div>
   <div class="hero__content">
     <div class="hero__eyebrow fade-up">
@@ -130,15 +90,16 @@
     </div>
     <h1 class="hero__headline fade-up d1">
       WINGS.<br>
-      <span class="stroke">ELEVATED.</span>
+      <span class="hollow">ELEVATED.</span>
     </h1>
     <p class="hero__sub fade-up d2">
-      11 craveable flavors crafted with obsession. Over 1,900 locations.
-      One relentless mission — flavor is everything.
+      11 craveable flavors crafted with obsession.
+      Over 1,900 locations. One relentless mission —
+      flavor is everything.
     </p>
     <div class="hero__actions fade-up d3">
-      <a href="#" class="btn btn-primary btn-lg">Order Now</a>
-      <a href="#flavors" class="btn btn-outline btn-lg">Explore Flavors</a>
+      <a href="#" class="btn btn-yellow btn-lg">Order Now</a>
+      <a href="#flavors" class="btn btn-outline-white btn-lg">Explore Flavors</a>
     </div>
   </div>
   <div class="hero__scroll" aria-hidden="true">
@@ -147,9 +108,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     STATS BAR
-══════════════════════════════════ -->
+<!-- ══ STATS BAR — yellow ══ -->
 <div class="stats-bar">
   <div class="stats-bar__inner">
     <div class="stat-item">
@@ -171,12 +130,9 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     MARQUEE
-══════════════════════════════════ -->
+<!-- ══ MARQUEE — black (houseofflavor) ══ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <!-- set A -->
     <span class="marquee__item hi">Lemon Pepper <span class="sep">✦</span></span>
     <span class="marquee__item">Original Hot <span class="sep">✦</span></span>
     <span class="marquee__item">Atomic <span class="sep">✦</span></span>
@@ -188,7 +144,7 @@
     <span class="marquee__item">Hawaiian <span class="sep">✦</span></span>
     <span class="marquee__item hi">Louisiana Rub <span class="sep">✦</span></span>
     <span class="marquee__item">Mild <span class="sep">✦</span></span>
-    <!-- set B (duplicate for seamless loop) -->
+    <!-- dupe for seamless loop -->
     <span class="marquee__item hi">Lemon Pepper <span class="sep">✦</span></span>
     <span class="marquee__item">Original Hot <span class="sep">✦</span></span>
     <span class="marquee__item">Atomic <span class="sep">✦</span></span>
@@ -203,10 +159,8 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     FLAVORS
-══════════════════════════════════ -->
-<section class="section bg-dark1" id="flavors">
+<!-- ══ FLAVORS — cream/warm white ══ -->
+<section class="section flavor-section" id="flavors">
   <div class="container">
     <div class="sh sh-split">
       <div>
@@ -215,125 +169,91 @@
       </div>
       <a href="#" class="btn btn-outline fade-up d2">Full Menu →</a>
     </div>
-
-    <div class="flavor-grid">
-      <!-- 1 -->
-      <div class="flavor-item" style="--accent:#F5E642">
+    <div class="flavor-grid fade-in d1">
+      <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#F5E642"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Lemon Pepper</div>
         <div class="flavor-item__tag">Classic · Mild Heat</div>
       </div>
-      <!-- 2 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#C8102E"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Original Hot</div>
         <div class="flavor-item__tag">Signature · Medium Heat</div>
       </div>
-      <!-- 3 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#FF2200"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span></div>
         </div>
         <div class="flavor-item__name">Atomic</div>
         <div class="flavor-item__tag">Extreme · Max Heat</div>
       </div>
-      <!-- 4 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#8B3A00"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Cajun</div>
         <div class="flavor-item__tag">Southern · Medium Heat</div>
       </div>
-      <!-- 5 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#D4AA70"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Garlic Parmesan</div>
         <div class="flavor-item__tag">Savory · No Heat</div>
       </div>
-      <!-- 6 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#FF9A3C"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Hawaiian</div>
-        <div class="flavor-item__tag">Sweet & Tangy · Mild Heat</div>
+        <div class="flavor-item__tag">Sweet &amp; Tangy · Mild</div>
       </div>
-      <!-- 7 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#5C3010"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Hickory Smoked BBQ</div>
         <div class="flavor-item__tag">Smoky · No Heat</div>
       </div>
-      <!-- 8 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#B85C30"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Korean Q</div>
         <div class="flavor-item__tag">Global · Mild-Medium</div>
       </div>
-      <!-- 9 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#FF7B00"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Mango Habanero</div>
         <div class="flavor-item__tag">Tropical · Hot</div>
       </div>
-      <!-- 10 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#C85020"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Louisiana Rub</div>
-        <div class="flavor-item__tag">Dry Rub · Medium Heat</div>
+        <div class="flavor-item__tag">Dry Rub · Medium</div>
       </div>
-      <!-- 11 -->
       <div class="flavor-item">
         <div class="flavor-item__color">
           <span class="flavor-item__swatch" style="background:#FFD700"></span>
-          <div class="flavor-item__heat">
-            <span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-          </div>
+          <div class="flavor-item__heat"><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
         </div>
         <div class="flavor-item__name">Mild</div>
         <div class="flavor-item__tag">Classic · No Heat</div>
@@ -342,84 +262,85 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     EVENTS TEASER
-══════════════════════════════════ -->
-<section class="section">
+<!-- stripe divider -->
+<div class="stripe"></div>
+
+<!-- ══ EVENTS TEASER — white ══ -->
+<section class="section s-white">
   <div class="container">
     <div class="events-split">
       <div>
         <p class="overline fade-up">What's On</p>
         <h2 class="disp-lg fade-up d1">Events &amp;<br>Experiences</h2>
-        <p class="lead fade-up d2" style="margin-top:20px;">
-          From global flavor drops to community events and championship-level competitions —
-          Wingstop keeps the energy alive all year long.
+        <p class="lead fade-up d2" style="margin-top:18px;">
+          From global flavor drops to community events and championship-level
+          competitions — Wingstop keeps the energy alive all year.
         </p>
-        <a href="events/" class="btn btn-primary btn-lg fade-up d3" style="margin-top:32px;">See All Events</a>
+        <a href="events/" class="btn btn-primary btn-lg fade-up d3" style="margin-top:28px;">See All Events</a>
       </div>
-      <div class="events-split__cards">
+      <div class="events-cards">
         <div class="card fade-up d1">
           <div class="card__thumb">
-            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#C8102E,#2a0008)">
-              <span style="font-family:var(--font-display);font-size:64px;font-weight:900;opacity:.15;">W</span>
+            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#C8102E,#6a0018)">
+              <span style="font-family:var(--font-disp);font-size:64px;font-weight:900;opacity:.15;color:white;">W</span>
             </div>
           </div>
           <div class="card__body">
             <div class="card__tag">Annual</div>
             <div class="card__title">Wing Week</div>
-            <p class="card__desc">Seven days. Seven deals. One wing obsession.</p>
+            <p class="card__desc">Seven days. Seven deals.</p>
           </div>
           <div class="card__footer">
             <span class="card__date">June 2026</span>
-            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+            <a href="events/" style="font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
           </div>
         </div>
         <div class="card fade-up d2">
           <div class="card__thumb">
             <div class="card__thumb-bg" style="background:linear-gradient(135deg,#FFC72C,#7a5a00)">
-              <span style="font-family:var(--font-display);font-size:64px;font-weight:900;opacity:.15;">F</span>
+              <span style="font-family:var(--font-disp);font-size:64px;font-weight:900;opacity:.18;color:white;">F</span>
             </div>
           </div>
           <div class="card__body">
             <div class="card__tag">Limited Drop</div>
             <div class="card__title">Flavor Lab</div>
-            <p class="card__desc">Test-drive exclusive new flavors before the world does.</p>
+            <p class="card__desc">New flavors before the world.</p>
           </div>
           <div class="card__footer">
             <span class="card__date">Ongoing</span>
-            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+            <a href="events/" style="font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
           </div>
         </div>
         <div class="card fade-up d3">
           <div class="card__thumb">
             <div class="card__thumb-bg" style="background:linear-gradient(135deg,#1a1a2e,#C8102E)">
-              <span style="font-family:var(--font-display);font-size:44px;font-weight:900;opacity:.15;">🏆</span>
+              <span style="font-family:var(--font-disp);font-size:44px;font-weight:900;opacity:.15;color:white;">🏆</span>
             </div>
           </div>
           <div class="card__body">
             <div class="card__tag">Community</div>
             <div class="card__title">Wingstop Bowl</div>
-            <p class="card__desc">The ultimate eating competition. Fame awaits.</p>
+            <p class="card__desc">The ultimate eating competition.</p>
           </div>
           <div class="card__footer">
             <span class="card__date">Sep 2026</span>
-            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+            <a href="events/" style="font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
           </div>
         </div>
         <div class="card fade-up d4">
           <div class="card__thumb">
             <div class="card__thumb-bg" style="background:linear-gradient(135deg,#003a1a,#FFC72C55)">
-              <span style="font-family:var(--font-display);font-size:44px;font-weight:900;opacity:.15;">♻</span>
+              <span style="font-family:var(--font-disp);font-size:44px;font-weight:900;opacity:.18;color:white;">♻</span>
             </div>
           </div>
           <div class="card__body">
             <div class="card__tag">Impact</div>
             <div class="card__title">Flavor for Good</div>
-            <p class="card__desc">Local giveback programs every quarter.</p>
+            <p class="card__desc">Local giveback, every quarter.</p>
           </div>
           <div class="card__footer">
             <span class="card__date">Ongoing</span>
-            <a href="events/" style="font-size:12px;color:var(--yellow);font-weight:600;">Learn More →</a>
+            <a href="events/" style="font-size:11px;color:var(--red);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
           </div>
         </div>
       </div>
@@ -427,70 +348,79 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     INTERNATIONAL TEASER
-══════════════════════════════════ -->
-<section class="highlight-red">
+<!-- ══ WORLD MAP — black, houseofflavor premium ══ -->
+<section class="map-section" id="global">
+  <div class="map-section__noise"></div>
   <div class="container" style="position:relative;z-index:1;">
-    <div class="intl-teaser">
+    <div class="map-layout">
+
+      <!-- Left: copy + stats -->
       <div>
-        <p class="overline fade-up" style="color:rgba(255,255,255,.7)">Global Reach</p>
-        <h2 class="disp-xl fade-up d1">The World<br>Eats Wings.</h2>
-        <p class="lead fade-up d2" style="margin-top:20px;color:rgba(255,255,255,.7);">
-          From London to Manila, Dubai to Mexico City — Wingstop's bold flavors
-          have crossed every ocean. Our global footprint is just getting started.
+        <p class="overline fade-up">Global Presence</p>
+        <h2 class="disp-xl fade-up d1" style="color:white;margin-top:10px;">
+          Flavor in<br><span style="color:var(--yellow);">Every</span><br>Corner.
+        </h2>
+        <p class="fade-up d2" style="color:rgba(255,255,255,.55);line-height:1.8;font-size:14px;margin-top:18px;max-width:260px;">
+          Hover the highlighted countries to explore our presence. Click to learn more.
         </p>
-        <a href="international/" class="btn btn-outline fade-up d3" style="margin-top:32px;border-color:rgba(255,255,255,.5)">
-          See Our Presence →
-        </a>
-      </div>
-      <div class="intl-globe fade-in d2">
-        <div class="globe-ring" style="width:340px;height:340px;animation:spin 40s linear infinite;"></div>
-        <div class="globe-ring" style="width:280px;height:280px;animation:spin 28s linear infinite reverse;"></div>
-        <div class="globe-ring" style="width:220px;height:220px;opacity:.4;"></div>
-        <div class="globe-core">
-          <div class="globe-num">
-            <strong data-count="12" data-suffix="+">12+</strong>
-            <span>Countries</span>
+        <div class="map-stats fade-up d3">
+          <div class="map-stat">
+            <div class="map-stat__num" data-count="12" data-suffix="+">12+</div>
+            <div class="map-stat__lbl">Countries</div>
+          </div>
+          <div class="map-stat">
+            <div class="map-stat__num" data-count="1900" data-suffix="+">1,900+</div>
+            <div class="map-stat__lbl">Locations</div>
+          </div>
+          <div class="map-stat">
+            <div class="map-stat__num" data-count="4">4</div>
+            <div class="map-stat__lbl">Continents</div>
+          </div>
+          <div class="map-stat">
+            <div class="map-stat__num" data-count="2007">2007</div>
+            <div class="map-stat__lbl">Int'l Since</div>
           </div>
         </div>
+        <a href="international/" class="btn btn-primary btn-lg fade-up d4" style="margin-top:28px;">See Our Presence →</a>
       </div>
-    </div>
-  </div>
-</section>
-<style>
-@keyframes spin {
-  from { transform: rotate(0); }
-  to   { transform: rotate(360deg); }
-}
-</style>
 
-<!-- ══════════════════════════════════
-     ABOUT TEASER
-══════════════════════════════════ -->
-<section class="section bg-dark1">
-  <div class="container">
-    <div style="max-width:860px;margin:0 auto;text-align:center;">
-      <p class="overline fade-up">Our Story</p>
-      <h2 class="disp-xl fade-up d1" style="margin-top:16px;">Born in Garland,<br>Texas. Built for the World.</h2>
-      <p class="lead fade-up d2" style="margin-top:24px;max-width:600px;margin-left:auto;margin-right:auto;">
-        Antonio Swad opened the first Wingstop in 1994 with a simple belief —
-        that great wings deserved bold flavors and full dedication.
-        Thirty years later, that obsession powers every location, every order, every bite.
-      </p>
-      <a href="about/" class="btn btn-yellow btn-lg fade-up d3" style="margin-top:36px;">Our Full Story</a>
+      <!-- Right: interactive world map -->
+      <div class="fade-in d2">
+        <div id="ws-world-map"></div>
+        <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);margin-top:12px;letter-spacing:.1em;text-transform:uppercase;">
+          Highlighted countries — hover to explore
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+<!-- stripe divider -->
+<div class="stripe"></div>
+
+<!-- ══ ABOUT TEASER — red CTA section ══ -->
+<section class="highlight-red">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <p class="overline fade-up" style="color:rgba(255,255,255,.6);">Our Story</p>
+    <h2 class="disp-xl fade-up d1" style="color:white;margin-top:12px;">
+      Born in Garland, TX.<br>Built for the World.
+    </h2>
+    <p class="fade-up d2" style="color:rgba(255,255,255,.7);max-width:520px;margin:20px auto 0;line-height:1.8;font-size:15px;">
+      Antonio Swad opened the first Wingstop in 1994 with a simple belief —
+      that great wings deserved bold flavors and full dedication.
+      Thirty years later, that obsession powers every location, every order, every bite.
+    </p>
+    <a href="about/" class="btn btn-yellow btn-lg fade-up d3" style="margin-top:36px;">Our Full Story</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER — black ══ -->
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div>
-        <a href="index.html" class="nav__logo" style="display:inline-flex;">
+        <a href="./" class="nav__logo" style="display:inline-flex;">
           <div class="nav__logo-mark">W</div>
           <span class="nav__logo-text">Wingstop</span>
         </a>
@@ -500,7 +430,7 @@
         </p>
         <div class="footer__social">
           <a href="#" class="social-btn" aria-label="Instagram">IG</a>
-          <a href="#" class="social-btn" aria-label="Twitter/X">X</a>
+          <a href="#" class="social-btn" aria-label="X/Twitter">X</a>
           <a href="#" class="social-btn" aria-label="Facebook">FB</a>
           <a href="#" class="social-btn" aria-label="TikTok">TT</a>
           <a href="#" class="social-btn" aria-label="YouTube">YT</a>
@@ -551,6 +481,77 @@
   </div>
 </footer>
 
+<!-- jsVectorMap scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // ── World Map ──────────────────────────────────────────
+  const wsCountries = {
+    US: 'United States',
+    MX: 'Mexico',
+    CA: 'Canada',
+    CO: 'Colombia',
+    PA: 'Panama',
+    GB: 'United Kingdom',
+    FR: 'France',
+    NL: 'Netherlands',
+    AE: 'United Arab Emirates',
+    SA: 'Saudi Arabia',
+    BH: 'Bahrain',
+    SG: 'Singapore',
+    ID: 'Indonesia',
+    PH: 'Philippines'
+  };
+
+  const wsMap = new jsVectorMap({
+    selector: '#ws-world-map',
+    map: 'world',
+    backgroundColor: 'transparent',
+    zoomButtons: false,
+    zoomOnScroll: false,
+    regionStyle: {
+      initial: {
+        fill: '#1c1c1c',
+        stroke: '#2e2e2e',
+        strokeWidth: 0.5,
+        fillOpacity: 1
+      },
+      hover: {
+        fill: '#C8102E',
+        fillOpacity: 1,
+        cursor: 'default'
+      }
+    },
+    selectedRegions: Object.keys(wsCountries),
+    regionSelectedStyle: {
+      fill: '#C8102E',
+      fillOpacity: 0.88,
+      stroke: '#E8143A',
+      strokeWidth: 0.5
+    },
+    onRegionTooltipShow(event, tooltip, code) {
+      if (wsCountries[code]) {
+        tooltip.text(
+          `<span style="font-weight:700;font-size:13px;">${wsCountries[code]}</span>` +
+          `<span style="display:block;font-size:11px;opacity:.6;margin-top:2px;letter-spacing:.08em;text-transform:uppercase;">Click to explore →</span>`,
+          true
+        );
+      } else {
+        event.preventDefault();
+      }
+    },
+    onRegionClick(event, code) {
+      if (wsCountries[code]) {
+        window.location.href = 'international/';
+      }
+    }
+  });
+
+  // On hover over active regions, change cursor
+  document.querySelectorAll('.jvectormap-region').forEach(el => {
+    el.style.cursor = 'default';
+  });
+</script>
 </body>
 </html>

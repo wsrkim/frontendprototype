@@ -24,7 +24,7 @@
       font-family: var(--font-display);
       font-size: 13px; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      color: var(--text-muted);
       margin-bottom: 16px;
     }
     .faq-sidebar-links { display: flex; flex-direction: column; gap: 4px; }
@@ -32,21 +32,21 @@
       padding: 10px 16px;
       font-size: 13px; font-weight: 600;
       letter-spacing: .06em;
-      color: rgba(255,255,255,.45);
+      color: var(--text-muted);
       border-radius: 3px;
       cursor: pointer;
       transition: all .2s;
       border-left: 2px solid transparent;
     }
-    .faq-sidebar-link:hover { color: white; background: rgba(255,255,255,.05); }
-    .faq-sidebar-link.active { color: var(--yellow); border-left-color: var(--yellow); }
+    .faq-sidebar-link:hover { color: var(--text); background: var(--cream); }
+    .faq-sidebar-link.active { color: var(--red); border-left-color: var(--red); }
 
     .faq-section { margin-bottom: 56px; }
     .faq-section-title {
       font-family: var(--font-display);
       font-size: 14px; font-weight: 700;
       letter-spacing: .14em; text-transform: uppercase;
-      color: var(--yellow);
+      color: var(--red);
       margin-bottom: 4px;
       display: flex; align-items: center; gap: 10px;
     }
@@ -56,8 +56,8 @@
     }
 
     .contact-card {
-      background: var(--dark-2);
-      border: 1px solid rgba(255,255,255,.07);
+      background: var(--cream);
+      border: 1px solid var(--border);
       border-radius: 4px;
       padding: 40px 36px;
       display: grid;
@@ -76,7 +76,7 @@
       text-transform: uppercase; margin-bottom: 8px;
     }
     .contact-option__desc {
-      font-size: 13px; color: rgba(255,255,255,.45);
+      font-size: 13px; color: var(--text-muted);
       line-height: 1.7; margin-bottom: 16px;
     }
 
@@ -85,7 +85,7 @@
       .faq-sidebar { position: static; }
       .faq-sidebar-links { flex-direction: row; flex-wrap: wrap; }
       .faq-sidebar-link { border-left: none; border-bottom: 2px solid transparent; border-radius: 2px; }
-      .faq-sidebar-link.active { border-bottom-color: var(--yellow); }
+      .faq-sidebar-link.active { border-bottom-color: var(--red); }
       .contact-card { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
@@ -128,10 +128,8 @@
 
 <!-- ══ PAGE HERO ══ -->
 <section class="page-hero page-hero--sm">
-  <div class="page-hero__bg">
-    <div class="page-hero__grid"></div>
-    <div class="page-hero__glow" style="background:radial-gradient(ellipse at 60% 50%, rgba(255,199,44,.08) 0%, transparent 60%);"></div>
-    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(160px,28vw,360px);font-weight:900;color:rgba(255,255,255,.018);line-height:1;pointer-events:none;user-select:none;">FAQ</div>
+  <div class="page-hero__bg"><div class="page-hero__pattern"></div><div class="page-hero__glow-inner"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(160px,28vw,360px);font-weight:900;color:rgba(0,0,0,.12);line-height:1;pointer-events:none;user-select:none;">FAQ</div>
   </div>
   <div class="page-hero__content">
     <div class="page-hero__eyebrow fade-up">

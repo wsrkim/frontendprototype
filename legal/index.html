@@ -23,20 +23,20 @@
     .legal-toc-title {
       font-size: 10px; font-weight: 700;
       letter-spacing: .18em; text-transform: uppercase;
-      color: rgba(255,255,255,.25);
+      color: var(--text-muted);
       margin-bottom: 14px;
     }
     .legal-toc-list { display: flex; flex-direction: column; gap: 2px; }
     .legal-toc-item {
       font-size: 13px; font-weight: 500;
-      color: rgba(255,255,255,.4);
+      color: var(--text-muted);
       padding: 7px 12px;
       border-radius: 3px;
       transition: all .2s;
       border-left: 2px solid transparent;
     }
-    .legal-toc-item:hover { color: white; background: rgba(255,255,255,.04); }
-    .legal-toc-item.active { color: var(--yellow); border-left-color: var(--yellow); }
+    .legal-toc-item:hover { color: white; background: var(--cream); }
+    .legal-toc-item.active { color: var(--red); border-left-color: var(--red); }
 
     @media (max-width: 900px) {
       .legal-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -82,9 +82,8 @@
 
 <!-- ══ PAGE HERO ══ -->
 <section class="page-hero page-hero--sm">
-  <div class="page-hero__bg">
-    <div class="page-hero__grid"></div>
-    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(120px,22vw,280px);font-weight:900;color:rgba(255,255,255,.016);line-height:1;pointer-events:none;user-select:none;">LEGAL</div>
+  <div class="page-hero__bg"><div class="page-hero__pattern"></div><div class="page-hero__glow-inner"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(120px,22vw,280px);font-weight:900;color:rgba(0,0,0,.12);line-height:1;pointer-events:none;user-select:none;">LEGAL</div>
   </div>
   <div class="page-hero__content">
     <div class="page-hero__eyebrow fade-up">
