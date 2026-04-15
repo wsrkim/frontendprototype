@@ -5,10 +5,10 @@
    ========================================== */
 :root {
   /* Brand */
-  --red:         #C8102E;
-  --red-dark:    #A00D24;
-  --red-light:   #E8143A;
-  --red-glow:    rgba(200,16,46,.25);
+  --green:       #006938;
+  --green-dark:  #004f2a;
+  --green-light: #1a8f52;
+  --green-glow:  rgba(0,105,56,.25);
   --yellow:      #FFC72C;
   --yellow-dark: #E6AF00;
 
@@ -85,7 +85,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .overline {
   font-size:10px; font-weight:700;
   letter-spacing:.22em; text-transform:uppercase;
-  color:var(--red);
+  color:var(--green);
 }
 .lead {
   font-size:clamp(15px,1.4vw,18px);
@@ -104,7 +104,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .s-white  { background:var(--white); }
 .s-cream  { background:var(--cream); }
 .s-kraft  { background:var(--gray-lgt); }
-.s-red    { background:var(--red); color:var(--white); }
+.s-green    { background:var(--green); color:var(--white); }
 .s-black  { background:var(--black); color:var(--white); }
 .s-yellow { background:var(--yellow); color:var(--near-black); }
 
@@ -144,14 +144,14 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .nav__logo { display:flex; align-items:center; gap:10px; flex-shrink:0; }
 .nav__logo-mark {
   width:32px; height:32px;
-  background:var(--red);
+  background:var(--green);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--font-disp); font-size:18px; font-weight:900; color:white;
   clip-path:polygon(0 0,82% 0,100% 18%,100% 100%,18% 100%,0 82%);
 }
 .nav__logo-text {
   font-family:var(--font-disp); font-size:20px; font-weight:800;
-  letter-spacing:.06em; text-transform:uppercase; color:var(--red);
+  letter-spacing:.06em; text-transform:uppercase; color:var(--green);
 }
 .nav__links {
   display:flex; align-items:center; gap:28px; flex:1;
@@ -162,12 +162,12 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 }
 .nav__link::after {
   content:''; position:absolute; bottom:-4px; left:0;
-  width:0; height:2px; background:var(--red);
+  width:0; height:2px; background:var(--green);
   transition:width .3s var(--ease);
 }
-.nav__link:hover { color:var(--red); }
+.nav__link:hover { color:var(--green); }
 .nav__link:hover::after, .nav__link.active::after { width:100%; }
-.nav__link.active { color:var(--red); }
+.nav__link.active { color:var(--green); }
 
 /* Dropdown */
 .nav__dropdown { position:relative; }
@@ -188,7 +188,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
   color:var(--gray-dk); transition:all .2s;
 }
-.nav__dropdown-item:hover { color:var(--red); background:rgba(200,16,46,.05); padding-left:24px; }
+.nav__dropdown-item:hover { color:var(--green); background:rgba(0,105,56,.05); padding-left:24px; }
 
 /* Hamburger */
 .nav__hamburger { display:none; flex-direction:column; gap:5px; padding:6px; margin-left:auto; }
@@ -207,14 +207,14 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   padding:40px var(--px);
   display:flex; flex-direction:column; gap:4px;
   transform:translateX(100%); transition:transform .4s var(--ease); overflow-y:auto;
-  border-top:2px solid var(--red);
+  border-top:2px solid var(--green);
 }
 .nav__mobile.open { transform:translateX(0); }
 .nav__mobile-link {
   font-family:var(--font-disp); font-size:36px; font-weight:800; text-transform:uppercase;
   padding:14px 0; border-bottom:1px solid var(--border); color:var(--text); transition:color .2s;
 }
-.nav__mobile-link:hover { color:var(--red); }
+.nav__mobile-link:hover { color:var(--green); }
 
 /* ==========================================
    BUTTONS
@@ -227,35 +227,35 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   border-radius:2px; transition:all .25s var(--ease);
   position:relative; overflow:hidden; white-space:nowrap;
 }
-.btn-primary { background:var(--red); color:white; }
-.btn-primary:hover { background:var(--red-dark); transform:translateY(-2px); box-shadow:0 8px 24px var(--red-glow); }
+.btn-primary { background:var(--green); color:white; }
+.btn-primary:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px var(--green-glow); }
 
 .btn-yellow { background:var(--yellow); color:var(--near-black); }
 .btn-yellow:hover { background:var(--yellow-dark); transform:translateY(-2px); }
 
 .btn-outline { background:transparent; color:var(--text); border:1.5px solid var(--gray-dk); }
-.btn-outline:hover { border-color:var(--red); color:var(--red); transform:translateY(-2px); }
+.btn-outline:hover { border-color:var(--green); color:var(--green); transform:translateY(-2px); }
 
 .btn-outline-white { background:transparent; color:white; border:1.5px solid rgba(255,255,255,.5); }
 .btn-outline-white:hover { border-color:white; transform:translateY(-2px); }
 
-.btn-white { background:white; color:var(--red); }
+.btn-white { background:white; color:var(--green); }
 .btn-white:hover { background:var(--cream); transform:translateY(-2px); }
 
 .btn-lg  { padding:17px 40px; font-size:13px; }
 .btn-sm  { padding:9px 20px; font-size:11px; }
 
 /* ==========================================
-   HOMEPAGE HERO — deep red, wingstop.com
+   HOMEPAGE HERO — deep green, wingstop.com
    ========================================== */
 .hero {
-  background:var(--red);
+  background:var(--green);
   min-height:100vh; display:flex; align-items:flex-end;
   padding-bottom:80px; padding-top:var(--nav-h);
   position:relative; overflow:hidden;
 }
 .hero__bg { position:absolute; inset:0; z-index:0; pointer-events:none; }
-/* Subtle cross-hatch pattern on red */
+/* Subtle cross-hatch pattern on green */
 .hero__pattern {
   position:absolute; inset:0;
   background-image:
@@ -354,7 +354,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   color:rgba(255,255,255,.2); white-space:nowrap;
   display:flex; align-items:center; padding:0 24px; gap:24px;
 }
-.marquee__item .sep { color:var(--red); font-size:18px; }
+.marquee__item .sep { color:var(--green); font-size:18px; }
 .marquee__item.hi { color:rgba(255,199,44,.6); }
 @keyframes marqueeScroll {
   from { transform:translateX(0); }
@@ -368,8 +368,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .sh-center   { text-align:center; }
 .sh-split    { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
 .sh .overline { margin-bottom:10px; }
-/* On dark/red sections, override overline color */
-.s-black .overline, .s-red .overline { color:var(--yellow); }
+/* On dark/green sections, override overline color */
+.s-black .overline, .s-green .overline { color:var(--yellow); }
 
 /* ==========================================
    FLAVOR GRID — on white/cream bg
@@ -387,7 +387,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 }
 .flavor-item::before {
   content:''; position:absolute; left:0; top:0;
-  width:3px; height:0; background:var(--red);
+  width:3px; height:0; background:var(--green);
   transition:height .3s var(--ease);
 }
 .flavor-item:hover { background:var(--cream); transform:translateY(-2px); }
@@ -396,7 +396,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .flavor-item__swatch { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
 .flavor-item__heat { display:flex; gap:3px; }
 .heat-pip { width:5px; height:5px; border-radius:50%; background:var(--border); }
-.heat-pip.on { background:var(--red); }
+.heat-pip.on { background:var(--green); }
 .flavor-item__name {
   font-family:var(--font-disp); font-size:20px; font-weight:700;
   text-transform:uppercase; line-height:1.1; margin-bottom:6px; color:var(--text);
@@ -416,11 +416,11 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   border-color:rgba(0,0,0,.18);
 }
 /* Card on dark surface */
-.s-black .card, .s-red .card {
+.s-black .card, .s-green .card {
   background:rgba(255,255,255,.07);
   border-color:rgba(255,255,255,.1);
 }
-.s-black .card:hover, .s-red .card:hover {
+.s-black .card:hover, .s-green .card:hover {
   background:rgba(255,255,255,.12);
   box-shadow:0 16px 48px rgba(0,0,0,.4);
 }
@@ -431,12 +431,12 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   padding:13px 22px; border-top:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between;
 }
-.s-black .card__footer, .s-red .card__footer { border-color:var(--border-dk); }
+.s-black .card__footer, .s-green .card__footer { border-color:var(--border-dk); }
 .card__tag {
   font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--red); margin-bottom:8px;
+  color:var(--green); margin-bottom:8px;
 }
-.s-black .card__tag, .s-red .card__tag { color:var(--yellow); }
+.s-black .card__tag, .s-green .card__tag { color:var(--yellow); }
 .card__title {
   font-family:var(--font-disp); font-size:21px; font-weight:700;
   text-transform:uppercase; line-height:1.1; margin-bottom:8px; color:var(--text);
@@ -447,10 +447,10 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .card__date { font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:.06em; }
 
 /* ==========================================
-   PAGE HERO — red for inner pages
+   PAGE HERO — green for inner pages
    ========================================== */
 .page-hero {
-  background:var(--red);
+  background:var(--green);
   min-height:48vh; display:flex; align-items:flex-end;
   padding-bottom:64px; padding-top:var(--nav-h);
   position:relative; overflow:hidden;
@@ -494,7 +494,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 }
 .map-section__noise {
   position:absolute; inset:0;
-  background-image:radial-gradient(ellipse at 10% 50%, rgba(200,16,46,.15) 0%, transparent 55%),
+  background-image:radial-gradient(ellipse at 10% 50%, rgba(0,105,56,.15) 0%, transparent 55%),
                    radial-gradient(ellipse at 90% 50%, rgba(255,199,44,.05) 0%, transparent 50%);
   pointer-events:none;
 }
@@ -538,36 +538,36 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   width:100%; display:flex; align-items:center; justify-content:space-between;
   padding:24px 0; text-align:left; cursor:pointer; gap:20px; transition:color .2s;
 }
-.acc-trigger:hover { color:var(--red); }
+.acc-trigger:hover { color:var(--green); }
 .acc-trigger__q {
   font-family:var(--font-disp); font-size:clamp(17px,2vw,22px);
   font-weight:700; text-transform:uppercase; line-height:1.2; color:var(--text);
 }
-.acc-trigger:hover .acc-trigger__q { color:var(--red); }
+.acc-trigger:hover .acc-trigger__q { color:var(--green); }
 .acc-trigger__icon {
   flex-shrink:0; width:26px; height:26px;
   border:1.5px solid var(--border); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-size:16px; color:var(--gray-mid); transition:all .3s var(--ease); line-height:1;
 }
-.acc-item.open .acc-trigger__icon { background:var(--red); border-color:var(--red); color:white; transform:rotate(45deg); }
+.acc-item.open .acc-trigger__icon { background:var(--green); border-color:var(--green); color:white; transform:rotate(45deg); }
 .acc-body { overflow:hidden; max-height:0; transition:max-height .4s var(--ease); }
 .acc-item.open .acc-body { max-height:400px; }
 .acc-body__inner { padding-bottom:24px; color:var(--text-muted); line-height:1.85; font-size:15px; max-width:700px; }
-.acc-body__inner a { color:var(--red); }
+.acc-body__inner a { color:var(--green); }
 
 /* ==========================================
-   HIGHLIGHT / CTA — red section
+   HIGHLIGHT / CTA — green section
    ========================================== */
-.highlight-red {
-  background:var(--red); padding:88px 0;
+.highlight-green {
+  background:var(--green); padding:88px 0;
   position:relative; overflow:hidden;
 }
-.highlight-red::before, .highlight-red::after {
+.highlight-green::before, .highlight-green::after {
   content:''; position:absolute; border-radius:50%; pointer-events:none;
 }
-.highlight-red::before { width:500px; height:500px; right:-120px; top:-120px; background:rgba(255,255,255,.05); }
-.highlight-red::after  { width:300px; height:300px; left:-60px; bottom:-80px; background:rgba(0,0,0,.08); }
+.highlight-green::before { width:500px; height:500px; right:-120px; top:-120px; background:rgba(255,255,255,.05); }
+.highlight-green::after  { width:300px; height:300px; left:-60px; bottom:-80px; background:rgba(0,0,0,.08); }
 
 /* ==========================================
    REGION CARDS
@@ -576,14 +576,14 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   background:var(--white); border:1px solid var(--border); border-radius:3px;
   padding:28px; transition:all .3s var(--ease); position:relative; overflow:hidden;
 }
-.region-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.08); border-color:var(--red); }
+.region-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.08); border-color:var(--green); }
 .region-card__num {
   font-family:var(--font-disp); font-size:72px; font-weight:900; line-height:1;
   color:rgba(0,0,0,.04); position:absolute; right:20px; top:12px; pointer-events:none;
 }
 .region-card__region {
   font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--red); margin-bottom:10px;
+  color:var(--green); margin-bottom:10px;
 }
 .region-card__title { font-family:var(--font-disp); font-size:26px; font-weight:700; text-transform:uppercase; margin-bottom:14px; color:var(--text); }
 .region-card__count { font-family:var(--font-disp); font-size:44px; font-weight:900; line-height:1; color:var(--text); }
@@ -594,7 +594,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   padding:5px 12px; background:var(--cream); border:1px solid var(--border);
   border-radius:2px; color:var(--text-muted); transition:all .2s;
 }
-.market-chip:hover { background:var(--red); border-color:var(--red); color:white; }
+.market-chip:hover { background:var(--green); border-color:var(--green); color:white; }
 
 /* ==========================================
    TIMELINE
@@ -619,8 +619,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   width:8px; height:8px; border-radius:50%;
   background:var(--border); border:2px solid var(--border);
 }
-.timeline-item.active .timeline-year { color:var(--red); }
-.timeline-item.active .timeline-year::after { background:var(--red); border-color:var(--red); }
+.timeline-item.active .timeline-year { color:var(--green); }
+.timeline-item.active .timeline-year::after { background:var(--green); border-color:var(--green); }
 .timeline-content { flex:1; padding-top:2px; }
 .timeline-content h3 {
   font-family:var(--font-disp); font-size:22px; font-weight:700;
@@ -633,7 +633,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
    ========================================== */
 .value-card {
   padding:36px 32px; background:var(--white);
-  border:1px solid var(--border); border-top:3px solid var(--red);
+  border:1px solid var(--border); border-top:3px solid var(--green);
   transition:all .3s;
 }
 .value-card:hover { border-top-color:var(--yellow); transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,.06); }
@@ -658,8 +658,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .prose p { font-size:15px; line-height:1.9; color:var(--text-muted); margin-bottom:16px; }
 .prose ul { list-style:none; padding:0; margin-bottom:16px; }
 .prose li { font-size:15px; line-height:1.9; color:var(--text-muted); padding-left:16px; margin-bottom:8px; position:relative; }
-.prose li::before { content:'—'; position:absolute; left:0; color:var(--red); font-size:11px; }
-.prose a { color:var(--red); text-decoration:underline; text-underline-offset:3px; }
+.prose li::before { content:'—'; position:absolute; left:0; color:var(--green); font-size:11px; }
+.prose a { color:var(--green); text-decoration:underline; text-underline-offset:3px; }
 
 /* ==========================================
    FAQ sidebar & filters
@@ -670,7 +670,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   background:var(--cream); border:1px solid var(--border); border-radius:2px;
   color:var(--text-muted); cursor:pointer; transition:all .2s;
 }
-.faq-cat:hover, .faq-cat.active { background:var(--red); border-color:var(--red); color:white; }
+.faq-cat:hover, .faq-cat.active { background:var(--green); border-color:var(--green); color:white; }
 
 /* ==========================================
    SPOTLIGHT CARD (international)
@@ -715,7 +715,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .footer__legal a:hover { color:rgba(255,255,255,.5); }
 /* Logo in footer */
 .footer .nav__logo-text { color:white; }
-.footer .nav__logo-mark { background:var(--red); }
+.footer .nav__logo-mark { background:var(--green); }
 
 /* ==========================================
    404
@@ -726,13 +726,13 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 }
 .pg-404__bg-num {
   position:absolute; font-family:var(--font-disp); font-weight:900; line-height:1;
-  color:rgba(200,16,46,.06); pointer-events:none; user-select:none; letter-spacing:-.05em;
+  color:rgba(0,105,56,.06); pointer-events:none; user-select:none; letter-spacing:-.05em;
   font-size:clamp(200px,42vw,520px);
 }
 .pg-404__num {
   font-family:var(--font-disp); font-size:clamp(88px,17vw,200px);
   font-weight:900; line-height:1; letter-spacing:-.03em;
-  background:linear-gradient(135deg, var(--red) 40%, var(--yellow));
+  background:linear-gradient(135deg, var(--green) 40%, var(--yellow));
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
 .pg-404__headline {
@@ -757,7 +757,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 /* ==========================================
    UTILITIES
    ========================================== */
-.text-red    { color:var(--red); }
+.text-green    { color:var(--green); }
 .text-yellow { color:var(--yellow); }
 .text-white  { color:var(--white); }
 .text-muted  { color:var(--text-muted); }
