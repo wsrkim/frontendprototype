@@ -527,6 +527,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   font-size:13px !important;
   padding:8px 14px !important;
   border-radius:3px !important;
+  z-index:9999 !important;
+  position:fixed !important;
 }
 
 /* ==========================================
