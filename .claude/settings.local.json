@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://wsmjackson.github.io/houseofflavor/styles-5D6CQXO2.css\")",
+      "WebFetch(domain:www.wingstop.com)",
+      "Bash(curl -s \"https://www.wingstop.com\")",
+      "Bash(grep -oE \"\\(background-color|color|font-weight|font-family|--[a-zA-Z0-9-]+\\\\s*:\\\\s*#[0-9a-f]{3,6}|rgba?\\\\\\([^\\)]+\\\\\\)\\)\")",
+      "Bash(curl -s \"https://www.wingstop.com/styles.bc8e68d142ee317e.css\")",
+      "Bash(sed -i \"s|background: var\\(--dark-2\\);|background: var\\(--white\\);|g\" events/index.html)",
+      "Bash(sed -i \"s|background: var\\(--dark-2\\)\\\\n|background: var\\(--white\\)\\\\n|g\" events/index.html)",
+      "Bash(sed -i 's/\\\\.intl-stat__num {/\\\\.intl-stat__num { color:var\\(--text\\);/g' international/index.html)",
+      "Bash(sed -i \"s|background: var\\(--dark-1\\);|background: var\\(--cream\\);|g\" international/index.html)",
+      "Bash(sed -i \"s|background: var\\(--dark-3\\);|background: var\\(--cream\\);|g\" events/index.html)",
+      "Bash(sed -i \"s|border: 1px solid rgba\\(255,255,255,.12\\)|border: 1px solid var\\(--border\\)|g\" events/index.html)",
+      "Bash(sed -i \"s|color: rgba\\(255,255,255,.25\\)|color: var\\(--text-muted\\)|g\" events/index.html)",
+      "Bash(sed -i \"s|::placeholder { color: rgba\\(255,255,255,.25\\) }|::placeholder { color: var\\(--text-muted\\) }|g\" events/index.html)",
+      "Bash(sed -i \"s|color:rgba\\(255,255,255,.5\\);line-height:1.7;margin-top:10px|color:var\\(--text-muted\\);line-height:1.7;margin-top:10px|g\" /c/Users/rkim/frontendPrototype/events/index.html)",
+      "Bash(sed -i \"s|border-left: 1px solid rgba\\(255,255,255,.07\\)|border-left: 1px solid var\\(--border\\)|g\" /c/Users/rkim/frontendPrototype/events/index.html)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "WebSearch"
+    ]
+  }
+}

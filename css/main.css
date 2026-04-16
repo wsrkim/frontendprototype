@@ -23,7 +23,7 @@
 
   /* Text */
   --text:        #111111;
-  --text-muted:  #666666;
+  --text-muted:  #595959; /* #595959 on white = 7:1 — passes WCAG AA */
   --text-light:  rgba(255,255,255,.75);
   --border:      rgba(0,0,0,.09);
   --border-dk:   rgba(255,255,255,.1);
@@ -50,6 +50,69 @@ img  { max-width:100%; display:block; }
 a    { color:inherit; text-decoration:none; }
 ul,ol { list-style:none; }
 button { cursor:pointer; border:none; background:none; font-family:inherit; color:inherit; }
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+/* Skip navigation link — visually hidden until focused */
+.skip-link {
+  position:fixed; top:-100%; left:16px; z-index:99999;
+  padding:12px 28px;
+  background:var(--green); color:white;
+  font-size:14px; font-weight:700; letter-spacing:.04em;
+  border-radius:0 0 4px 4px;
+  transition:top .15s var(--ease);
+  white-space:nowrap;
+}
+.skip-link:focus { top:0; outline:3px solid var(--yellow); outline-offset:2px; }
+
+/* Focus-visible — brand ring on all interactive elements */
+:focus-visible {
+  outline:3px solid var(--green);
+  outline-offset:3px;
+  border-radius:2px;
+}
+/* On dark/green backgrounds use yellow so ring stays visible */
+.s-black :focus-visible,
+.s-green :focus-visible,
+.gf-section :focus-visible,
+.highlight-green :focus-visible,
+.map-section :focus-visible,
+footer :focus-visible {
+  outline-color:var(--yellow);
+}
+/* Video hero — white ring */
+.vid-hero :focus-visible { outline-color:white; }
+
+/* Mobile nav — remove from tab order when closed */
+.nav__mobile:not(.open) { visibility:hidden; }
+.nav__mobile.open       { visibility:visible; }
+
+/* Dropdown keyboard access — show on focus-within, not just hover */
+.nav__dropdown:focus-within .nav__dropdown-menu {
+  opacity:1; visibility:visible; transform:translateY(0);
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  /* Reveal elements immediately — don't hide content for users who can't see the animation */
+  .fade-up, .fade-in {
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+  .marquee__track { animation:none; }
+  .hero__scroll-bar, .vid-hero__scroll-bar { animation:none; }
+}
 
 /* ==========================================
    TYPOGRAPHY

@@ -19,20 +19,60 @@ if (nav) {
 const hamburger = document.querySelector('.nav__hamburger');
 const mobileNav  = document.querySelector('.nav__mobile');
 if (hamburger && mobileNav) {
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-controls', 'mobile-nav');
+  mobileNav.id = 'mobile-nav';
+
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
     mobileNav.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  // close on link click
+  // close on link click or Escape
   mobileNav.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
       mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     })
   );
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+  });
 }
+
+// ── Dropdown ARIA ─────────────────────────
+document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
+  const trigger = dropdown.querySelector('.nav__dropdown-trigger');
+  const menu    = dropdown.querySelector('.nav__dropdown-menu');
+  if (!trigger || !menu) return;
+
+  trigger.setAttribute('aria-haspopup', 'true');
+  trigger.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('role', 'menu');
+  menu.querySelectorAll('.nav__dropdown-item').forEach(item => item.setAttribute('role', 'menuitem'));
+
+  const open  = () => trigger.setAttribute('aria-expanded', 'true');
+  const close = () => trigger.setAttribute('aria-expanded', 'false');
+
+  dropdown.addEventListener('focusin',  open);
+  dropdown.addEventListener('focusout', e => { if (!dropdown.contains(e.relatedTarget)) close(); });
+  dropdown.addEventListener('mouseover', open);
+  dropdown.addEventListener('mouseleave', close);
+
+  // Escape closes dropdown
+  dropdown.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { close(); trigger.focus(); }
+  });
+});
 
 // ── Active nav link ───────────────────────
 const path = window.location.pathname.split('/').pop() || 'index.html';
@@ -55,6 +95,11 @@ document.querySelectorAll('.fade-up, .fade-in').forEach(el => revealObserver.obs
 
 // ── Counter animation ─────────────────────
 function countUp(el, target, duration = 1800, suffix = '') {
+  // Respect user's reduced-motion preference — jump straight to final value
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = target.toLocaleString() + suffix;
+    return;
+  }
   const startTime = performance.now();
   const isYear = target > 1900 && target < 2100;
 
@@ -62,7 +107,7 @@ function countUp(el, target, duration = 1800, suffix = '') {
     const p = Math.min((now - startTime) / duration, 1);
     const eased = 1 - Math.pow(1 - p, 3);
     const val = isYear
-      ? Math.round(target - (target - 1940) * (1 - eased))  // year counts less dramatically
+      ? Math.round(target - (target - 1940) * (1 - eased))
       : Math.floor(eased * target);
     el.textContent = val.toLocaleString() + suffix;
     if (p < 1) requestAnimationFrame(tick);
@@ -86,14 +131,27 @@ const counterObs = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
 
 // ── Accordion / FAQ ───────────────────────
-document.querySelectorAll('.acc-item').forEach(item => {
+document.querySelectorAll('.acc-item').forEach((item, idx) => {
   const trigger = item.querySelector('.acc-trigger');
+  const body    = item.querySelector('.acc-body');
   if (!trigger) return;
+
+  // Wire up ARIA
+  const bodyId = `acc-body-${idx}`;
+  if (body) { body.id = bodyId; trigger.setAttribute('aria-controls', bodyId); }
+  trigger.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+
   trigger.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
-    // Close all siblings
-    item.closest('.accordion')?.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    // Close all siblings and reset their ARIA
+    item.closest('.accordion')?.querySelectorAll('.acc-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.acc-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
   });
 });
 
