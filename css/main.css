@@ -131,6 +131,21 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .nav.scrolled {
   box-shadow:0 2px 20px rgba(0,0,0,.08);
 }
+/* Transparent nav over video hero */
+.nav--video {
+  background:transparent !important;
+  border-bottom-color:transparent !important;
+  box-shadow:none !important;
+  transition:background .4s var(--ease), border-color .4s var(--ease);
+}
+.nav--video .nav__link        { color:rgba(255,255,255,.85); }
+.nav--video .nav__link:hover  { color:white; }
+.nav--video .nav__link::after { background:white; }
+.nav--video .nav__logo-text   { color:white; }
+.nav--video .nav__logo-mark   { background:white; color:var(--green); }
+.nav--video .nav__hamburger span { background:white; }
+.nav--video .nav__dropdown-arrow { color:rgba(255,255,255,.85); }
+
 /* Dark-surface nav (for dark sections like map, footer) */
 .nav--dark {
   background:rgba(10,10,10,.95);
@@ -528,8 +543,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   font-size:13px !important;
   padding:8px 14px !important;
   border-radius:3px !important;
-  z-index:9999 !important;
-  position:fixed !important;
+  z-index:100000 !important;
+  position:absolute !important;
 }
 
 /* ==========================================

@@ -5,7 +5,12 @@
 // ── Nav scroll effect ──────────────────────
 const nav = document.getElementById('nav');
 if (nav) {
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  const vidHero = document.querySelector('.vid-hero');
+  const onScroll = () => {
+    const scrolled = window.scrollY > 30;
+    nav.classList.toggle('scrolled', scrolled);
+    if (vidHero) nav.classList.toggle('nav--video', !scrolled);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
