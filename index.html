@@ -53,6 +53,101 @@
     /* Flavor section on cream */
     .flavor-section { background:var(--cream); }
 
+    /* ── Global Flavor Atlas ── */
+    .gf-section { background:var(--black); }
+
+    .gf-stats {
+      display:flex; justify-content:center; gap:0;
+      margin:40px auto 52px; max-width:560px;
+      border:1px solid rgba(255,255,255,.08); border-radius:3px; overflow:hidden;
+    }
+    .gf-stat {
+      flex:1; padding:22px 16px; text-align:center;
+      border-right:1px solid rgba(255,255,255,.08);
+    }
+    .gf-stat:last-child { border-right:none; }
+    .gf-stat__n {
+      font-family:var(--font-disp); font-size:36px; font-weight:900;
+      line-height:1; color:var(--yellow); display:block;
+    }
+    .gf-stat__l {
+      font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(255,255,255,.35); display:block; margin-top:4px;
+    }
+
+    .gf-filter {
+      display:flex; flex-wrap:wrap; justify-content:center;
+      gap:8px; margin-bottom:52px;
+    }
+    .gf-btn {
+      padding:9px 22px;
+      font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      background:transparent; border:1px solid rgba(255,255,255,.15);
+      border-radius:2px; color:rgba(255,255,255,.45);
+      cursor:pointer; transition:all .2s;
+    }
+    .gf-btn:hover { border-color:rgba(255,255,255,.4); color:rgba(255,255,255,.8); }
+    .gf-btn.active { background:var(--green); border-color:var(--green); color:white; }
+
+    .gf-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+      gap:20px;
+    }
+    .gf-card {
+      background:#111; border:1px solid rgba(255,255,255,.07);
+      border-radius:4px; overflow:hidden; position:relative;
+      display:flex; flex-direction:column;
+      transition:transform .3s var(--ease), border-color .3s, box-shadow .3s;
+    }
+    .gf-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:180px;
+      background:radial-gradient(ellipse at 30% -10%, var(--c) 0%, transparent 65%);
+      pointer-events:none;
+    }
+    .gf-card:hover {
+      transform:translateY(-5px);
+      border-color:rgba(255,255,255,.18);
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .gf-card.hidden { display:none; }
+    .gf-card__inner { padding:24px; position:relative; z-index:1; flex:1; display:flex; flex-direction:column; }
+    .gf-card__top { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    .gf-card__origin { display:flex; align-items:center; gap:8px; }
+    .gf-card__flag { font-size:20px; line-height:1; }
+    .gf-card__country {
+      font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(255,255,255,.45);
+    }
+    .gf-card__badge {
+      font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+      padding:4px 9px; border-radius:2px;
+      background:rgba(255,199,44,.15); color:var(--yellow);
+      border:1px solid rgba(255,199,44,.25); white-space:nowrap;
+    }
+    .gf-card__badge--core {
+      background:rgba(0,105,56,.15); color:rgba(100,200,140,.9);
+      border-color:rgba(0,105,56,.3);
+    }
+    .gf-card__name {
+      font-family:var(--font-disp); font-size:clamp(26px,3vw,34px);
+      font-weight:900; text-transform:uppercase; line-height:1;
+      color:white; margin-bottom:12px;
+    }
+    .gf-card__desc {
+      font-size:13px; line-height:1.75; color:rgba(255,255,255,.45);
+      flex:1; margin-bottom:22px;
+    }
+    .gf-card__foot { display:flex; align-items:center; justify-content:space-between; }
+    .gf-card__heat { display:flex; gap:2px; }
+    .gf-card__heat .heat-pip { font-size:12px; }
+    .gf-card__level {
+      font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+      color:rgba(255,255,255,.3);
+    }
+
+    @media (max-width:640px) { .gf-grid { grid-template-columns:1fr; } }
+
     /* yellow stripe divider */
     .stripe {
       height:6px;
@@ -269,6 +364,266 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- stripe divider -->
+<div class="stripe"></div>
+
+<!-- ══ GLOBAL FLAVOR ATLAS ══ -->
+<section class="section gf-section" id="flavor-atlas">
+  <div class="container">
+
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <p class="overline fade-up" style="color:rgba(255,255,255,.35);">Global Flavor Atlas</p>
+      <h2 class="disp-xl fade-up d1" style="color:white;margin-top:12px;">
+        Flavor Has<br>No Borders.
+      </h2>
+      <p class="lead fade-up d2" style="color:rgba(255,255,255,.45);margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto;">
+        Beyond the classics, every market brings its own obsession to the wing.
+        These are the flavors you can only find if you know where to fly.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="gf-stats fade-up d2">
+      <div class="gf-stat">
+        <span class="gf-stat__n" data-count="40" data-suffix="+">40+</span>
+        <span class="gf-stat__l">Total Flavors</span>
+      </div>
+      <div class="gf-stat">
+        <span class="gf-stat__n" data-count="12">12</span>
+        <span class="gf-stat__l">Countries</span>
+      </div>
+      <div class="gf-stat">
+        <span class="gf-stat__n" data-count="4">4</span>
+        <span class="gf-stat__l">Continents</span>
+      </div>
+    </div>
+
+    <!-- Region filter -->
+    <div class="gf-filter fade-up d3">
+      <button class="gf-btn active" data-region="all">All Markets</button>
+      <button class="gf-btn" data-region="americas">Americas</button>
+      <button class="gf-btn" data-region="asia">Asia Pacific</button>
+      <button class="gf-btn" data-region="middle-east">Middle East</button>
+      <button class="gf-btn" data-region="europe">Europe</button>
+    </div>
+
+    <!-- Flavor cards grid -->
+    <div class="gf-grid" id="gf-grid">
+
+      <!-- 🇸🇬 Singapore: Salted Egg -->
+      <div class="gf-card fade-up" data-region="asia" style="--c:rgba(212,168,67,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇸🇬</span>
+              <span class="gf-card__country">Singapore</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Salted Egg</h3>
+          <p class="gf-card__desc">Rich salted egg yolk glaze with buttery, umami depth. A Southeast Asian obsession that turns every bite into a golden moment.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Mild</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇸🇬 Singapore: Honey Soy Garlic -->
+      <div class="gf-card fade-up d1" data-region="asia" style="--c:rgba(196,122,32,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇸🇬</span>
+              <span class="gf-card__country">Singapore</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Honey Soy Garlic</h3>
+          <p class="gf-card__desc">Sweet soy meets roasted garlic in a glaze that coats every wing with addictive East Asian warmth. Sticky. Savory. Impossible to stop.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Mild</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇮🇩 Indonesia: Sambal Chili -->
+      <div class="gf-card fade-up d2" data-region="asia" style="--c:rgba(204,34,0,.45);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇮🇩</span>
+              <span class="gf-card__country">Indonesia</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Sambal Chili</h3>
+          <p class="gf-card__desc">Indonesia's legendary chili paste reborn as a wing sauce — fermented heat, shallots, and lime that builds slow and hits hard.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇵🇭 Philippines: Adobo BBQ -->
+      <div class="gf-card fade-up" data-region="asia" style="--c:rgba(107,48,16,.5);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇵🇭</span>
+              <span class="gf-card__country">Philippines</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Adobo BBQ</h3>
+          <p class="gf-card__desc">The national dish of the Philippines meets slow-smoked BBQ. Soy, vinegar, bay leaf, and char — a braise turned into a wing sauce.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇦🇪 UAE: Za'atar Herb -->
+      <div class="gf-card fade-up d1" data-region="middle-east" style="--c:rgba(92,122,32,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇦🇪</span>
+              <span class="gf-card__country">UAE</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Za'atar Herb</h3>
+          <p class="gf-card__desc">Thyme, sesame, sumac, and olive oil — a spice blend rooted in Levantine tradition, pressed into every crease of the wing.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Mild</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇦🇪 UAE: Sumac & Garlic -->
+      <div class="gf-card fade-up d2" data-region="middle-east" style="--c:rgba(139,26,107,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇦🇪</span>
+              <span class="gf-card__country">UAE</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Sumac &amp; Garlic</h3>
+          <p class="gf-card__desc">Tart crimson sumac balanced with roasted garlic and a whisper of chili. The Middle East in a glaze — bright, aromatic, unexpected.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇸🇦 Saudi Arabia: Harissa -->
+      <div class="gf-card fade-up" data-region="middle-east" style="--c:rgba(200,58,0,.45);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇸🇦</span>
+              <span class="gf-card__country">Saudi Arabia</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Harissa</h3>
+          <p class="gf-card__desc">North African fire paste — roasted red peppers, caraway, coriander, and scorching heat. Brought to the wing. Brought to the table.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇨🇦 Canada: Maple Sriracha -->
+      <div class="gf-card fade-up d1" data-region="americas" style="--c:rgba(204,68,0,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇨🇦</span>
+              <span class="gf-card__country">Canada</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Maple Sriracha</h3>
+          <p class="gf-card__desc">Pure Canadian maple sweetness collides with Thai sriracha heat. A cross-border collaboration that didn't ask for permission.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium-Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 UK: Peri Peri -->
+      <div class="gf-card fade-up d2" data-region="europe" style="--c:rgba(232,56,0,.45);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇬🇧</span>
+              <span class="gf-card__country">United Kingdom</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Peri Peri</h3>
+          <p class="gf-card__desc">African bird's eye chili, lemon, and garlic in a sauce that's taken over Britain. Bold, citrusy, unrelenting — and finally on a Wingstop wing.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium-Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇫🇷 France: Truffle Parmesan -->
+      <div class="gf-card fade-up" data-region="europe" style="--c:rgba(122,106,74,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇫🇷</span>
+              <span class="gf-card__country">France</span>
+            </div>
+            <span class="gf-card__badge">Market Exclusive</span>
+          </div>
+          <h3 class="gf-card__name">Truffle Parmesan</h3>
+          <p class="gf-card__desc">Black truffle oil, aged Parmesan, and cracked black pepper. Yes, France made this happen. Non, you can't get it anywhere else.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Mild</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /gf-grid -->
+  </div><!-- /container -->
 </section>
 
 <!-- stripe divider -->
@@ -590,6 +945,19 @@
   // On hover over active regions, change cursor
   document.querySelectorAll('.jvectormap-region').forEach(el => {
     el.style.cursor = 'default';
+  });
+
+  // ── Global Flavor Atlas filter ──────────────────────────
+  document.querySelectorAll('.gf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const region = btn.dataset.region;
+      document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gf-card').forEach(card => {
+        const show = region === 'all' || card.dataset.region === region;
+        card.classList.toggle('hidden', !show);
+      });
+    });
   });
 
   // Ensure tooltip renders above SVG stacking context
