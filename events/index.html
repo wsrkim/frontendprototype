@@ -45,12 +45,12 @@
     .featured-event__badge-num {
       font-family: var(--font-display);
       font-size: 44px; font-weight: 900; line-height: 1;
-      color: var(--dark);
+      color: white;
     }
     .featured-event__badge-lbl {
       font-size: 10px; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
-      color: var(--dark);
+      color: rgba(255,255,255,.75);
     }
     .featured-event__content {
       padding: 52px 48px;
@@ -241,12 +241,32 @@
           <div class="event-meta-item">📍 <span>All Locations</span></div>
           <div class="event-meta-item">🌐 <span>Global</span></div>
         </div>
-        <p style="font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:32px;">
+        <div id="feat-countdown-target" data-date="2026-06-08" class="featured-evt-countdown">
+          <span class="featured-evt-countdown__label">Starts in</span>
+          <div class="featured-evt-countdown__units">
+            <div class="featured-evt-countdown__unit-block">
+              <span class="featured-evt-countdown__val" id="feat-days">--</span>
+              <span class="featured-evt-countdown__unit">days</span>
+            </div>
+            <span class="featured-evt-countdown__sep">·</span>
+            <div class="featured-evt-countdown__unit-block">
+              <span class="featured-evt-countdown__val" id="feat-hrs">--</span>
+              <span class="featured-evt-countdown__unit">hrs</span>
+            </div>
+            <span class="featured-evt-countdown__sep">·</span>
+            <div class="featured-evt-countdown__unit-block">
+              <span class="featured-evt-countdown__val" id="feat-min">--</span>
+              <span class="featured-evt-countdown__unit">min</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:28px;">
           Seven days. Seven deals. The biggest wing celebration of the year returns, bigger than ever.
           Exclusive flavors, bundle discounts, and community giveaways across every location worldwide.
         </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
           <a href="#" class="btn btn-primary btn-lg">Get Notified</a>
+          <button class="btn-cal" onclick="wsAddToCalendar('Wing Week 2026','2026-06-08','2026-06-15','Seven days of exclusive deals and community giveaways at every Wingstop location.','All Wingstop Locations')">📅 Add to Calendar</button>
           <a href="#" class="btn btn-outline">View Details →</a>
         </div>
       </div>
@@ -273,93 +293,113 @@
 
     <div style="display:flex;flex-direction:column;gap:16px;">
 
-      <div class="event-card-lg fade-up">
-        <div class="event-card-lg__date" style="background:var(--cream);">
+      <div class="event-card-lg fade-up" data-category="annual">
+        <div class="event-card-lg__date event-card-lg__date--annual">
           <div>
-            <div class="event-card-lg__day text-green">08</div>
-            <div class="event-card-lg__month">Jun</div>
+            <div class="event-card-lg__day" style="color:white;">08</div>
+            <div class="event-card-lg__month" style="color:rgba(255,255,255,.65);">Jun</div>
           </div>
         </div>
         <div class="event-card-lg__body">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="card__tag" style="margin:0;">Annual</span>
             <span style="font-size:11px;color:var(--text-muted);">June 8–14, 2026 · All Locations</span>
+            <span class="evt-countdown" data-event-date="2026-06-08"></span>
           </div>
           <h3 class="disp-sm">Wing Week 2026</h3>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-top:10px;">The world's biggest wing celebration. Seven days of exclusive deals, limited edition sauces, and community giveaways.</p>
-          <a href="#" class="btn btn-primary btn-sm" style="margin-top:20px;">RSVP Free</a>
+          <div class="evt-card-actions">
+            <a href="#" class="btn btn-primary btn-sm">RSVP Free</a>
+            <button class="btn-cal" onclick="wsAddToCalendar('Wing Week 2026','2026-06-08','2026-06-15','Seven days of exclusive deals and community giveaways.','All Wingstop Locations')">📅 Add to Calendar</button>
+          </div>
         </div>
       </div>
 
-      <div class="event-card-lg fade-up d1">
-        <div class="event-card-lg__date" style="background:var(--cream);">
+      <div class="event-card-lg fade-up d1" data-category="limited">
+        <div class="event-card-lg__date event-card-lg__date--limited">
           <div>
-            <div class="event-card-lg__day text-yellow">15</div>
-            <div class="event-card-lg__month">Jul</div>
+            <div class="event-card-lg__day" style="color:white;">15</div>
+            <div class="event-card-lg__month" style="color:rgba(255,255,255,.5);">Jul</div>
           </div>
         </div>
         <div class="event-card-lg__body">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="card__tag" style="margin:0;">Limited Drop</span>
             <span style="font-size:11px;color:var(--text-muted);">July 15, 2026 · Select Locations</span>
+            <span class="evt-countdown" data-event-date="2026-07-15"></span>
           </div>
           <h3 class="disp-sm">Flavor Lab: Ghost Pepper Edition</h3>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-top:10px;">Be among the first to try our newest heat-forward creation before it hits the national menu.</p>
-          <a href="#" class="btn btn-primary btn-sm" style="margin-top:20px;">Join Waitlist</a>
+          <div class="evt-card-actions">
+            <a href="#" class="btn btn-primary btn-sm">Join Waitlist</a>
+            <button class="btn-cal" onclick="wsAddToCalendar('Flavor Lab: Ghost Pepper Edition','2026-07-15','2026-07-16','Exclusive early access to Wingstop Ghost Pepper Edition before national release.','Select Wingstop Locations')">📅 Add to Calendar</button>
+          </div>
         </div>
       </div>
 
-      <div class="event-card-lg fade-up d2">
-        <div class="event-card-lg__date" style="background:var(--cream);">
+      <div class="event-card-lg fade-up d2" data-category="community">
+        <div class="event-card-lg__date event-card-lg__date--community">
           <div>
-            <div class="event-card-lg__day" style="color:var(--text);">06</div>
-            <div class="event-card-lg__month">Sep</div>
+            <div class="event-card-lg__day" style="color:white;">06</div>
+            <div class="event-card-lg__month" style="color:rgba(255,255,255,.5);">Sep</div>
           </div>
         </div>
         <div class="event-card-lg__body">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="card__tag" style="margin:0;">Community</span>
             <span style="font-size:11px;color:var(--text-muted);">Sep 6, 2026 · Dallas, TX + Livestream</span>
+            <span class="evt-countdown" data-event-date="2026-09-06"></span>
           </div>
           <h3 class="disp-sm">The Wingstop Bowl</h3>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-top:10px;">The ultimate eating competition returns. Register to compete or tune in for the championship showdown live.</p>
-          <a href="#" class="btn btn-primary btn-sm" style="margin-top:20px;">Register to Compete</a>
+          <div class="evt-card-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register to Compete</a>
+            <button class="btn-cal" onclick="wsAddToCalendar('The Wingstop Bowl','2026-09-06','2026-09-07','Ultimate eating competition. Compete or watch the championship live.','Dallas, TX + Livestream')">📅 Add to Calendar</button>
+          </div>
         </div>
       </div>
 
-      <div class="event-card-lg fade-up d3">
-        <div class="event-card-lg__date" style="background:var(--cream);">
+      <div class="event-card-lg fade-up d3" data-category="global">
+        <div class="event-card-lg__date event-card-lg__date--global">
           <div>
-            <div class="event-card-lg__day" style="color:var(--text);">20</div>
-            <div class="event-card-lg__month">Oct</div>
+            <div class="event-card-lg__day" style="color:white;">20</div>
+            <div class="event-card-lg__month" style="color:rgba(255,255,255,.5);">Oct</div>
           </div>
         </div>
         <div class="event-card-lg__body">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="card__tag" style="margin:0;">Global</span>
             <span style="font-size:11px;color:var(--text-muted);">Oct 20, 2026 · Worldwide</span>
+            <span class="evt-countdown" data-event-date="2026-10-20"></span>
           </div>
           <h3 class="disp-sm">Wingstop International Day</h3>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-top:10px;">Celebrating flavor unity across every country we call home. Special region-exclusive menu items for 24 hours only.</p>
-          <a href="#" class="btn btn-primary btn-sm" style="margin-top:20px;">Learn More</a>
+          <div class="evt-card-actions">
+            <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+            <button class="btn-cal" onclick="wsAddToCalendar('Wingstop International Day','2026-10-20','2026-10-21','Region-exclusive menu items for 24 hours only across all global Wingstop locations.','Worldwide')">📅 Add to Calendar</button>
+          </div>
         </div>
       </div>
 
-      <div class="event-card-lg fade-up d4">
-        <div class="event-card-lg__date" style="background:var(--cream);">
+      <div class="event-card-lg fade-up d4" data-category="deals">
+        <div class="event-card-lg__date event-card-lg__date--deals">
           <div>
-            <div class="event-card-lg__day" style="color:var(--text);">28</div>
-            <div class="event-card-lg__month">Nov</div>
+            <div class="event-card-lg__day" style="color:white;">28</div>
+            <div class="event-card-lg__month" style="color:rgba(255,255,255,.65);">Nov</div>
           </div>
         </div>
         <div class="event-card-lg__body">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
             <span class="card__tag" style="margin:0;">Deals</span>
             <span style="font-size:11px;color:var(--text-muted);">Nov 28 – Dec 1, 2026 · All Locations</span>
+            <span class="evt-countdown" data-event-date="2026-11-28"></span>
           </div>
           <h3 class="disp-sm">Flavor Friday Sale</h3>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-top:10px;">Black Friday meets wing season. Our biggest discount weekend of the year with limited bundle packs and merch drops.</p>
-          <a href="#" class="btn btn-primary btn-sm" style="margin-top:20px;">Set Reminder</a>
+          <div class="evt-card-actions">
+            <a href="#" class="btn btn-primary btn-sm">Set Reminder</a>
+            <button class="btn-cal" onclick="wsAddToCalendar('Wingstop Flavor Friday Sale','2026-11-28','2026-12-02','Biggest discount weekend of the year — bundle packs and merch drops at all locations.','All Wingstop Locations')">📅 Add to Calendar</button>
+          </div>
         </div>
       </div>
 
@@ -435,14 +475,5 @@
 </footer>
 
 <script src="../js/main.js"></script>
-<script>
-  // Filter buttons (client-side demo)
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>

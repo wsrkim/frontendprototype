@@ -380,85 +380,60 @@
 <!-- stripe divider -->
 <div class="stripe"></div>
 
-<!-- ══ EVENTS TEASER — white ══ -->
-<section class="section s-white">
+<!-- ══ EVENTS TEASER — dark ══ -->
+<section class="section s-black">
   <div class="container">
-    <div class="events-split">
+    <div class="sh sh-split fade-up" style="margin-bottom:40px;">
       <div>
-        <p class="overline fade-up">What's On</p>
-        <h2 class="disp-lg fade-up d1">Events &amp;<br>Experiences</h2>
-        <p class="lead fade-up d2" style="margin-top:18px;">
-          From global flavor drops to community events and championship-level
-          competitions — Wingstop keeps the energy alive all year.
-        </p>
-        <a href="events/" class="btn btn-primary btn-lg fade-up d3" style="margin-top:28px;">See All Events</a>
+        <p class="overline">What's On</p>
+        <h2 class="disp-lg">Events &amp;<br>Experiences</h2>
       </div>
-      <div class="events-cards">
-        <div class="card fade-up d1">
-          <div class="card__thumb">
-            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#006938,#004020)">
-              <span style="font-family:var(--font-disp);font-size:64px;font-weight:900;opacity:.15;color:white;">W</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <div class="card__tag">Annual</div>
-            <div class="card__title">Wing Week</div>
-            <p class="card__desc">Seven days. Seven deals.</p>
-          </div>
-          <div class="card__footer">
-            <span class="card__date">June 2026</span>
-            <a href="events/" style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
-          </div>
+      <a href="events/" class="btn btn-outline-white btn-sm" style="flex-shrink:0;">Full Calendar →</a>
+    </div>
+
+    <!-- Next-up spotlight -->
+    <div class="evt-spotlight fade-up d1">
+      <div class="evt-spotlight__left">
+        <span class="evt-spotlight__day">08</span>
+        <span class="evt-spotlight__month">Jun</span>
+      </div>
+      <div class="evt-spotlight__body">
+        <div class="evt-spotlight__meta">
+          <span class="evt-spotlight__tag">Annual · Fan Favorite</span>
+          <span class="evt-countdown" data-event-date="2026-06-08"></span>
         </div>
-        <div class="card fade-up d2">
-          <div class="card__thumb">
-            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#1a8f52,#004f2a)">
-              <span style="font-family:var(--font-disp);font-size:64px;font-weight:900;opacity:.18;color:white;">F</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <div class="card__tag">Limited Drop</div>
-            <div class="card__title">Flavor Lab</div>
-            <p class="card__desc">New flavors before the world.</p>
-          </div>
-          <div class="card__footer">
-            <span class="card__date">Ongoing</span>
-            <a href="events/" style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
-          </div>
-        </div>
-        <div class="card fade-up d3">
-          <div class="card__thumb">
-            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#1a1a2e,#006938)">
-              <span style="font-family:var(--font-disp);font-size:44px;font-weight:900;opacity:.15;color:white;">🏆</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <div class="card__tag">Community</div>
-            <div class="card__title">Wingstop Bowl</div>
-            <p class="card__desc">The ultimate eating competition.</p>
-          </div>
-          <div class="card__footer">
-            <span class="card__date">Sep 2026</span>
-            <a href="events/" style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
-          </div>
-        </div>
-        <div class="card fade-up d4">
-          <div class="card__thumb">
-            <div class="card__thumb-bg" style="background:linear-gradient(135deg,#003a1a,#1a8f52)">
-              <span style="font-family:var(--font-disp);font-size:44px;font-weight:900;opacity:.18;color:white;">♻</span>
-            </div>
-          </div>
-          <div class="card__body">
-            <div class="card__tag">Impact</div>
-            <div class="card__title">Flavor for Good</div>
-            <p class="card__desc">Local giveback, every quarter.</p>
-          </div>
-          <div class="card__footer">
-            <span class="card__date">Ongoing</span>
-            <a href="events/" style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase;">More →</a>
-          </div>
+        <h3 class="evt-spotlight__title">Wing Week<br>2026</h3>
+        <p class="evt-spotlight__desc">Seven days. Seven deals. The biggest wing celebration of the year — exclusive flavors, bundle discounts, and giveaways at every location worldwide.</p>
+        <div class="evt-spotlight__actions">
+          <a href="events/" class="btn btn-primary btn-lg">Get Notified</a>
+          <button class="btn btn-outline-white btn-lg" onclick="wsAddToCalendar('Wing Week 2026','2026-06-08','2026-06-15','Seven days of exclusive deals, limited edition sauces, and community giveaways.','All Wingstop Locations')">+ Add to Calendar</button>
         </div>
       </div>
+    </div>
+
+    <!-- Compact upcoming strip -->
+    <div class="evt-strip fade-up d2">
+      <a href="events/" class="evt-strip__item">
+        <span class="evt-strip__date">Jul 15</span>
+        <span class="evt-strip__badge evt-strip__badge--limited">Limited Drop</span>
+        <span class="evt-strip__name">Flavor Lab: Ghost Pepper Edition</span>
+        <span class="evt-strip__cd" data-event-date="2026-07-15"></span>
+        <span class="evt-strip__arrow">→</span>
+      </a>
+      <a href="events/" class="evt-strip__item">
+        <span class="evt-strip__date">Sep 6</span>
+        <span class="evt-strip__badge evt-strip__badge--community">Community</span>
+        <span class="evt-strip__name">The Wingstop Bowl</span>
+        <span class="evt-strip__cd" data-event-date="2026-09-06"></span>
+        <span class="evt-strip__arrow">→</span>
+      </a>
+      <a href="events/" class="evt-strip__item">
+        <span class="evt-strip__date">Nov 28</span>
+        <span class="evt-strip__badge evt-strip__badge--deals">Deals</span>
+        <span class="evt-strip__name">Flavor Friday Sale</span>
+        <span class="evt-strip__cd" data-event-date="2026-11-28"></span>
+        <span class="evt-strip__arrow">→</span>
+      </a>
     </div>
   </div>
 </section>

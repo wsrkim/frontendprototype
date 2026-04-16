@@ -185,3 +185,93 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// ── Add to Calendar (.ics download) ─────────
+function wsAddToCalendar(title, startDate, endDate, description, location) {
+  const fmt = s => s.replace(/-/g, '');
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Wingstop//Events//EN',
+    'BEGIN:VEVENT',
+    'DTSTART;VALUE=DATE:' + fmt(startDate),
+    'DTEND;VALUE=DATE:'   + fmt(endDate),
+    'SUMMARY:'            + title,
+    'DESCRIPTION:'        + description.replace(/,/g, '\\,'),
+    'LOCATION:'           + location,
+    'UID:'                + Date.now() + '@wingstop.com',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const a = Object.assign(document.createElement('a'), {
+    href:     URL.createObjectURL(blob),
+    download: title.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.ics'
+  });
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+// ── Event countdowns ─────────────────────────
+function wsInitCountdowns() {
+  const pad = n => String(n).padStart(2, '0');
+
+  const update = () => {
+    const now = Date.now();
+
+    // Chip countdowns — [data-event-date] on .evt-countdown and .evt-strip__cd
+    document.querySelectorAll('[data-event-date]').forEach(el => {
+      const diff = new Date(el.dataset.eventDate).getTime() - now;
+      if (diff <= 0) {
+        el.textContent = 'Happening Now';
+        el.classList.add('evt-countdown--soon');
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      if      (days === 0) el.textContent = 'Today';
+      else if (days === 1) el.textContent = 'Tomorrow';
+      else                 el.textContent = 'In ' + days + ' days';
+      if (days <= 7) el.classList.add('evt-countdown--soon');
+    });
+
+    // Featured event multi-unit countdown (days / hrs / min)
+    const target = document.getElementById('feat-countdown-target');
+    if (target) {
+      const diff2 = new Date(target.dataset.date).getTime() - now;
+      if (diff2 > 0) {
+        const d = Math.floor(diff2 / 86400000);
+        const h = Math.floor((diff2 % 86400000) / 3600000);
+        const m = Math.floor((diff2 % 3600000)  / 60000);
+        const dEl = document.getElementById('feat-days');
+        const hEl = document.getElementById('feat-hrs');
+        const mEl = document.getElementById('feat-min');
+        if (dEl) dEl.textContent = pad(d);
+        if (hEl) hEl.textContent = pad(h);
+        if (mEl) mEl.textContent = pad(m);
+      } else {
+        const wrap = document.querySelector('.featured-evt-countdown');
+        if (wrap) wrap.innerHTML = '<span style="color:var(--green);font-weight:700;font-size:14px;">Happening Now</span>';
+      }
+    }
+  };
+
+  update();
+  setInterval(update, 30000);
+}
+
+wsInitCountdowns();
+
+// ── Events page filter ───────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.event-card-lg').forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.style.display = show ? '' : 'none';
+    });
+  });
+});
