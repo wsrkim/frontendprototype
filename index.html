@@ -11,6 +11,8 @@
   <!-- jsVectorMap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <!-- YouTube IFrame API (for brand video sound toggle) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <style>
     .events-split { display:grid; grid-template-columns:1fr 1.2fr; gap:72px; align-items:center; }
     .events-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
@@ -19,6 +21,25 @@
       .events-cards { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:480px) { .events-cards { grid-template-columns:1fr; } }
+
+    /* ── Brand Video ── */
+    .vid-hero { background:var(--black); width:100%; }
+    .vid-hero__wrap { position:relative; padding-bottom:56.25%; overflow:hidden; }
+    .vid-hero__wrap > div,
+    .vid-hero__wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .vid-hero__overlay {
+      position:absolute; inset:0; pointer-events:none;
+      display:flex; align-items:flex-end; justify-content:flex-end; padding:20px 28px;
+    }
+    .vid-hero__sound {
+      height:38px; padding:0 16px;
+      background:rgba(0,0,0,.6); backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.2); border-radius:20px;
+      display:flex; align-items:center; gap:8px;
+      color:white; cursor:pointer; pointer-events:all; transition:all .2s;
+    }
+    .vid-hero__sound:hover { background:rgba(0,0,0,.85); border-color:rgba(255,255,255,.4); }
+    .vid-hero__sound-lbl { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
 
     /* Flavor section on cream */
     .flavor-section { background:var(--cream); }
@@ -76,7 +97,21 @@
   <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
 </div>
 
-<!-- ══ HERO — deep red ══ -->
+<!-- ══ BRAND VIDEO ══ -->
+<!-- 🎬 SWAP: replace VIDEO_ID (both occurrences) with your YouTube video ID (the ?v= part of the URL) -->
+<section class="vid-hero">
+  <div class="vid-hero__wrap">
+    <div id="ws-brand-video"></div>
+    <div class="vid-hero__overlay">
+      <button class="vid-hero__sound" onclick="wsToggleSound()" aria-label="Toggle sound">
+        <span id="vid-sound-icon">🔇</span>
+        <span class="vid-hero__sound-lbl" id="vid-sound-lbl">Unmute</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HERO — deep green ══ -->
 <section class="hero">
   <div class="hero__bg">
     <div class="hero__pattern"></div>
@@ -486,22 +521,48 @@
 <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"></script>
 <script src="js/main.js"></script>
 <script>
+  // ── Brand Video ──────────────────────────────────────────
+  // 🎬 SWAP: replace VIDEO_ID with your YouTube video ID
+  const WS_VIDEO_ID = 'VIDEO_ID';
+  let ytPlayer, ytMuted = true;
+
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('ws-brand-video', {
+      videoId: WS_VIDEO_ID,
+      playerVars: {
+        autoplay: 1, mute: 1, loop: 1, playlist: WS_VIDEO_ID,
+        controls: 0, rel: 0, modestbranding: 1, playsinline: 1
+      },
+      events: {
+        onReady: e => { e.target.mute(); e.target.playVideo(); }
+      }
+    });
+  }
+
+  function wsToggleSound() {
+    if (!ytPlayer) return;
+    ytMuted = !ytMuted;
+    ytMuted ? ytPlayer.mute() : (ytPlayer.unMute(), ytPlayer.setVolume(80));
+    document.getElementById('vid-sound-icon').textContent = ytMuted ? '🔇' : '🔊';
+    document.getElementById('vid-sound-lbl').textContent  = ytMuted ? 'Unmute' : 'Mute';
+  }
+
   // ── World Map ──────────────────────────────────────────
   const wsCountries = {
-    US: 'United States',
-    MX: 'Mexico',
-    CA: 'Canada',
-    CO: 'Colombia',
-    PA: 'Panama',
-    GB: 'United Kingdom',
-    FR: 'France',
-    NL: 'Netherlands',
-    AE: 'United Arab Emirates',
-    SA: 'Saudi Arabia',
-    BH: 'Bahrain',
-    SG: 'Singapore',
-    ID: 'Indonesia',
-    PH: 'Philippines'
+    US: { name: 'United States',         url: 'international/' },
+    MX: { name: 'Mexico',                url: 'international/' },
+    CA: { name: 'Canada',                url: 'https://www.wingstop.ca' },
+    CO: { name: 'Colombia',              url: 'international/' },
+    PA: { name: 'Panama',                url: 'international/' },
+    GB: { name: 'United Kingdom',        url: 'https://www.wingstop.co.uk' },
+    FR: { name: 'France',                url: 'international/' },
+    NL: { name: 'Netherlands',           url: 'international/' },
+    AE: { name: 'United Arab Emirates',  url: 'international/' },
+    SA: { name: 'Saudi Arabia',          url: 'international/' },
+    BH: { name: 'Bahrain',               url: 'international/' },
+    SG: { name: 'Singapore',             url: 'https://www.wingstop.com.sg' },
+    ID: { name: 'Indonesia',             url: 'international/' },
+    PH: { name: 'Philippines',           url: 'international/' }
   };
 
   const wsMap = new jsVectorMap({
@@ -531,10 +592,12 @@
       strokeWidth: 0.5
     },
     onRegionTooltipShow(event, tooltip, code) {
-      if (wsCountries[code]) {
+      const c = wsCountries[code];
+      if (c) {
+        const lbl = c.url.startsWith('http') ? 'Visit site →' : 'Click to explore →';
         tooltip.text(
-          `<span style="font-weight:700;font-size:13px;">${wsCountries[code]}</span>` +
-          `<span style="display:block;font-size:11px;opacity:.6;margin-top:2px;letter-spacing:.08em;text-transform:uppercase;">Click to explore →</span>`,
+          `<span style="font-weight:700;font-size:13px;">${c.name}</span>` +
+          `<span style="display:block;font-size:11px;opacity:.6;margin-top:2px;letter-spacing:.08em;text-transform:uppercase;">${lbl}</span>`,
           true
         );
       } else {
@@ -542,8 +605,11 @@
       }
     },
     onRegionClick(event, code) {
-      if (wsCountries[code]) {
-        window.location.href = 'international/';
+      const c = wsCountries[code];
+      if (c) {
+        c.url.startsWith('http')
+          ? window.open(c.url, '_blank')
+          : window.location.href = c.url;
       }
     }
   });

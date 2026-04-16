@@ -394,9 +394,10 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .flavor-item:hover::before { height:100%; }
 .flavor-item__color { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
 .flavor-item__swatch { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-.flavor-item__heat { display:flex; gap:3px; }
-.heat-pip { width:5px; height:5px; border-radius:50%; background:var(--border); }
-.heat-pip.on { background:var(--green); }
+.flavor-item__heat { display:flex; gap:2px; align-items:center; }
+.heat-pip { font-size:12px; line-height:1; filter:grayscale(1) opacity(.2); }
+.heat-pip::before { content:'🔥'; }
+.heat-pip.on { filter:none; }
 .flavor-item__name {
   font-family:var(--font-disp); font-size:20px; font-weight:700;
   text-transform:uppercase; line-height:1.1; margin-bottom:6px; color:var(--text);
