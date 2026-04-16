@@ -176,15 +176,14 @@
       <button class="gf-btn active" data-region="all">All Markets</button>
       <button class="gf-btn" data-region="americas">Americas</button>
       <button class="gf-btn" data-region="asia">Asia Pacific</button>
-      <button class="gf-btn" data-region="middle-east">Middle East</button>
       <button class="gf-btn" data-region="europe">Europe</button>
     </div>
 
-    <!-- Flavor cards grid -->
-    <div class="gf-grid" id="gf-grid">
+    <!-- OPTION A: Editorial grid — desktop ≥640px -->
+    <div class="gf-atlas-desktop gf-grid-a" id="gf-grid">
 
-      <!-- 🇸🇬 Singapore: Salted Egg -->
-      <div class="gf-card fade-up" data-region="asia" style="--c:rgba(212,168,67,.4);">
+      <!-- 🇸🇬 Hero: Kecap Manis -->
+      <div class="gf-card gf-card--hero fade-up" data-region="asia" style="--c:rgba(166,108,26,.45);">
         <div class="gf-card__inner">
           <div class="gf-card__top">
             <div class="gf-card__origin">
@@ -193,19 +192,19 @@
             </div>
             <span class="gf-card__badge">Market Exclusive</span>
           </div>
-          <h3 class="gf-card__name">Salted Egg</h3>
-          <p class="gf-card__desc">Rich salted egg yolk glaze with buttery, umami depth. A Southeast Asian obsession that turns every bite into a golden moment.</p>
+          <h3 class="gf-card__name">Kecap Manis</h3>
+          <p class="gf-card__desc">Sweet soy and palm sugar, slow-caramelized to a rich, dark glaze. A Southeast Asian obsession that coats every wing in deep umami warmth. You won't find this at your local spot.</p>
           <div class="gf-card__foot">
             <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
             </div>
-            <span class="gf-card__level">Mild</span>
+            <span class="gf-card__level">Mild–Medium</span>
           </div>
         </div>
       </div>
 
-      <!-- 🇸🇬 Singapore: Honey Soy Garlic -->
-      <div class="gf-card fade-up d1" data-region="asia" style="--c:rgba(196,122,32,.4);">
+      <!-- 🇸🇬 Inferno -->
+      <div class="gf-card fade-up d1" data-region="asia" style="--c:rgba(220,30,0,.5);">
         <div class="gf-card__inner">
           <div class="gf-card__top">
             <div class="gf-card__origin">
@@ -214,29 +213,50 @@
             </div>
             <span class="gf-card__badge">Market Exclusive</span>
           </div>
-          <h3 class="gf-card__name">Honey Soy Garlic</h3>
-          <p class="gf-card__desc">Sweet soy meets roasted garlic in a glaze that coats every wing with addictive East Asian warmth. Sticky. Savory. Impossible to stop.</p>
+          <h3 class="gf-card__name">Inferno</h3>
+          <p class="gf-card__desc">Maximum heat, no apology. Built for those who want the full burn without hesitation.</p>
           <div class="gf-card__foot">
             <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span>
             </div>
-            <span class="gf-card__level">Mild</span>
+            <span class="gf-card__level">Blazing</span>
           </div>
         </div>
       </div>
 
-      <!-- 🇮🇩 Indonesia: Sambal Chili -->
-      <div class="gf-card fade-up d2" data-region="asia" style="--c:rgba(204,34,0,.45);">
+      <!-- 🇸🇬 Texas Buffalo -->
+      <div class="gf-card fade-up d2" data-region="asia" style="--c:rgba(190,80,20,.45);">
         <div class="gf-card__inner">
           <div class="gf-card__top">
             <div class="gf-card__origin">
-              <span class="gf-card__flag">🇮🇩</span>
-              <span class="gf-card__country">Indonesia</span>
+              <span class="gf-card__flag">🇸🇬</span>
+              <span class="gf-card__country">Singapore</span>
             </div>
             <span class="gf-card__badge">Market Exclusive</span>
           </div>
-          <h3 class="gf-card__name">Sambal Chili</h3>
-          <p class="gf-card__desc">Indonesia's legendary chili paste reborn as a wing sauce — fermented heat, shallots, and lime that builds slow and hits hard.</p>
+          <h3 class="gf-card__name">Texas Buffalo</h3>
+          <p class="gf-card__desc">Classic American buffalo heat translated for Southeast Asia — tangy, buttery, uncompromising.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium-Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇨🇦 Mango Habanero -->
+      <div class="gf-card fade-up" data-region="americas" style="--c:rgba(210,95,20,.5);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇨🇦</span>
+              <span class="gf-card__country">Canada</span>
+            </div>
+            <span class="gf-card__badge">Fan Favorite</span>
+          </div>
+          <h3 class="gf-card__name">Mango Habanero</h3>
+          <p class="gf-card__desc">Tropical mango sweetness collides with habanero fire. The sauce that keeps bringing people back.</p>
           <div class="gf-card__foot">
             <div class="gf-card__heat">
               <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
@@ -246,40 +266,18 @@
         </div>
       </div>
 
-
-      <!-- 🇦🇪 UAE: Za'atar Herb -->
-      <div class="gf-card fade-up d1" data-region="middle-east" style="--c:rgba(92,122,32,.4);">
+      <!-- 🇨🇦 Korean Q -->
+      <div class="gf-card fade-up d1" data-region="americas" style="--c:rgba(120,28,45,.45);">
         <div class="gf-card__inner">
           <div class="gf-card__top">
             <div class="gf-card__origin">
-              <span class="gf-card__flag">🇦🇪</span>
-              <span class="gf-card__country">UAE</span>
+              <span class="gf-card__flag">🇨🇦</span>
+              <span class="gf-card__country">Canada</span>
             </div>
-            <span class="gf-card__badge">Market Exclusive</span>
+            <span class="gf-card__badge">Fan Favorite</span>
           </div>
-          <h3 class="gf-card__name">Za'atar Herb</h3>
-          <p class="gf-card__desc">Thyme, sesame, sumac, and olive oil — a spice blend rooted in Levantine tradition, pressed into every crease of the wing.</p>
-          <div class="gf-card__foot">
-            <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-            </div>
-            <span class="gf-card__level">Mild</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🇦🇪 UAE: Sumac & Garlic -->
-      <div class="gf-card fade-up d2" data-region="middle-east" style="--c:rgba(139,26,107,.4);">
-        <div class="gf-card__inner">
-          <div class="gf-card__top">
-            <div class="gf-card__origin">
-              <span class="gf-card__flag">🇦🇪</span>
-              <span class="gf-card__country">UAE</span>
-            </div>
-            <span class="gf-card__badge">Market Exclusive</span>
-          </div>
-          <h3 class="gf-card__name">Sumac &amp; Garlic</h3>
-          <p class="gf-card__desc">Tart crimson sumac balanced with roasted garlic and a whisper of chili. The Middle East in a glaze — bright, aromatic, unexpected.</p>
+          <h3 class="gf-card__name">Korean Q</h3>
+          <p class="gf-card__desc">Sweet soy, ginger, sesame depth — a Korean-inspired glaze that turns every wing into something unforgettable.</p>
           <div class="gf-card__foot">
             <div class="gf-card__heat">
               <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
@@ -289,81 +287,18 @@
         </div>
       </div>
 
-      <!-- 🇸🇦 Saudi Arabia: Harissa -->
-      <div class="gf-card fade-up" data-region="middle-east" style="--c:rgba(200,58,0,.45);">
-        <div class="gf-card__inner">
-          <div class="gf-card__top">
-            <div class="gf-card__origin">
-              <span class="gf-card__flag">🇸🇦</span>
-              <span class="gf-card__country">Saudi Arabia</span>
-            </div>
-            <span class="gf-card__badge">Market Exclusive</span>
-          </div>
-          <h3 class="gf-card__name">Harissa</h3>
-          <p class="gf-card__desc">North African fire paste — roasted red peppers, caraway, coriander, and scorching heat. Brought to the wing. Brought to the table.</p>
-          <div class="gf-card__foot">
-            <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span>
-            </div>
-            <span class="gf-card__level">Hot</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🇨🇦 Canada: Maple Sriracha -->
-      <div class="gf-card fade-up d1" data-region="americas" style="--c:rgba(204,68,0,.4);">
+      <!-- 🇨🇦 Lemon Pepper -->
+      <div class="gf-card fade-up d2" data-region="americas" style="--c:rgba(175,162,48,.4);">
         <div class="gf-card__inner">
           <div class="gf-card__top">
             <div class="gf-card__origin">
               <span class="gf-card__flag">🇨🇦</span>
               <span class="gf-card__country">Canada</span>
             </div>
-            <span class="gf-card__badge">Market Exclusive</span>
+            <span class="gf-card__badge">Classic</span>
           </div>
-          <h3 class="gf-card__name">Maple Sriracha</h3>
-          <p class="gf-card__desc">Pure Canadian maple sweetness collides with Thai sriracha heat. A cross-border collaboration that didn't ask for permission.</p>
-          <div class="gf-card__foot">
-            <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-            </div>
-            <span class="gf-card__level">Medium-Hot</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🇬🇧 UK: Peri Peri -->
-      <div class="gf-card fade-up d2" data-region="europe" style="--c:rgba(232,56,0,.45);">
-        <div class="gf-card__inner">
-          <div class="gf-card__top">
-            <div class="gf-card__origin">
-              <span class="gf-card__flag">🇬🇧</span>
-              <span class="gf-card__country">United Kingdom</span>
-            </div>
-            <span class="gf-card__badge">Market Exclusive</span>
-          </div>
-          <h3 class="gf-card__name">Peri Peri</h3>
-          <p class="gf-card__desc">African bird's eye chili, lemon, and garlic in a sauce that's taken over Britain. Bold, citrusy, unrelenting — and finally on a Wingstop wing.</p>
-          <div class="gf-card__foot">
-            <div class="gf-card__heat">
-              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
-            </div>
-            <span class="gf-card__level">Medium-Hot</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🇫🇷 France: Truffle Parmesan -->
-      <div class="gf-card fade-up" data-region="europe" style="--c:rgba(122,106,74,.4);">
-        <div class="gf-card__inner">
-          <div class="gf-card__top">
-            <div class="gf-card__origin">
-              <span class="gf-card__flag">🇫🇷</span>
-              <span class="gf-card__country">France</span>
-            </div>
-            <span class="gf-card__badge">Market Exclusive</span>
-          </div>
-          <h3 class="gf-card__name">Truffle Parmesan</h3>
-          <p class="gf-card__desc">Black truffle oil, aged Parmesan, and cracked black pepper. Yes, France made this happen. Non, you can't get it anywhere else.</p>
+          <h3 class="gf-card__name">Lemon Pepper</h3>
+          <p class="gf-card__desc">Zesty lemon and cracked black pepper dry rub. No sauce, no compromise — pure, clean flavor.</p>
           <div class="gf-card__foot">
             <div class="gf-card__heat">
               <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
@@ -373,7 +308,163 @@
         </div>
       </div>
 
-    </div><!-- /gf-grid -->
+      <!-- 🇬🇧 Garlic Parmesan -->
+      <div class="gf-card fade-up" data-region="europe" style="--c:rgba(155,142,80,.4);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇬🇧</span>
+              <span class="gf-card__country">United Kingdom</span>
+            </div>
+            <span class="gf-card__badge">Classic</span>
+          </div>
+          <h3 class="gf-card__name">Garlic Parmesan</h3>
+          <p class="gf-card__desc">Roasted garlic, creamy butter, aged Parmesan. The wing that converted the skeptics.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Mild</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 Original Hot -->
+      <div class="gf-card fade-up d1" data-region="europe" style="--c:rgba(200,52,0,.45);">
+        <div class="gf-card__inner">
+          <div class="gf-card__top">
+            <div class="gf-card__origin">
+              <span class="gf-card__flag">🇬🇧</span>
+              <span class="gf-card__country">United Kingdom</span>
+            </div>
+            <span class="gf-card__badge">Classic</span>
+          </div>
+          <h3 class="gf-card__name">Original Hot</h3>
+          <p class="gf-card__desc">The one that started it all. Cayenne-forward, vinegar-bright, and perfectly balanced.</p>
+          <div class="gf-card__foot">
+            <div class="gf-card__heat">
+              <span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span>
+            </div>
+            <span class="gf-card__level">Medium-Hot</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /gf-atlas-desktop -->
+
+    <!-- OPTION B: Passport scroll — mobile <640px -->
+    <div class="gf-atlas-mobile">
+      <div class="gf-scroll-hint">Drag to explore</div>
+      <div class="gf-scroll-outer">
+        <div class="gf-scroll-track">
+
+          <div class="gf-passport" data-region="asia" style="--c:rgba(166,108,26,.45);">
+            <div class="gf-passport__stamp">🇸🇬</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Singapore</span>
+              <h3 class="gf-passport__name">Kecap Manis</h3>
+              <p class="gf-passport__desc">Sweet soy, palm sugar, deep umami glaze. The flavor you fly for.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Mild–Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="asia" style="--c:rgba(220,30,0,.5);">
+            <div class="gf-passport__stamp">🇸🇬</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Singapore</span>
+              <h3 class="gf-passport__name">Inferno</h3>
+              <p class="gf-passport__desc">Maximum heat. No apology. Built for those who want the full burn.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span></div>
+                <span class="gf-card__level">Blazing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="asia" style="--c:rgba(190,80,20,.45);">
+            <div class="gf-passport__stamp">🇸🇬</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Singapore</span>
+              <h3 class="gf-passport__name">Texas Buffalo</h3>
+              <p class="gf-passport__desc">Classic American buffalo, refined for Southeast Asia. Tangy, buttery, bold.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Medium-Hot</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="americas" style="--c:rgba(210,95,20,.5);">
+            <div class="gf-passport__stamp">🇨🇦</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Canada</span>
+              <h3 class="gf-passport__name">Mango Habanero</h3>
+              <p class="gf-passport__desc">Tropical mango sweetness meets habanero fire. The sauce people keep coming back for.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Hot</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="americas" style="--c:rgba(120,28,45,.45);">
+            <div class="gf-passport__stamp">🇨🇦</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Canada</span>
+              <h3 class="gf-passport__name">Korean Q</h3>
+              <p class="gf-passport__desc">Sweet soy, ginger, sesame. A glaze that turns every wing memorable.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="americas" style="--c:rgba(175,162,48,.4);">
+            <div class="gf-passport__stamp">🇨🇦</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">Canada</span>
+              <h3 class="gf-passport__name">Lemon Pepper</h3>
+              <p class="gf-passport__desc">Zesty lemon, cracked pepper. No sauce, no compromise — pure flavor.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Mild</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="europe" style="--c:rgba(155,142,80,.4);">
+            <div class="gf-passport__stamp">🇬🇧</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">United Kingdom</span>
+              <h3 class="gf-passport__name">Garlic Parmesan</h3>
+              <p class="gf-passport__desc">Roasted garlic, butter, aged Parmesan. The wing that converted the skeptics.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Mild</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-passport" data-region="europe" style="--c:rgba(200,52,0,.45);">
+            <div class="gf-passport__stamp">🇬🇧</div>
+            <div class="gf-passport__inner">
+              <span class="gf-passport__country">United Kingdom</span>
+              <h3 class="gf-passport__name">Original Hot</h3>
+              <p class="gf-passport__desc">The one that started it all. Cayenne-forward, vinegar-bright, balanced heat.</p>
+              <div class="gf-passport__foot">
+                <div class="gf-card__heat"><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip on"></span><span class="heat-pip"></span><span class="heat-pip"></span></div>
+                <span class="gf-card__level">Medium-Hot</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /gf-scroll-track -->
+      </div><!-- /gf-scroll-outer -->
+    </div><!-- /gf-atlas-mobile -->
   </div><!-- /container -->
 </section>
 
@@ -683,6 +774,10 @@
       document.querySelectorAll('.gf-card').forEach(card => {
         const show = region === 'all' || card.dataset.region === region;
         card.classList.toggle('hidden', !show);
+      });
+      document.querySelectorAll('.gf-passport').forEach(card => {
+        const show = region === 'all' || card.dataset.region === region;
+        card.style.display = show ? '' : 'none';
       });
     });
   });

@@ -1000,6 +1000,72 @@ footer :focus-visible,
 .gf-card__heat .heat-pip { font-size:12px; }
 .gf-card__level        { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); }
 
+/* ── Option A: editorial hero card ─────────────────────── */
+.gf-grid-a { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.gf-card--hero { grid-column:span 2; }
+.gf-card--hero .gf-card__inner { min-height:300px; }
+.gf-card--hero .gf-card__name  { font-size:clamp(44px,5vw,72px); line-height:.88; margin-bottom:16px; }
+.gf-card--hero .gf-card__desc  { font-size:14px; max-width:360px; line-height:1.8; }
+
+/* ── Option B: passport scroll ──────────────────────────── */
+.gf-scroll-outer { position:relative; overflow:hidden; margin-top:16px; }
+.gf-scroll-outer::after {
+  content:''; position:absolute;
+  top:0; right:0; bottom:20px; width:80px;
+  background:linear-gradient(to right, transparent, var(--black));
+  pointer-events:none; z-index:2;
+}
+.gf-scroll-track {
+  display:flex; gap:14px;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  padding-bottom:20px; -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin; scrollbar-color:rgba(0,105,56,.4) transparent;
+}
+.gf-scroll-track::-webkit-scrollbar { height:3px; }
+.gf-scroll-track::-webkit-scrollbar-track { background:rgba(255,255,255,.04); border-radius:2px; }
+.gf-scroll-track::-webkit-scrollbar-thumb { background:rgba(0,105,56,.5); border-radius:2px; }
+.gf-passport {
+  flex:0 0 260px; height:380px;
+  scroll-snap-align:start;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:4px; overflow:hidden;
+  position:relative; display:flex; flex-direction:column;
+  transition:border-color .2s, transform .25s;
+}
+.gf-passport:hover { border-color:rgba(255,255,255,.2); transform:translateY(-6px); }
+.gf-passport::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 110%, var(--c, rgba(0,105,56,.35)) 0%, transparent 60%);
+  pointer-events:none;
+}
+.gf-passport__stamp {
+  position:absolute; top:16px; right:16px;
+  width:50px; height:50px; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.1);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px;
+}
+.gf-passport__inner {
+  position:relative; z-index:1;
+  flex:1; display:flex; flex-direction:column;
+  padding:22px;
+}
+.gf-passport__country { font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-top:4px; }
+.gf-passport__name    { font-family:var(--font-disp); font-size:clamp(28px,3.5vw,38px); font-weight:900; text-transform:uppercase; line-height:1; color:white; padding-top:56px; margin-top:auto; }
+.gf-passport__desc    { font-size:12px; line-height:1.7; color:rgba(255,255,255,.36); margin-top:10px; flex:1; }
+.gf-passport__foot    { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:14px; border-top:1px solid rgba(255,255,255,.06); }
+.gf-scroll-hint {
+  display:flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:600; letter-spacing:.1em;
+  color:rgba(255,255,255,.28); text-transform:uppercase;
+  margin-bottom:14px;
+}
+.gf-scroll-hint::after { content:''; display:block; width:40px; height:1px; background:rgba(255,255,255,.14); }
+
+/* ── Hybrid A/B visibility toggle ───────────────────────── */
+.gf-atlas-mobile { display:none; }
+
 /* ==========================================
    ANIMATIONS
    ========================================== */
@@ -1082,9 +1148,16 @@ footer :focus-visible,
   .events-split { grid-template-columns:1fr; gap:40px; }
   /* GF grid goes 2-col */
   .gf-grid { grid-template-columns:repeat(2,1fr); }
+  /* Editorial grid: 2-col at tablet, hero stays full width */
+  .gf-grid-a { grid-template-columns:repeat(2,1fr); }
+  .gf-card--hero { grid-column:span 2; }
 }
 @media (max-width:640px) {
   .gf-grid { grid-template-columns:1fr; }
+  /* Hybrid A→B swap: desktop grid out, passport scroll in */
+  .gf-atlas-desktop { display:none; }
+  .gf-atlas-mobile  { display:block; }
+  .gf-filter        { display:none; }
   /* Vid hero actions stack */
   .vid-hero__actions { flex-direction:column; align-items:center; gap:12px; width:100%; }
   .vid-hero__actions .btn { width:100%; max-width:320px; justify-content:center; }
