@@ -387,7 +387,7 @@ footer :focus-visible,
   -webkit-text-fill-color:transparent;
   -webkit-text-stroke:3px rgba(255,255,255,.5);
 }
-.hero__headline .yel { color:var(--yellow); -webkit-text-fill-color:var(--yellow); }
+.hero__headline .yel { color:var(--green-light); -webkit-text-fill-color:var(--green-light); }
 .hero__sub {
   max-width:500px; font-size:clamp(15px,1.3vw,17px); line-height:1.8;
   color:rgba(255,255,255,.7); margin-bottom:40px;
@@ -466,7 +466,7 @@ footer :focus-visible,
 .sh-split    { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
 .sh .overline { margin-bottom:10px; }
 /* On dark/green sections, override overline color */
-.s-black .overline, .s-green .overline { color:var(--yellow); }
+.s-black .overline, .s-green .overline { color:rgba(255,255,255,.55); }
 
 /* ==========================================
    FLAVOR GRID — on white/cream bg
@@ -534,7 +534,7 @@ footer :focus-visible,
   font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
   color:var(--green); margin-bottom:8px;
 }
-.s-black .card__tag, .s-green .card__tag { color:var(--yellow); }
+.s-black .card__tag, .s-green .card__tag { color:rgba(255,255,255,.65); }
 .card__title {
   font-family:var(--font-disp); font-size:21px; font-weight:700;
   text-transform:uppercase; line-height:1.1; margin-bottom:8px; color:var(--text);
@@ -593,7 +593,7 @@ footer :focus-visible,
 .map-section__noise {
   position:absolute; inset:0;
   background-image:radial-gradient(ellipse at 10% 50%, rgba(0,105,56,.15) 0%, transparent 55%),
-                   radial-gradient(ellipse at 90% 50%, rgba(255,199,44,.05) 0%, transparent 50%);
+                   radial-gradient(ellipse at 90% 50%, rgba(0,105,56,.08) 0%, transparent 50%);
   pointer-events:none;
 }
 .map-layout {
@@ -736,7 +736,7 @@ footer :focus-visible,
   border:1px solid var(--border); border-top:3px solid var(--green);
   transition:all .3s;
 }
-.value-card:hover { border-top-color:var(--yellow); transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,.06); }
+.value-card:hover { border-top-color:var(--green); transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,.06); }
 .value-card__num { font-family:var(--font-disp); font-size:44px; font-weight:900; color:rgba(0,0,0,.05); margin-bottom:-6px; }
 .value-card__title { font-family:var(--font-disp); font-size:22px; font-weight:700; text-transform:uppercase; margin-bottom:12px; color:var(--text); }
 .value-card__text { font-size:14px; line-height:1.8; color:var(--text-muted); }
@@ -880,7 +880,7 @@ footer :focus-visible,
   text-transform:uppercase; letter-spacing:-.02em;
   color:white; margin-bottom:36px;
 }
-.vid-hero__headline .yel { color:var(--yellow); }
+.vid-hero__headline .yel { color:white; }
 .vid-hero__actions { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 .vid-hero__bottom {
   display:flex; align-items:flex-end; justify-content:space-between;
@@ -914,7 +914,7 @@ footer :focus-visible,
   background:repeating-linear-gradient(
     90deg,
     var(--green) 0px,  var(--green) 40px,
-    var(--yellow) 40px, var(--yellow) 80px
+    var(--green-light) 40px, var(--green-light) 80px
   );
 }
 
@@ -991,7 +991,7 @@ footer :focus-visible,
 .gf-card__origin       { display:flex; align-items:center; gap:8px; }
 .gf-card__flag         { font-size:20px; line-height:1; }
 .gf-card__country      { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); }
-.gf-card__badge        { font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:2px; background:rgba(255,199,44,.15); color:var(--yellow); border:1px solid rgba(255,199,44,.25); white-space:nowrap; }
+.gf-card__badge        { font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:2px; background:rgba(255,255,255,.1); color:rgba(255,255,255,.75); border:1px solid rgba(255,255,255,.2); white-space:nowrap; }
 .gf-card__badge--core  { background:rgba(0,105,56,.15); color:rgba(100,200,140,.9); border-color:rgba(0,105,56,.3); }
 .gf-card__name         { font-family:var(--font-disp); font-size:clamp(26px,3vw,34px); font-weight:900; text-transform:uppercase; line-height:1; color:white; margin-bottom:12px; }
 .gf-card__desc         { font-size:13px; line-height:1.75; color:rgba(255,255,255,.45); flex:1; margin-bottom:22px; }
@@ -1016,7 +1016,7 @@ footer :focus-visible,
    UTILITIES
    ========================================== */
 .text-green    { color:var(--green); }
-.text-yellow { color:var(--yellow); }
+.text-yellow { color:var(--green-light); }
 .text-white  { color:var(--white); }
 .text-muted  { color:var(--text-muted); }
 .mt-8  { margin-top:8px; }  .mt-16 { margin-top:16px; }
@@ -1043,6 +1043,7 @@ footer :focus-visible,
   .nav__hamburger { display:flex; }
   .nav__inner { gap:0; }
   .hero__scroll { display:none; }
+  .vid-hero__scroll { display:none; }
   .stats-bar__inner { flex-wrap:wrap; justify-content:center; }
   .stat-item + .stat-item::before { display:none; }
   .stat-item { flex:0 0 45%; }
@@ -1059,18 +1060,58 @@ footer :focus-visible,
   .page-hero { min-height:40vh; padding-bottom:44px; }
   .map-layout { grid-template-columns:1fr; }
   #ws-world-map { height:280px; }
+  /* Touch targets */
+  .btn { min-height:44px; min-width:44px; }
+  .nav__hamburger { min-height:44px; min-width:44px; }
+  /* GF Atlas filters */
+  .gf-filters { gap:8px; }
+  .gf-filter { min-height:44px; }
+  /* Section headings scale down */
+  .sh { font-size:clamp(32px,8vw,48px); }
+  /* Value cards single column */
+  .value-grid { grid-template-columns:1fr; }
+  /* Stats section tighter */
+  .stats-bar { padding:20px 0; }
+  /* Map sidebar stacks below map */
+  .map-layout { gap:32px; }
+  .map-sidebar { order:2; }
+  /* Footer social links larger tap area */
+  .social-btn { min-width:44px; min-height:44px; }
 }
 @media (max-width:900px) {
   .events-split { grid-template-columns:1fr; gap:40px; }
+  /* GF grid goes 2-col */
+  .gf-grid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:640px) {
   .gf-grid { grid-template-columns:1fr; }
+  /* Vid hero actions stack */
+  .vid-hero__actions { flex-direction:column; align-items:center; gap:12px; width:100%; }
+  .vid-hero__actions .btn { width:100%; max-width:320px; justify-content:center; }
+  /* GF section filters wrap */
+  .gf-filters { justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; -webkit-overflow-scrolling:touch; }
+  /* Page hero text */
+  .page-hero__title { font-size:clamp(40px,12vw,72px); }
+  /* Flavor cards 2-col */
+  .flavor-grid { grid-template-columns:1fr 1fr; }
+  /* About/events cards */
+  .cards-row { grid-template-columns:1fr; }
 }
 @media (max-width:480px) {
   .hero__headline { font-size:clamp(56px,16vw,96px); }
   .flavor-grid { grid-template-columns:1fr 1fr; }
   .events-cards { grid-template-columns:1fr; }
-  .vid-hero__headline { font-size:clamp(64px,18vw,110px); }
+  .vid-hero__headline { font-size:clamp(52px,16vw,96px); line-height:.9; }
   .vid-hero__bottom { padding:24px 20px; }
   .vid-hero__content { padding-top:calc(var(--nav-h) + 8px); }
+  /* Tighter section spacing */
+  .section { padding:48px 0; }
+  .section-lg { padding:60px 0; }
+  /* Stats single column on very small screens */
+  .stat-item { flex:0 0 100%; }
+  /* GF stats row */
+  .gf-stats { gap:16px; }
+  .gf-stat { min-width:80px; }
+  /* Footer tighter */
+  .footer__brand { margin-bottom:20px; }
 }
