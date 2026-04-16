@@ -29,8 +29,9 @@
   --border-dk:   rgba(255,255,255,.1);
 
   /* Type */
-  --font-disp: 'Barlow Condensed', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-disp:    'Barlow Condensed', sans-serif;
+  --font-display: 'Barlow Condensed', sans-serif; /* alias — inner pages reference this name */
+  --font-body:    'Inter', sans-serif;
 
   /* Layout */
   --nav-h:  70px;
@@ -366,7 +367,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .marquee__item {
   font-family:var(--font-disp); font-size:17px; font-weight:700;
   text-transform:uppercase; letter-spacing:.08em;
-  color:rgba(255,255,255,.2); white-space:nowrap;
+  color:rgba(255,255,255,.38); white-space:nowrap;
   display:flex; align-items:center; padding:0 24px; gap:24px;
 }
 .marquee__item .sep { color:var(--green); font-size:18px; }
@@ -760,6 +761,164 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
 .pg-404__sub { font-size:15px; line-height:1.8; color:rgba(255,255,255,.45); max-width:380px; margin:0 auto 36px; }
 .pg-404__links { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
 
+/* Anchor offset so fixed nav doesn't cover section headings */
+[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
+
+/* ==========================================
+   VIDEO HERO — full-viewport brand cinematic
+   ========================================== */
+.vid-hero {
+  position:relative; width:100%; height:100vh;
+  overflow:hidden; background:var(--black);
+}
+.vid-hero iframe {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:100vw; height:56.25vw;
+  min-height:100vh; min-width:177.78vh;
+  border:0; pointer-events:none;
+}
+.vid-hero__overlay {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 45%, transparent 65%),
+    linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 28%);
+  display:flex; flex-direction:column;
+}
+.vid-hero__content {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:calc(var(--nav-h) + 20px) var(--px) 0;
+  pointer-events:all;
+}
+.vid-hero__eyebrow { color:rgba(255,255,255,.55); margin-bottom:20px; }
+.vid-hero__headline {
+  font-family:var(--font-disp);
+  font-size:clamp(80px,14vw,210px);
+  font-weight:900; line-height:.85;
+  text-transform:uppercase; letter-spacing:-.02em;
+  color:white; margin-bottom:36px;
+}
+.vid-hero__headline .yel { color:var(--yellow); }
+.vid-hero__actions { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+.vid-hero__bottom {
+  display:flex; align-items:flex-end; justify-content:space-between;
+  padding:32px 40px; pointer-events:none;
+}
+.vid-hero__sound {
+  height:38px; padding:0 16px;
+  background:rgba(0,0,0,.55); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25); border-radius:20px;
+  display:flex; align-items:center; gap:8px;
+  color:white; cursor:pointer; pointer-events:all; transition:all .2s;
+}
+.vid-hero__sound:hover { background:rgba(0,0,0,.85); border-color:rgba(255,255,255,.5); }
+.vid-hero__sound-lbl { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.vid-hero__scroll {
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+.vid-hero__scroll-bar {
+  width:1px; height:48px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+  animation:scrollPulse 1.8s ease-in-out infinite;
+}
+
+/* ==========================================
+   STRIPE DIVIDER
+   ========================================== */
+.stripe {
+  height:6px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--green) 0px,  var(--green) 40px,
+    var(--yellow) 40px, var(--yellow) 80px
+  );
+}
+
+/* ==========================================
+   EVENTS SPLIT — homepage layout
+   ========================================== */
+.events-split { display:grid; grid-template-columns:1fr 1.2fr; gap:72px; align-items:center; }
+.events-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+/* ==========================================
+   FLAVOR SECTION
+   ========================================== */
+.flavor-section { background:var(--cream); }
+
+/* ==========================================
+   GLOBAL FLAVOR ATLAS
+   ========================================== */
+.gf-section { background:var(--black); }
+
+.gf-stats {
+  display:flex; justify-content:center; gap:0;
+  margin:40px auto 52px; max-width:560px;
+  border:1px solid rgba(255,255,255,.08); border-radius:3px; overflow:hidden;
+}
+.gf-stat {
+  flex:1; padding:22px 16px; text-align:center;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.gf-stat:last-child { border-right:none; }
+.gf-stat__n {
+  font-family:var(--font-disp); font-size:36px; font-weight:900;
+  line-height:1; color:var(--yellow); display:block;
+}
+.gf-stat__l {
+  font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(255,255,255,.35); display:block; margin-top:4px;
+}
+
+.gf-filter { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:52px; }
+.gf-btn {
+  padding:9px 22px;
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  background:transparent; border:1px solid rgba(255,255,255,.15);
+  border-radius:2px; color:rgba(255,255,255,.45);
+  cursor:pointer; transition:all .2s;
+}
+.gf-btn:hover  { border-color:rgba(255,255,255,.4); color:rgba(255,255,255,.8); }
+.gf-btn.active { background:var(--green); border-color:var(--green); color:white; }
+
+.gf-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  gap:20px;
+}
+.gf-card {
+  background:#111; border:1px solid rgba(255,255,255,.07);
+  border-radius:4px; overflow:hidden; position:relative;
+  display:flex; flex-direction:column;
+  transition:transform .3s var(--ease), border-color .3s, box-shadow .3s;
+}
+.gf-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:180px;
+  background:radial-gradient(ellipse at 30% -10%, var(--c) 0%, transparent 65%);
+  pointer-events:none;
+}
+.gf-card:hover {
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.gf-card.hidden { display:none; }
+.gf-card__inner        { padding:24px; position:relative; z-index:1; flex:1; display:flex; flex-direction:column; }
+.gf-card__top          { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+.gf-card__origin       { display:flex; align-items:center; gap:8px; }
+.gf-card__flag         { font-size:20px; line-height:1; }
+.gf-card__country      { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); }
+.gf-card__badge        { font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:2px; background:rgba(255,199,44,.15); color:var(--yellow); border:1px solid rgba(255,199,44,.25); white-space:nowrap; }
+.gf-card__badge--core  { background:rgba(0,105,56,.15); color:rgba(100,200,140,.9); border-color:rgba(0,105,56,.3); }
+.gf-card__name         { font-family:var(--font-disp); font-size:clamp(26px,3vw,34px); font-weight:900; text-transform:uppercase; line-height:1; color:white; margin-bottom:12px; }
+.gf-card__desc         { font-size:13px; line-height:1.75; color:rgba(255,255,255,.45); flex:1; margin-bottom:22px; }
+.gf-card__foot         { display:flex; align-items:center; justify-content:space-between; }
+.gf-card__heat         { display:flex; gap:2px; }
+.gf-card__heat .heat-pip { font-size:12px; }
+.gf-card__level        { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); }
+
 /* ==========================================
    ANIMATIONS
    ========================================== */
@@ -820,7 +979,17 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; colo
   .map-layout { grid-template-columns:1fr; }
   #ws-world-map { height:280px; }
 }
+@media (max-width:900px) {
+  .events-split { grid-template-columns:1fr; gap:40px; }
+}
+@media (max-width:640px) {
+  .gf-grid { grid-template-columns:1fr; }
+}
 @media (max-width:480px) {
   .hero__headline { font-size:clamp(56px,16vw,96px); }
   .flavor-grid { grid-template-columns:1fr 1fr; }
+  .events-cards { grid-template-columns:1fr; }
+  .vid-hero__headline { font-size:clamp(64px,18vw,110px); }
+  .vid-hero__bottom { padding:24px 20px; }
+  .vid-hero__content { padding-top:calc(var(--nav-h) + 8px); }
 }
