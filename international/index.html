@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>International — Wingstop</title>
-  <meta name="description" content="Wingstop's bold flavors span 12+ countries across North America, Europe, the Middle East, and Asia Pacific.">
+  <meta name="description" content="Wingstop's bold flavors span 20+ countries across North America, Europe, the Middle East, and Asia Pacific.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -93,6 +93,16 @@
       transition: all .2s;
     }
     .cs-chip:hover { border-color: var(--green); color: var(--green); }
+    .cs-chip--confirmed {
+      border-color: rgba(0,105,56,.3);
+      background: rgba(0,105,56,.06);
+      color: var(--text);
+    }
+    .cs-chip--confirmed .dot { opacity: 1; animation: pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(1.4); }
+    }
     .cs-chip .dot {
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--green-light); opacity: .6;
@@ -170,7 +180,7 @@
 <div class="container">
   <div class="intl-stats fade-in" style="margin-top:0;">
     <div class="intl-stat">
-      <span class="intl-stat__num" data-count="12" data-suffix="+">12+</span>
+      <span class="intl-stat__num" data-count="20" data-suffix="+">20+</span>
       <span class="intl-stat__lbl">Countries</span>
     </div>
     <div class="intl-stat">
@@ -178,7 +188,7 @@
       <span class="intl-stat__lbl">Int'l Locations</span>
     </div>
     <div class="intl-stat">
-      <span class="intl-stat__num" data-count="4">4</span>
+      <span class="intl-stat__num" data-count="5">5</span>
       <span class="intl-stat__lbl">Continents</span>
     </div>
     <div class="intl-stat">
@@ -207,8 +217,7 @@
           <span class="market-chip">🇺🇸 United States</span>
           <span class="market-chip">🇲🇽 Mexico</span>
           <span class="market-chip">🇨🇦 Canada</span>
-          <span class="market-chip">🇨🇴 Colombia</span>
-          <span class="market-chip">🇵🇦 Panama</span>
+          <span class="market-chip">🇵🇷 Puerto Rico</span>
         </div>
       </div>
 
@@ -220,8 +229,11 @@
         <div class="region-card__count-lbl">Locations</div>
         <div class="region-card__markets">
           <span class="market-chip">🇬🇧 United Kingdom</span>
+          <span class="market-chip">🇪🇸 Spain</span>
           <span class="market-chip">🇫🇷 France</span>
           <span class="market-chip">🇳🇱 Netherlands</span>
+          <span class="market-chip">🇮🇹 Italy</span>
+          <span class="market-chip">🇮🇪 Ireland</span>
         </div>
       </div>
 
@@ -232,9 +244,11 @@
         <div class="region-card__count" data-count="200" data-suffix="+">200+</div>
         <div class="region-card__count-lbl">Locations</div>
         <div class="region-card__markets">
-          <span class="market-chip">🇦🇪 UAE</span>
           <span class="market-chip">🇸🇦 Saudi Arabia</span>
+          <span class="market-chip">🇰🇼 Kuwait</span>
+          <span class="market-chip">🇦🇪 UAE</span>
           <span class="market-chip">🇧🇭 Bahrain</span>
+          <span class="market-chip">🇶🇦 Qatar</span>
         </div>
       </div>
 
@@ -245,9 +259,11 @@
         <div class="region-card__count" data-count="180" data-suffix="+">180+</div>
         <div class="region-card__count-lbl">Locations</div>
         <div class="region-card__markets">
+          <span class="market-chip">🇰🇷 South Korea</span>
           <span class="market-chip">🇸🇬 Singapore</span>
           <span class="market-chip">🇮🇩 Indonesia</span>
-          <span class="market-chip">🇵🇭 Philippines</span>
+          <span class="market-chip">🇦🇺 Australia</span>
+          <span class="market-chip">🇹🇭 Thailand</span>
         </div>
       </div>
 
@@ -264,11 +280,11 @@
     </div>
     <div class="spotlight-grid">
       <div class="spotlight-card fade-up">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169,#006938);">🇬🇧</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169,#C8102E);">🇬🇧</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">United Kingdom</div>
           <div class="spotlight-card__since">Market Since 2019</div>
-          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow, Leeds and growing. Lemon Pepper is the #1 flavor.</p>
+          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow, Leeds and growing. One of our highest-velocity European markets.</p>
         </div>
       </div>
       <div class="spotlight-card fade-up d1">
@@ -276,7 +292,7 @@
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">France</div>
           <div class="spotlight-card__since">Market Since 2021</div>
-          <p class="spotlight-card__locs">Paris locations driving rapid growth. Korean Q has become an unexpected local phenomenon.</p>
+          <p class="spotlight-card__locs">Paris locations at the heart of Wingstop's European expansion into continental markets.</p>
         </div>
       </div>
       <div class="spotlight-card fade-up d2">
@@ -304,11 +320,11 @@
         </div>
       </div>
       <div class="spotlight-card fade-up d5">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#CE1126,#FFFFFF,#0038A8);">🇵🇭</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#003478,#CD2E3A);">🇰🇷</div>
         <div class="spotlight-card__body">
-          <div class="spotlight-card__country">Philippines</div>
-          <div class="spotlight-card__since">Market Since 2014</div>
-          <p class="spotlight-card__locs">Manila leads with passionate wing culture. Hawaiian and Mango Habanero top the charts here.</p>
+          <div class="spotlight-card__country">South Korea</div>
+          <div class="spotlight-card__since">Asia Pacific Market</div>
+          <p class="spotlight-card__locs">A market where bold heat and global flavors meet one of the world's most passionate food cultures.</p>
         </div>
       </div>
     </div>
@@ -325,16 +341,11 @@
         Bold flavors don't stop at borders. Here's where Wingstop is headed next.
       </p>
       <div class="coming-soon-grid fade-up d3">
-        <span class="cs-chip"><span class="dot"></span>🇩🇪 Germany</span>
-        <span class="cs-chip"><span class="dot"></span>🇪🇸 Spain</span>
-        <span class="cs-chip"><span class="dot"></span>🇯🇵 Japan</span>
-        <span class="cs-chip"><span class="dot"></span>🇦🇺 Australia</span>
-        <span class="cs-chip"><span class="dot"></span>🇧🇷 Brazil</span>
-        <span class="cs-chip"><span class="dot"></span>🇮🇳 India</span>
-        <span class="cs-chip"><span class="dot"></span>🇵🇹 Portugal</span>
-        <span class="cs-chip"><span class="dot"></span>🇰🇷 South Korea</span>
-        <span class="cs-chip"><span class="dot"></span>🇹🇭 Thailand</span>
-        <span class="cs-chip"><span class="dot"></span>🇮🇹 Italy</span>
+        <span class="cs-chip cs-chip--confirmed"><span class="dot"></span>🇮🇳 India <span style="font-size:9px;opacity:.6;margin-left:4px;letter-spacing:.06em;">DEAL SIGNED · 1,000+ UNITS</span></span>
+        <span class="cs-chip"><span class="dot"></span>🇪🇨 Ecuador</span>
+        <span class="cs-chip"><span class="dot"></span>🇯🇲 Jamaica</span>
+        <span class="cs-chip"><span class="dot"></span>🇵🇦 Panama</span>
+        <span class="cs-chip"><span class="dot"></span>🇵🇱 Poland</span>
       </div>
     </div>
   </div>
@@ -368,7 +379,7 @@
           <div class="nav__logo-mark">W</div>
           <span class="nav__logo-text">Wingstop</span>
         </a>
-        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 20+ countries and 1,900+ locations.</p>
         <div class="footer__social">
           <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
           <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
