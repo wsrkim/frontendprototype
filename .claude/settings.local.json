@@ -19,7 +19,12 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git push *)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:www.wingstop.ca)",
+      "WebFetch(domain:www.wingstop.co.uk)",
+      "WebFetch(domain:www.wingstop.com.sg)",
+      "WebFetch(domain:nomnom-files.wingstop.co.uk)",
+      "WebFetch(domain:open.spotify.com)"
     ]
   }
 }

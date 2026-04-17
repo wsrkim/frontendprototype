@@ -317,6 +317,17 @@
       flex-shrink:0;
     }
     .mh-counter em { color:rgba(255,255,255,.7); font-style:normal; }
+    .mh-coming-soon {
+      display:inline-flex; align-items:center; gap:7px;
+      font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,153,51,.9); margin-bottom:14px;
+    }
+    .mh-coming-soon::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:rgba(255,153,51,.9);
+      animation:pulse-dot 1.6s ease-in-out infinite;
+      flex-shrink:0;
+    }
 
     /* Mobile */
     @media (max-width:768px) {
@@ -418,7 +429,7 @@
       </div>
       <div class="us-flagship__stats">
         <div class="us-stat">
-          <div class="us-stat__num" data-count="1900" data-suffix="+">1,900+</div>
+          <div class="us-stat__num" data-count="2500" data-suffix="+">2,500+</div>
           <div class="us-stat__lbl">Locations</div>
         </div>
         <div class="us-stat">
@@ -610,7 +621,7 @@
           <div class="nav__logo-mark">W</div>
           <span class="nav__logo-text">Wingstop</span>
         </a>
-        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 20+ countries and 1,900+ locations.</p>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 20+ countries and 2,500+ locations.</p>
         <div class="footer__social">
           <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
           <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
@@ -655,16 +666,6 @@
 
   const markets = [
     {
-      flag: '🇸🇦',
-      name: 'Saudi Arabia',
-      region: 'EMEA',
-      since: '2012',
-      stat: '80+',
-      statLabel: 'Locations',
-      tagline: 'Our earliest and strongest EMEA market — built on over a decade of brand loyalty.',
-      tint: 'rgba(0,108,53,.14)'
-    },
-    {
       flag: '🇬🇧',
       name: 'United Kingdom',
       region: 'EMEA',
@@ -703,6 +704,17 @@
       statLabel: 'APAC Market',
       tagline: "Bold heat meets one of the world's most passionate food cultures.",
       tint: 'rgba(0,52,120,.14)'
+    },
+    {
+      flag: '🇮🇳',
+      name: 'India',
+      region: 'APAC · Coming Soon',
+      since: null,
+      stat: '1,000+',
+      statLabel: 'Locations Planned',
+      tagline: "Deal signed. The world's most populous nation is about to meet its wing authority.",
+      tint: 'rgba(255,153,51,.1)',
+      comingSoon: true
     }
   ];
 
@@ -727,6 +739,7 @@
       '<div class="container">' +
         '<div class="mh-slide__inner">' +
           '<div class="mh-slide__content">' +
+            (m.comingSoon ? '<div class="mh-coming-soon">Coming Soon</div>' : '') +
             '<div class="mh-slide__region-tag">' + m.region + (m.since ? ' · Since ' + m.since : '') + '</div>' +
             '<h1 class="mh-slide__name">' + m.name + '</h1>' +
             '<div class="mh-slide__stat-row">' +
