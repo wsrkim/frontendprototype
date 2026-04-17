@@ -28,6 +28,7 @@
       <li><a href="about/"         class="nav__link">About</a></li>
       <li><a href="events/"        class="nav__link">Events</a></li>
       <li><a href="international/" class="nav__link">International</a></li>
+      <li><a href="podcast/"       class="nav__link">Podcast</a></li>
       <li class="nav__dropdown">
         <a href="#" class="nav__link nav__dropdown-trigger">
           More <span class="nav__dropdown-arrow">▾</span>
@@ -51,6 +52,7 @@
   <a href="about/"         class="nav__mobile-link">About</a>
   <a href="events/"        class="nav__mobile-link">Events</a>
   <a href="international/" class="nav__mobile-link">International</a>
+  <a href="podcast/"       class="nav__mobile-link">Podcast</a>
   <a href="faq/"           class="nav__mobile-link">FAQ</a>
   <a href="legal/"         class="nav__mobile-link">Legal</a>
   <a href="privacy/"       class="nav__mobile-link">Privacy</a>
@@ -577,6 +579,81 @@
   </div>
 </section>
 
+<!-- ══ SAY THAT. PODCAST — dark ══ -->
+<section class="section s-black st-section" id="podcast">
+  <div class="container">
+    <div class="st-layout">
+
+      <!-- Left: identity -->
+      <div class="fade-up">
+        <p class="overline" style="color:rgba(255,255,255,.35);">A Wingstop Podcast</p>
+        <h2 class="disp-xl st-headline">Say<br>That.</h2>
+        <p class="st-sub">Real stories from the people behind the wing. Hosted by Donnie Upshaw, Chief Brand &amp; People Officer.</p>
+        <div class="st-actions">
+          <a href="podcast/" class="btn btn-primary btn-lg">All Episodes</a>
+          <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Spotify →</a>
+        </div>
+      </div>
+
+      <!-- Right: latest 3 episodes -->
+      <div class="st-episodes fade-up d2">
+
+        <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="st-ep">
+          <div class="st-ep__meta">
+            <span class="st-ep__badge">Black History Month</span>
+            <span class="st-ep__dur">20 min</span>
+          </div>
+          <div>
+            <p class="st-ep__guest">Carlos Todd</p>
+            <p class="st-ep__role">General Manager</p>
+          </div>
+          <div class="st-ep__foot">
+            <span class="st-ep__title">Say That! Black History Month 2026</span>
+            <span class="st-ep__arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="st-ep">
+          <div class="st-ep__meta">
+            <span class="st-ep__badge">Veterans Day</span>
+            <span class="st-ep__dur">24 min</span>
+          </div>
+          <div>
+            <p class="st-ep__guest">Buddy Francisco</p>
+            <p class="st-ep__role">VP of Market Execution · U.S. Army Veteran</p>
+          </div>
+          <div class="st-ep__foot">
+            <span class="st-ep__title">Say That! Veterans Day 2025</span>
+            <span class="st-ep__arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="st-ep">
+          <div class="st-ep__meta">
+            <span class="st-ep__badge">Hispanic Heritage Month</span>
+            <span class="st-ep__dur">16 min</span>
+          </div>
+          <div>
+            <p class="st-ep__guest">Marc Trevino</p>
+            <p class="st-ep__role">Director of Field Marketing</p>
+          </div>
+          <div class="st-ep__foot">
+            <span class="st-ep__title">Say That! Hispanic Heritage Month 2025</span>
+            <span class="st-ep__arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /st-layout -->
+
+    <!-- Full Spotify embed -->
+    <div class="st-embed fade-up d3">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/3uoTAc8UFTEGIKgjqSiftt?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Say That! — A Wingstop Podcast on Spotify"></iframe>
+    </div>
+
+  </div>
+</section>
+
 <!-- stripe divider -->
 <div class="stripe"></div>
 
@@ -625,6 +702,7 @@
           <a href="about/">About Wingstop</a>
           <a href="international/">International</a>
           <a href="events/">Events</a>
+          <a href="podcast/">Podcast</a>
           <a href="#">Careers</a>
           <a href="#">Franchising</a>
           <a href="#">Press</a>
@@ -791,6 +869,45 @@
       tip.style.setProperty('position', 'absolute', 'important');
     }
   }, 300);
+
+  // ── Floating Spotify badge ─────────────────────────────
+  const spotifyFloat = document.getElementById('spotify-float');
+  const spotifyPill  = document.getElementById('spotify-pill');
+  const spotifyClose = document.getElementById('spotify-close');
+  if (spotifyFloat && spotifyPill) {
+    spotifyPill.addEventListener('click', () => {
+      spotifyFloat.classList.toggle('open');
+    });
+    spotifyClose?.addEventListener('click', e => {
+      e.stopPropagation();
+      spotifyFloat.classList.remove('open');
+    });
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (spotifyFloat.classList.contains('open') && !spotifyFloat.contains(e.target)) {
+        spotifyFloat.classList.remove('open');
+      }
+    });
+  }
 </script>
+
+<!-- Floating Spotify badge -->
+<div class="spotify-float" id="spotify-float" style="animation-delay:.8s;">
+  <div class="spotify-float__player">
+    <div class="spotify-float__player-head">
+      <span class="spotify-float__player-title">Say That.</span>
+      <button class="spotify-float__close" id="spotify-close" aria-label="Close player">✕</button>
+    </div>
+    <iframe src="https://open.spotify.com/embed/show/3uoTAc8UFTEGIKgjqSiftt?utm_source=generator" width="320" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Say That! — A Wingstop Podcast"></iframe>
+  </div>
+  <button class="spotify-float__pill" id="spotify-pill" aria-label="Open Say That! podcast player">
+    <span class="spotify-float__mic">🎙</span>
+    <span class="spotify-float__pill-text">
+      <span class="spotify-float__label">Say That.</span>
+      <span class="spotify-float__sub">A Wingstop Podcast</span>
+    </span>
+    <span class="spotify-float__caret">▲</span>
+  </button>
+</div>
 </body>
 </html>

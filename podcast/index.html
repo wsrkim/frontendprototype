@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Say That! — A Wingstop Podcast</title>
+  <meta name="description" content="Real stories from the people behind the wing. Say That! is the Wingstop podcast hosted by Chief Brand &amp; People Officer Donnie Upshaw.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* ── Podcast hero ─── */
+    .pod-hero {
+      background: var(--black);
+      padding: calc(var(--nav-h) + 72px) var(--px) 80px;
+      position: relative; overflow: hidden;
+    }
+    .pod-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(0,105,56,.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pod-hero__bg-text {
+      position: absolute; right: -20px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-disp);
+      font-size: clamp(120px, 20vw, 280px);
+      font-weight: 900; text-transform: uppercase;
+      color: rgba(255,255,255,.02); line-height: 1;
+      pointer-events: none; user-select: none;
+      letter-spacing: -.02em;
+    }
+    .pod-hero__layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .pod-hero__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .pod-hero__eyebrow-line { width: 32px; height: 2px; background: var(--green); }
+    .pod-hero__title {
+      color: white;
+      font-size: clamp(80px, 12vw, 160px);
+      line-height: .88; margin-bottom: 24px;
+    }
+    .pod-hero__host {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pod-hero__host-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-disp); font-size: 18px;
+      font-weight: 900; color: rgba(255,255,255,.5);
+      flex-shrink: 0;
+    }
+    .pod-hero__host-name {
+      font-size: 13px; font-weight: 600; color: white; line-height: 1;
+    }
+    .pod-hero__host-role {
+      font-size: 11px; color: rgba(255,255,255,.4);
+      margin-top: 3px; line-height: 1.4;
+    }
+    .pod-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* Spotify embed panel */
+    .pod-hero__embed { position: relative; z-index: 1; }
+    .pod-hero__embed iframe { border-radius: 12px; display: block; }
+
+    /* ── Stats bar ─── */
+    .pod-stats {
+      background: rgba(255,255,255,.03);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 28px 0;
+    }
+    .pod-stats__inner {
+      display: flex; gap: 0; align-items: stretch;
+    }
+    .pod-stat {
+      flex: 1; text-align: center;
+      padding: 0 32px;
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+    .pod-stat:last-child { border-right: none; }
+    .pod-stat__n {
+      font-family: var(--font-disp); font-size: 36px;
+      font-weight: 900; color: white; line-height: 1;
+    }
+    .pod-stat__l {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-top: 4px;
+    }
+
+    /* ── Episode list ─── */
+    .pod-episodes { padding: 72px 0; background: var(--black); }
+    .pod-ep-grid {
+      display: flex; flex-direction: column;
+      border-top: 1px solid rgba(255,255,255,.06);
+      margin-top: 40px;
+    }
+    .pod-ep {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 28px; align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .pod-ep:hover { background: rgba(255,255,255,.02); margin: 0 -24px; padding: 28px 24px; }
+    .pod-ep__num {
+      font-family: var(--font-disp);
+      font-size: clamp(40px, 5vw, 60px); font-weight: 900;
+      color: rgba(255,255,255,.08); line-height: 1;
+      text-align: right;
+    }
+    .pod-ep__body { display: flex; flex-direction: column; gap: 6px; }
+    .pod-ep__meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pod-ep__badge {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--green-light);
+      padding: 3px 9px; border-radius: 2px;
+      background: rgba(0,105,56,.2);
+      border: 1px solid rgba(0,105,56,.35);
+    }
+    .pod-ep__date { font-size: 10px; color: rgba(255,255,255,.25); }
+    .pod-ep__guest {
+      font-family: var(--font-disp);
+      font-size: clamp(24px, 3vw, 34px); font-weight: 900;
+      text-transform: uppercase; line-height: 1; color: white;
+    }
+    .pod-ep__role { font-size: 12px; color: rgba(255,255,255,.35); }
+    .pod-ep__desc { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.7; max-width: 580px; margin-top: 4px; }
+    .pod-ep__cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 10px 18px; border-radius: 2px;
+      white-space: nowrap;
+      transition: color .15s, border-color .15s;
+      flex-shrink: 0;
+    }
+    .pod-ep:hover .pod-ep__cta { color: var(--green-light); border-color: rgba(0,105,56,.5); }
+
+    /* ── Listen anywhere ─── */
+    .pod-listen {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 72px 0;
+      text-align: center;
+    }
+    .pod-platforms { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .pod-platform {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 3px; text-decoration: none;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.6);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .pod-platform:hover {
+      border-color: var(--green);
+      color: white; background: rgba(0,105,56,.1);
+    }
+    .pod-platform__icon { font-size: 20px; line-height: 1; }
+
+    /* ── Responsive ─── */
+    @media (max-width: 900px) {
+      .pod-hero__layout { grid-template-columns: 1fr; gap: 48px; }
+      .pod-hero__bg-text { opacity: .5; }
+      .pod-hero__embed iframe { width: 100%; }
+      .pod-stat { padding: 0 16px; }
+    }
+    @media (max-width: 640px) {
+      .pod-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 56px; }
+      .pod-stats__inner { flex-wrap: wrap; }
+      .pod-stat { flex: 0 0 50%; border-right: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+      .pod-ep { grid-template-columns: 52px 1fr; }
+      .pod-ep__cta { display: none; }
+    }
+    @media (max-width: 480px) {
+      .pod-ep { gap: 16px; }
+      .pod-ep__num { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">
+      <div class="nav__logo-mark">W</div>
+      <span class="nav__logo-text">Wingstop</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../about/"         class="nav__link">About</a></li>
+      <li><a href="../events/"        class="nav__link">Events</a></li>
+      <li><a href="../international/" class="nav__link">International</a></li>
+      <li><a href="../podcast/"       class="nav__link active">Podcast</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
+        <div class="nav__dropdown-menu">
+          <a href="../faq/"     class="nav__dropdown-item">FAQ</a>
+          <a href="../legal/"   class="nav__dropdown-item">Legal</a>
+          <a href="../privacy/" class="nav__dropdown-item">Privacy</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav__cta"><a href="#" class="btn btn-primary btn-sm">Order Now</a></div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="../about/"         class="nav__mobile-link">About</a>
+  <a href="../events/"        class="nav__mobile-link">Events</a>
+  <a href="../international/" class="nav__mobile-link">International</a>
+  <a href="../podcast/"       class="nav__mobile-link">Podcast</a>
+  <a href="../faq/"           class="nav__mobile-link">FAQ</a>
+  <a href="#" class="btn btn-primary btn-lg" style="margin-top:28px;max-width:200px;">Order Now</a>
+</div>
+
+<main id="main-content">
+
+<!-- ══ PODCAST HERO ══ -->
+<header class="pod-hero">
+  <div class="pod-hero__bg-text" aria-hidden="true">SAY<br>THAT</div>
+  <div class="container">
+    <div class="pod-hero__layout">
+
+      <!-- Left: identity + info -->
+      <div>
+        <div class="pod-hero__eyebrow">
+          <span class="pod-hero__eyebrow-line"></span>
+          <span class="overline fade-up" style="color:rgba(255,255,255,.5);">A Wingstop Podcast</span>
+        </div>
+        <h1 class="disp-xl pod-hero__title fade-up d1">Say<br>That.</h1>
+        <p class="lead fade-up d2" style="color:rgba(255,255,255,.5);max-width:480px;margin-top:0;line-height:1.8;">
+          Real stories from the people behind the wing. Every episode, a different voice — employee, leader, veteran, community member — sharing what it means to be Wingstop.
+        </p>
+        <div class="pod-hero__host fade-up d3">
+          <div class="pod-hero__host-avatar">D</div>
+          <div>
+            <div class="pod-hero__host-name">Donnie Upshaw</div>
+            <div class="pod-hero__host-role">Chief Brand &amp; People Officer, SVP Corporate Restaurants</div>
+          </div>
+        </div>
+        <div class="pod-hero__actions fade-up d4">
+          <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Listen on Spotify</a>
+          <a href="#episodes" class="btn btn-outline-white btn-lg">All Episodes ↓</a>
+        </div>
+      </div>
+
+      <!-- Right: Spotify embed -->
+      <div class="pod-hero__embed fade-in d3">
+        <iframe src="https://open.spotify.com/embed/show/3uoTAc8UFTEGIKgjqSiftt?utm_source=generator" width="400" height="460" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Say That! — A Wingstop Podcast on Spotify"></iframe>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ══ STATS ══ -->
+<div class="pod-stats" style="background:var(--black);">
+  <div class="container">
+    <div class="pod-stats__inner">
+      <div class="pod-stat">
+        <div class="pod-stat__n">5</div>
+        <div class="pod-stat__l">Episodes</div>
+      </div>
+      <div class="pod-stat">
+        <div class="pod-stat__n">2024</div>
+        <div class="pod-stat__l">Since</div>
+      </div>
+      <div class="pod-stat">
+        <div class="pod-stat__n">5</div>
+        <div class="pod-stat__l">Communities</div>
+      </div>
+      <div class="pod-stat">
+        <div class="pod-stat__n">~20</div>
+        <div class="pod-stat__l">Avg. Minutes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EPISODES ══ -->
+<section class="pod-episodes" id="episodes">
+  <div class="container">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <p class="overline fade-up" style="color:rgba(255,255,255,.35);">All Episodes</p>
+        <h2 class="disp-lg fade-up d1" style="color:white;margin-top:8px;">The Stories<br>Behind the Wing.</h2>
+      </div>
+    </div>
+
+    <div class="pod-ep-grid">
+
+      <!-- Ep 5: BHM 2026 -->
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-ep fade-up">
+        <div class="pod-ep__num">05</div>
+        <div class="pod-ep__body">
+          <div class="pod-ep__meta">
+            <span class="pod-ep__badge">Black History Month</span>
+            <span class="pod-ep__date">Feb 24, 2026 · 20 min</span>
+          </div>
+          <div class="pod-ep__guest">Carlos Todd</div>
+          <div class="pod-ep__role">General Manager</div>
+          <p class="pod-ep__desc">Leadership growth, legacy, and building a career at Wingstop. Carlos reflects on what Black History Month means through the lens of his own journey in restaurant management.</p>
+        </div>
+        <span class="pod-ep__cta">Listen ↗</span>
+      </a>
+
+      <!-- Ep 4: Veterans Day 2025 -->
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-ep fade-up d1">
+        <div class="pod-ep__num">04</div>
+        <div class="pod-ep__body">
+          <div class="pod-ep__meta">
+            <span class="pod-ep__badge">Veterans Day</span>
+            <span class="pod-ep__date">Nov 11, 2025 · 24 min</span>
+          </div>
+          <div class="pod-ep__guest">Buddy Francisco</div>
+          <div class="pod-ep__role">VP of Market Execution · U.S. Army National Guard Veteran</div>
+          <p class="pod-ep__desc">How military values — discipline, service, mission focus — translated into a career leading restaurant markets across the country.</p>
+        </div>
+        <span class="pod-ep__cta">Listen ↗</span>
+      </a>
+
+      <!-- Ep 3: Hispanic Heritage Month 2025 -->
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-ep fade-up d2">
+        <div class="pod-ep__num">03</div>
+        <div class="pod-ep__body">
+          <div class="pod-ep__meta">
+            <span class="pod-ep__badge">Hispanic Heritage Month</span>
+            <span class="pod-ep__date">Oct 1, 2025 · 16 min</span>
+          </div>
+          <div class="pod-ep__guest">Marc Trevino</div>
+          <div class="pod-ep__role">Director of Field Marketing</div>
+          <p class="pod-ep__desc">Heritage, leadership, and the personal values that drive Marc's approach to marketing across Wingstop's diverse communities.</p>
+        </div>
+        <span class="pod-ep__cta">Listen ↗</span>
+      </a>
+
+      <!-- Ep 2: Pride Month 2024 -->
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-ep fade-up">
+        <div class="pod-ep__num">02</div>
+        <div class="pod-ep__body">
+          <div class="pod-ep__meta">
+            <span class="pod-ep__badge">Pride Month</span>
+            <span class="pod-ep__date">Jun 28, 2024 · 21 min</span>
+          </div>
+          <div class="pod-ep__guest">Tanner Claborn</div>
+          <div class="pod-ep__role">Wingstop Team Member</div>
+          <p class="pod-ep__desc">Tanner shares their story of identity, belonging, and what it means to feel seen at work — and why that starts with the people around you.</p>
+        </div>
+        <span class="pod-ep__cta">Listen ↗</span>
+      </a>
+
+      <!-- Ep 1: AAPI Heritage Month 2024 -->
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-ep fade-up d1">
+        <div class="pod-ep__num">01</div>
+        <div class="pod-ep__body">
+          <div class="pod-ep__meta">
+            <span class="pod-ep__badge">AAPI Heritage Month</span>
+            <span class="pod-ep__date">May 29, 2024 · 20 min</span>
+          </div>
+          <div class="pod-ep__guest">Jessie Zhan</div>
+          <div class="pod-ep__role">Wingstop Team Member</div>
+          <p class="pod-ep__desc">Jessie reflects on heritage, community, and the experience of being seen during Asian American and Pacific Islander Heritage Month at Wingstop.</p>
+        </div>
+        <span class="pod-ep__cta">Listen ↗</span>
+      </a>
+
+    </div><!-- /pod-ep-grid -->
+  </div>
+</section>
+
+<!-- ══ LISTEN ANYWHERE ══ -->
+<div class="pod-listen">
+  <div class="container">
+    <p class="overline fade-up" style="color:rgba(255,255,255,.35);">Find the Show</p>
+    <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;">Listen Anywhere.</h2>
+    <p class="fade-up d2" style="color:rgba(255,255,255,.4);max-width:420px;margin:16px auto 0;font-size:14px;line-height:1.8;">
+      Say That! is available on all major podcast platforms.
+    </p>
+    <div class="pod-platforms fade-up d3">
+      <a href="https://open.spotify.com/show/3uoTAc8UFTEGIKgjqSiftt" target="_blank" rel="noopener" class="pod-platform">
+        <span class="pod-platform__icon">🎵</span> Spotify
+      </a>
+      <a href="#" class="pod-platform">
+        <span class="pod-platform__icon">🎙</span> Apple Podcasts
+      </a>
+      <a href="#" class="pod-platform">
+        <span class="pod-platform__icon">▶</span> Google Podcasts
+      </a>
+      <a href="#" class="pod-platform">
+        <span class="pod-platform__icon">📻</span> Amazon Music
+      </a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="../" class="nav__logo" style="display:inline-flex;">
+          <div class="nav__logo-mark">W</div>
+          <span class="nav__logo-text">Wingstop</span>
+        </a>
+        <p class="footer__brand-p">The world's wing authority, serving bold flavors across 12+ countries and 1,900+ locations.</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn">IG</a><a href="#" class="social-btn">X</a>
+          <a href="#" class="social-btn">FB</a><a href="#" class="social-btn">TT</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <div class="footer__links">
+          <a href="../about/">About</a>
+          <a href="../international/">International</a>
+          <a href="../events/">Events</a>
+          <a href="../podcast/">Podcast</a>
+          <a href="#">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Menu</div>
+        <div class="footer__links">
+          <a href="#">Wings</a><a href="#">Tenders</a>
+          <a href="#">Sides</a><a href="#">Nutrition</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Help</div>
+        <div class="footer__links">
+          <a href="../faq/">FAQ</a><a href="#">Find Location</a>
+          <a href="#">Contact</a><a href="#">Rewards</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Wingstop Inc. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="../legal/">Terms</a>
+        <a href="../privacy/">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Spotify badge -->
+<div class="spotify-float" id="spotify-float">
+  <div class="spotify-float__player">
+    <div class="spotify-float__player-head">
+      <span class="spotify-float__player-title">Say That.</span>
+      <button class="spotify-float__close" id="spotify-close" aria-label="Close player">✕</button>
+    </div>
+    <iframe src="https://open.spotify.com/embed/show/3uoTAc8UFTEGIKgjqSiftt?utm_source=generator" width="320" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Say That! — A Wingstop Podcast"></iframe>
+  </div>
+  <button class="spotify-float__pill" id="spotify-pill" aria-label="Open Say That! podcast player">
+    <span class="spotify-float__mic">🎙</span>
+    <span class="spotify-float__pill-text">
+      <span class="spotify-float__label">Say That.</span>
+      <span class="spotify-float__sub">A Wingstop Podcast</span>
+    </span>
+    <span class="spotify-float__caret">▲</span>
+  </button>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  // ── Floating Spotify badge ─────────────────────────────
+  const spotifyFloat = document.getElementById('spotify-float');
+  const spotifyPill  = document.getElementById('spotify-pill');
+  const spotifyClose = document.getElementById('spotify-close');
+  if (spotifyFloat && spotifyPill) {
+    spotifyPill.addEventListener('click', () => {
+      spotifyFloat.classList.toggle('open');
+    });
+    spotifyClose?.addEventListener('click', e => {
+      e.stopPropagation();
+      spotifyFloat.classList.remove('open');
+    });
+    document.addEventListener('click', e => {
+      if (spotifyFloat.classList.contains('open') && !spotifyFloat.contains(e.target)) {
+        spotifyFloat.classList.remove('open');
+      }
+    });
+  }
+</script>
+</body>
+</html>
