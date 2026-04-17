@@ -209,6 +209,127 @@
     @media (max-width:480px) {
       .intl-stats { grid-template-columns:1fr 1fr; }
     }
+
+    /* ══ MARKET HERO — rotating feature ══ */
+    .market-hero {
+      position:relative;
+      height:88vh; min-height:580px; max-height:940px;
+      background:var(--black);
+      overflow:hidden;
+    }
+    .mh-slides { position:absolute; inset:0; }
+    .mh-slide {
+      position:absolute; inset:0;
+      display:flex; align-items:center;
+      opacity:0;
+      transform:translateY(14px);
+      transition:opacity .65s ease, transform .65s ease;
+      pointer-events:none;
+    }
+    .mh-slide.active  { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .mh-slide.leaving { opacity:0; transform:translateY(-10px); }
+    .mh-slide__bg {
+      position:absolute; inset:0; pointer-events:none;
+      transition:opacity .65s ease;
+    }
+    .mh-slide__inner {
+      position:relative; z-index:1; width:100%;
+      display:grid; grid-template-columns:1fr 300px;
+      gap:60px; align-items:center;
+      padding:80px 0 120px;
+    }
+    .mh-slide__region-tag {
+      display:flex; align-items:center; gap:12px;
+      font-size:11px; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--green-light);
+      margin-bottom:20px;
+    }
+    .mh-slide__region-tag::before {
+      content:''; display:block; width:24px; height:2px;
+      background:var(--green-light); flex-shrink:0;
+    }
+    .mh-slide__name {
+      font-family:var(--font-disp);
+      font-size:clamp(72px,9vw,140px);
+      font-weight:900; text-transform:uppercase;
+      color:white; line-height:.92; margin-bottom:28px;
+    }
+    .mh-slide__stat-row {
+      display:flex; align-items:baseline; gap:10px; margin-bottom:16px;
+    }
+    .mh-slide__stat {
+      font-family:var(--font-disp); font-size:clamp(30px,4vw,50px);
+      font-weight:900; color:white; line-height:1;
+    }
+    .mh-slide__stat-label {
+      font-size:11px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; color:rgba(255,255,255,.4);
+    }
+    .mh-slide__tagline {
+      font-size:15px; color:rgba(255,255,255,.48);
+      line-height:1.75; max-width:440px;
+    }
+    .mh-slide__visual {
+      display:flex; align-items:center; justify-content:center;
+      position:relative; height:100%;
+    }
+    .mh-slide__flag {
+      font-size:100px; line-height:1;
+      filter:drop-shadow(0 8px 32px rgba(0,0,0,.5));
+      position:relative; z-index:1;
+    }
+    .mh-slide__watermark {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      font-family:var(--font-disp);
+      font-size:clamp(100px,14vw,200px);
+      font-weight:900; color:rgba(255,255,255,.025);
+      white-space:nowrap; pointer-events:none;
+      user-select:none; line-height:1;
+    }
+
+    /* Controls bar */
+    .mh-controls {
+      position:absolute; bottom:0; left:0; right:0; z-index:10;
+      display:flex; align-items:center; gap:20px;
+      padding:0 var(--px) 28px;
+    }
+    .mh-dots { display:flex; gap:8px; flex-shrink:0; }
+    .mh-dot {
+      width:7px; height:7px; border-radius:50%;
+      background:rgba(255,255,255,.2); border:none;
+      cursor:pointer; padding:0; transition:all .25s;
+    }
+    .mh-dot:hover   { background:rgba(255,255,255,.5); }
+    .mh-dot.active  { background:var(--green-light); transform:scale(1.3); }
+    .mh-progress-track {
+      flex:1; height:1px;
+      background:rgba(255,255,255,.1);
+    }
+    .mh-progress-bar {
+      height:100%; width:0;
+      background:var(--green-light);
+    }
+    @keyframes mh-fill { to { width:100%; } }
+    .mh-counter {
+      font-family:var(--font-disp); font-size:13px; font-weight:700;
+      color:rgba(255,255,255,.25); letter-spacing:.1em; white-space:nowrap;
+      flex-shrink:0;
+    }
+    .mh-counter em { color:rgba(255,255,255,.7); font-style:normal; }
+
+    /* Mobile */
+    @media (max-width:768px) {
+      .market-hero { height:auto; min-height:520px; max-height:none; }
+      .mh-slides { position:relative; min-height:520px; }
+      .mh-slide { padding:0; }
+      .mh-slide__inner {
+        grid-template-columns:1fr; gap:0;
+        padding:60px 0 100px;
+      }
+      .mh-slide__visual { display:none; }
+      .mh-slide__name { font-size:clamp(60px,14vw,100px); }
+    }
   </style>
 </head>
 <body>
@@ -250,23 +371,13 @@
 
 <main id="main-content">
 
-<!-- ══ PAGE HERO ══ -->
-<section class="page-hero">
-  <div class="page-hero__bg">
-    <div class="page-hero__pattern"></div>
-    <div class="page-hero__glow-inner"></div>
-    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-disp);font-size:clamp(120px,20vw,280px);font-weight:900;color:rgba(0,0,0,.14);line-height:1;pointer-events:none;user-select:none;">GLOBAL<br>FLAVOR</div>
-  </div>
-  <div class="page-hero__content">
-    <div class="page-hero__eyebrow fade-up">
-      <span class="page-hero__eyebrow-line"></span>
-      <span class="overline">Global Presence</span>
-    </div>
-    <h1 class="disp-xl fade-up d1">The World<br>Eats <span class="text-green">Wings.</span></h1>
-    <p class="lead fade-up d2" style="max-width:520px;margin-top:20px;">
-      From Texas to Tokyo, our bold flavors have crossed every ocean.
-      Wingstop's international footprint spans 20+ countries — and we're just getting started.
-    </p>
+<!-- ══ MARKET HERO — rotating feature ══ -->
+<section class="market-hero" id="market-hero" aria-label="Featured global markets">
+  <div class="mh-slides" id="mh-slides"></div>
+  <div class="mh-controls">
+    <div class="mh-dots" id="mh-dots" role="tablist" aria-label="Select market"></div>
+    <div class="mh-progress-track"><div class="mh-progress-bar" id="mh-progress"></div></div>
+    <span class="mh-counter"><em id="mh-num">01</em> / <span id="mh-total">05</span></span>
   </div>
 </section>
 
@@ -538,5 +649,149 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+(function() {
+  const INTERVAL = 4500;
+
+  const markets = [
+    {
+      flag: '🇸🇦',
+      name: 'Saudi Arabia',
+      region: 'EMEA',
+      since: '2012',
+      stat: '80+',
+      statLabel: 'Locations',
+      tagline: 'Our earliest and strongest EMEA market — built on over a decade of brand loyalty.',
+      tint: 'rgba(0,108,53,.14)'
+    },
+    {
+      flag: '🇬🇧',
+      name: 'United Kingdom',
+      region: 'EMEA',
+      since: '2019',
+      stat: '#1',
+      statLabel: 'Fastest-Growing EU Market',
+      tagline: 'London, Manchester, Birmingham, Glasgow — and still accelerating.',
+      tint: 'rgba(1,33,105,.14)'
+    },
+    {
+      flag: '🇸🇬',
+      name: 'Singapore',
+      region: 'APAC',
+      since: '2013',
+      stat: 'APAC',
+      statLabel: 'Hub Market',
+      tagline: 'Highest per-capita wing consumption of any market worldwide.',
+      tint: 'rgba(200,40,50,.1)'
+    },
+    {
+      flag: '🇲🇽',
+      name: 'Mexico',
+      region: 'AMRS',
+      since: '2010',
+      stat: 'Largest',
+      statLabel: 'AMRS Market',
+      tagline: 'CDMX, Guadalajara, Monterrey — bold flavors run deep south of the border.',
+      tint: 'rgba(0,104,71,.14)'
+    },
+    {
+      flag: '🇰🇷',
+      name: 'South Korea',
+      region: 'APAC',
+      since: null,
+      stat: 'Rising',
+      statLabel: 'APAC Market',
+      tagline: "Bold heat meets one of the world's most passionate food cultures.",
+      tint: 'rgba(0,52,120,.14)'
+    }
+  ];
+
+  const hero      = document.getElementById('market-hero');
+  const slidesEl  = document.getElementById('mh-slides');
+  const dotsEl    = document.getElementById('mh-dots');
+  const progressEl = document.getElementById('mh-progress');
+  const numEl     = document.getElementById('mh-num');
+  const totalEl   = document.getElementById('mh-total');
+  if (!hero) return;
+
+  totalEl.textContent = String(markets.length).padStart(2, '0');
+
+  // Build slides + dots
+  markets.forEach((m, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'mh-slide' + (i === 0 ? ' active' : '');
+    slide.setAttribute('role', 'tabpanel');
+    slide.setAttribute('aria-label', m.name);
+    slide.innerHTML =
+      '<div class="mh-slide__bg" style="background:radial-gradient(ellipse at 65% 50%, ' + m.tint + ' 0%, transparent 60%);"></div>' +
+      '<div class="container">' +
+        '<div class="mh-slide__inner">' +
+          '<div class="mh-slide__content">' +
+            '<div class="mh-slide__region-tag">' + m.region + (m.since ? ' · Since ' + m.since : '') + '</div>' +
+            '<h1 class="mh-slide__name">' + m.name + '</h1>' +
+            '<div class="mh-slide__stat-row">' +
+              '<span class="mh-slide__stat">' + m.stat + '</span>' +
+              '<span class="mh-slide__stat-label">' + m.statLabel + '</span>' +
+            '</div>' +
+            '<p class="mh-slide__tagline">' + m.tagline + '</p>' +
+          '</div>' +
+          '<div class="mh-slide__visual" aria-hidden="true">' +
+            '<span class="mh-slide__watermark">' + m.name.split(' ')[0].toUpperCase() + '</span>' +
+            '<span class="mh-slide__flag">' + m.flag + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    slidesEl.appendChild(slide);
+
+    const dot = document.createElement('button');
+    dot.className = 'mh-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', m.name);
+    dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    dot.addEventListener('click', () => { stopTimer(); goTo(i); startTimer(); });
+    dotsEl.appendChild(dot);
+  });
+
+  let current = 0;
+  let timer = null;
+
+  function resetProgress() {
+    progressEl.style.animation = 'none';
+    progressEl.offsetWidth; // force reflow
+    progressEl.style.animation = 'mh-fill ' + INTERVAL + 'ms linear forwards';
+  }
+
+  function goTo(index) {
+    const slides = slidesEl.querySelectorAll('.mh-slide');
+    const dots   = dotsEl.querySelectorAll('.mh-dot');
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected', 'false');
+    current = (index + markets.length) % markets.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    dots[current].setAttribute('aria-selected', 'true');
+    numEl.textContent = String(current + 1).padStart(2, '0');
+    resetProgress();
+  }
+
+  function startTimer() { timer = setInterval(() => goTo(current + 1), INTERVAL); resetProgress(); }
+  function stopTimer()  { clearInterval(timer); }
+
+  // Pause on hover/focus
+  hero.addEventListener('mouseenter', stopTimer);
+  hero.addEventListener('mouseleave', startTimer);
+  hero.addEventListener('focusin',    stopTimer);
+  hero.addEventListener('focusout',   startTimer);
+
+  // Keyboard arrows
+  hero.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { stopTimer(); goTo(current + 1); startTimer(); }
+    if (e.key === 'ArrowLeft')  { stopTimer(); goTo(current - 1); startTimer(); }
+  });
+
+  startTimer();
+})();
+</script>
 </body>
 </html>
