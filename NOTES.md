@@ -4,6 +4,15 @@
 
 ## 2026-04-17
 
+### International page — rotating market hero
+**Requested:** Replace static page hero with a more dynamic module (Option A — rotating market feature).
+**Done:** Built a full-viewport auto-advancing hero carousel. 5 confirmed markets cycle every 4.5s: Saudi Arabia, UK, Singapore, Mexico, South Korea. Each slide has region tag, massive Barlow Condensed country name, key stat, tagline, and a per-market radial background tint. Controls: dot nav, animated progress bar, slide counter. Pauses on hover/focus. Keyboard arrow nav. Mobile: single column, visual panel hidden. JS-injected from a data array — no hardcoded HTML slides.
+**Files changed:** `international/index.html`
+
+---
+
+## 2026-04-17
+
 ### Update CLAUDE.md + create NOTES.md
 **Requested:** Add workflow rules to CLAUDE.md — auto git commit after every task, maintain NOTES.md with task log, code standards.
 **Done:** Added "Workflow Rules" section to existing CLAUDE.md (preserved all persona definitions). Created this NOTES.md file.
