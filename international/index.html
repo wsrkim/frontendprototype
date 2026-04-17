@@ -140,31 +140,114 @@
     }
     .market-chip:hover { background:var(--green); border-color:var(--green); color:white; }
 
-    /* ── Market Spotlight dark cards ── */
-    .spotlight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .spotlight-card {
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
-      border-radius:4px; overflow:hidden; transition:all .3s var(--ease);
+    /* ── Growth Timeline ── */
+    .gt-outer { margin-top:0; }
+    .gt-scroll { overflow-x:auto; padding:0 var(--px) 8px; -webkit-overflow-scrolling:touch; }
+    .gt-track {
+      position:relative; min-width:720px;
+      padding:0 48px;
     }
-    .spotlight-card:hover {
-      transform:translateY(-4px);
-      box-shadow:0 20px 60px rgba(0,0,0,.5);
-      border-color:rgba(0,105,56,.4);
+    .gt-line {
+      position:absolute; left:48px; right:48px; top:97px;
+      height:1px; background:rgba(255,255,255,.1);
     }
-    .spotlight-card__flag {
-      height:110px; display:flex; align-items:center;
-      justify-content:center; font-size:56px;
+    .gt-items { display:grid; grid-template-columns:repeat(7,1fr); }
+    .gt-item { display:flex; flex-direction:column; align-items:center; }
+    .gt-item__top {
+      height:80px; display:flex; flex-direction:column;
+      justify-content:flex-end; padding-bottom:12px; align-items:center;
     }
-    .spotlight-card__body { padding:20px 22px 24px; }
-    .spotlight-card__country {
-      font-family:var(--font-disp); font-size:22px; font-weight:700;
-      text-transform:uppercase; color:white; margin-bottom:2px;
+    .gt-item__year {
+      font-family:var(--font-disp); font-size:clamp(18px,2vw,24px);
+      font-weight:900; color:white; line-height:1;
     }
-    .spotlight-card__since {
-      font-size:10px; font-weight:600; letter-spacing:.12em;
-      text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:10px;
+    .gt-item__dot {
+      width:10px; height:10px; border-radius:50%;
+      background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.25);
+      flex-shrink:0; transition:all .25s;
     }
-    .spotlight-card__locs { font-size:13px; color:rgba(255,255,255,.5); line-height:1.65; }
+    .gt-item--founding .gt-item__dot {
+      width:14px; height:14px; margin:-2px 0;
+      background:var(--green-light); border-color:var(--green-light);
+      box-shadow:0 0 12px rgba(26,143,82,.5);
+    }
+    .gt-item:hover .gt-item__dot { background:var(--green-light); border-color:var(--green-light); }
+    .gt-item__bottom { padding-top:14px; text-align:center; }
+    .gt-item__flags { font-size:20px; line-height:1; }
+    .gt-item__markets {
+      font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+      color:rgba(255,255,255,.55); margin-top:6px; line-height:1.4;
+    }
+    .gt-item__note {
+      font-size:9px; color:var(--green-light); letter-spacing:.08em;
+      text-transform:uppercase; margin-top:4px;
+    }
+    .gt-hint {
+      text-align:center; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(255,255,255,.18); margin-top:20px; padding-bottom:8px;
+    }
+
+    /* ── Franchise Module ── */
+    .franchise-module {
+      background:rgba(255,255,255,.025);
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      padding:88px 0;
+    }
+    .fm-split {
+      display:grid; grid-template-columns:1fr 340px; gap:80px; align-items:center;
+    }
+    .franchise-module .overline { color:var(--green-light); }
+    .fm-headline { color:white; margin-top:12px; }
+    .fm-sub {
+      font-size:15px; color:rgba(255,255,255,.45); line-height:1.8;
+      margin-top:20px; margin-bottom:36px; max-width:440px;
+    }
+    .fm-pillars { display:flex; flex-direction:column; gap:20px; margin-bottom:40px; }
+    .fm-pillar { display:flex; align-items:flex-start; gap:16px; }
+    .fm-pillar__icon {
+      width:36px; height:36px; border-radius:3px; flex-shrink:0;
+      background:rgba(26,143,82,.15); border:1px solid rgba(26,143,82,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px;
+    }
+    .fm-pillar__body {}
+    .fm-pillar__title {
+      font-family:var(--font-disp); font-size:16px; font-weight:700;
+      text-transform:uppercase; color:white; line-height:1;
+    }
+    .fm-pillar__desc {
+      font-size:12px; color:rgba(255,255,255,.4); margin-top:3px; line-height:1.5;
+    }
+    .fm-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+    .fm-stats {
+      display:flex; flex-direction:column; gap:0;
+      border:1px solid rgba(255,255,255,.08); border-radius:4px; overflow:hidden;
+    }
+    .fm-stat {
+      padding:28px 32px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .fm-stat:last-child { border-bottom:none; }
+    .fm-stat__num {
+      font-family:var(--font-disp); font-size:clamp(40px,5vw,60px);
+      font-weight:900; color:white; line-height:1;
+    }
+    .fm-stat__lbl {
+      font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+      color:rgba(255,255,255,.3); margin-top:6px;
+    }
+
+    @media (max-width:900px) {
+      .fm-split { grid-template-columns:1fr; gap:48px; }
+      .fm-stats { flex-direction:row; }
+      .fm-stat { flex:1; border-bottom:none; border-right:1px solid rgba(255,255,255,.06); }
+      .fm-stat:last-child { border-right:none; }
+    }
+    @media (max-width:560px) {
+      .fm-stats { flex-direction:column; }
+      .fm-stat { border-right:none; border-bottom:1px solid rgba(255,255,255,.06); }
+    }
 
     /* ── Coming Soon ── */
     .coming-soon-grid { display:flex; flex-wrap:wrap; gap:10px; }
@@ -505,67 +588,144 @@
   </div>
 </section>
 
-<!-- ══ MARKET SPOTLIGHT ══ -->
-<section class="intl-section-alt" id="spotlight">
+<!-- ══ GROWTH TIMELINE ══ -->
+<section class="intl-section" id="timeline">
   <div class="container">
-    <p class="overline fade-up">Market Spotlight</p>
-    <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;margin-bottom:32px;">Where We Shine</h2>
-    <div class="spotlight-grid">
+    <p class="overline fade-up">International Expansion</p>
+    <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;">The Journey</h2>
+    <p class="fade-up d2" style="color:rgba(255,255,255,.45);font-size:15px;line-height:1.8;margin-top:16px;margin-bottom:48px;max-width:520px;">
+      From a single restaurant in Garland, Texas to 20+ countries worldwide.
+    </p>
+  </div>
+  <div class="gt-outer fade-in d2">
+    <div class="gt-scroll">
+      <div class="gt-track">
+        <div class="gt-line"></div>
+        <div class="gt-items">
 
-      <div class="spotlight-card fade-up">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169 0%,#C8102E 100%);">🇬🇧</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">United Kingdom</div>
-          <div class="spotlight-card__since">EMEA · Market Since 2019</div>
-          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow — one of our highest-velocity European markets and a key gateway for EMEA growth.</p>
+          <div class="gt-item gt-item--founding">
+            <div class="gt-item__top"><div class="gt-item__year">1994</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇺🇸</div>
+              <div class="gt-item__markets">United States</div>
+              <div class="gt-item__note">Founded · Garland, TX</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2007</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇲🇽</div>
+              <div class="gt-item__markets">Mexico</div>
+              <div class="gt-item__note">First Int'l Market</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2015</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇸🇬</div>
+              <div class="gt-item__markets">Singapore</div>
+              <div class="gt-item__note">APAC Expansion</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2021</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇨🇦</div>
+              <div class="gt-item__markets">Canada</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2023</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇵🇷</div>
+              <div class="gt-item__markets">Puerto Rico</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2025</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇫🇷 🇦🇺</div>
+              <div class="gt-item__markets">France<br>Australia</div>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-item__top"><div class="gt-item__year">2026</div></div>
+            <div class="gt-item__dot"></div>
+            <div class="gt-item__bottom">
+              <div class="gt-item__flags">🇮🇪 🇳🇱 🇮🇹</div>
+              <div class="gt-item__markets">Ireland · Netherlands<br>Italy</div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
+    <p class="gt-hint">More milestones coming</p>
+  </div>
+</section>
 
-      <div class="spotlight-card fade-up d1">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#002395 0%,#ED2939 100%);">🇫🇷</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">France</div>
-          <div class="spotlight-card__since">EMEA · Market Since 2021</div>
-          <p class="spotlight-card__locs">Paris at the heart of our continental European expansion, proving Wingstop's bold flavors transcend borders.</p>
+<!-- ══ FRANCHISE MODULE ══ -->
+<section class="franchise-module" id="franchise">
+  <div class="container">
+    <div class="fm-split fade-in">
+      <div class="fm-copy">
+        <p class="overline">Grow With Us</p>
+        <h2 class="disp-lg fm-headline">Your Market.<br>Our Playbook.</h2>
+        <p class="fm-sub">We've spent 30+ years refining a system that travels. If you're ready to bring bold flavor to your market, we're ready to back you.</p>
+        <div class="fm-pillars">
+          <div class="fm-pillar">
+            <div class="fm-pillar__icon">⚙️</div>
+            <div class="fm-pillar__body">
+              <div class="fm-pillar__title">Proven Operations</div>
+              <div class="fm-pillar__desc">A refined franchise model built across 30+ years and 2,500+ locations.</div>
+            </div>
+          </div>
+          <div class="fm-pillar">
+            <div class="fm-pillar__icon">🌍</div>
+            <div class="fm-pillar__body">
+              <div class="fm-pillar__title">Global Support</div>
+              <div class="fm-pillar__desc">Dedicated international franchise teams across AMRS, EMEA, and APAC.</div>
+            </div>
+          </div>
+          <div class="fm-pillar">
+            <div class="fm-pillar__icon">🔥</div>
+            <div class="fm-pillar__body">
+              <div class="fm-pillar__title">Bold Brand</div>
+              <div class="fm-pillar__desc">One of the fastest-growing chicken wing brands in the world — with serious consumer demand.</div>
+            </div>
+          </div>
+        </div>
+        <div class="fm-ctas">
+          <a href="#" class="btn btn-primary btn-lg">Franchise Inquiry</a>
+          <a href="#" class="btn btn-outline-white btn-lg">Download Deck</a>
         </div>
       </div>
-
-      <div class="spotlight-card fade-up d2">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006C35 0%,#CE1126 100%);">🇸🇦</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">Saudi Arabia</div>
-          <div class="spotlight-card__since">EMEA · Market Since 2012</div>
-          <p class="spotlight-card__locs">Our earliest and strongest EMEA market — 80+ locations built on massive brand loyalty and repeat traffic.</p>
+      <div class="fm-stats">
+        <div class="fm-stat">
+          <div class="fm-stat__num">30+</div>
+          <div class="fm-stat__lbl">Years of Operations</div>
+        </div>
+        <div class="fm-stat">
+          <div class="fm-stat__num">20+</div>
+          <div class="fm-stat__lbl">Countries</div>
+        </div>
+        <div class="fm-stat">
+          <div class="fm-stat__num">2,500+</div>
+          <div class="fm-stat__lbl">Locations Worldwide</div>
         </div>
       </div>
-
-      <div class="spotlight-card fade-up d3">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#EF3340 0%,#ffffff44 100%);">🇸🇬</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">Singapore</div>
-          <div class="spotlight-card__since">APAC · Market Since 2013</div>
-          <p class="spotlight-card__locs">APAC hub. Singapore locations rank among the highest per-capita wing consumption of any market worldwide.</p>
-        </div>
-      </div>
-
-      <div class="spotlight-card fade-up d4">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006847 0%,#CE1126 100%);">🇲🇽</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">Mexico</div>
-          <div class="spotlight-card__since">AMRS · Market Since 2010</div>
-          <p class="spotlight-card__locs">Our largest AMRS market — CDMX, Guadalajara, Monterrey and beyond. The boldest flavors travel well south of the border.</p>
-        </div>
-      </div>
-
-      <div class="spotlight-card fade-up d5">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#003478 0%,#CD2E3A 100%);">🇰🇷</div>
-        <div class="spotlight-card__body">
-          <div class="spotlight-card__country">South Korea</div>
-          <div class="spotlight-card__since">APAC Market</div>
-          <p class="spotlight-card__locs">Bold heat meets one of the world's most passionate food cultures. South Korea is one of APAC's fastest-growing markets.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
