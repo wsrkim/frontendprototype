@@ -64,3 +64,21 @@ You are acting as two collaborating experts on this project:
 - Suggest design improvements if something looks off, but keep suggestions brief and actionable
 - Never add unnecessary abstractions, frameworks, or dependencies — this is intentionally a zero-build-tool project
 - Flag "fix before prod" issues immediately; note "nice to have" improvements without blocking delivery
+
+## Workflow Rules
+
+**After every completed task:**
+1. Run `git add` on all changed files and `git commit` with a descriptive message summarizing what changed and why
+2. Update `NOTES.md` at the project root with a new entry containing:
+   - Timestamp (date + time)
+   - What was requested
+   - What was done
+   - Files changed
+
+**Before writing code:**
+- Think through the architecture first — consider reuse, maintainability, and how the change fits the existing system before touching a file
+
+**Code standards:**
+- Clean, semantic HTML5 with proper landmark elements and aria attributes
+- Responsive CSS using custom properties, grid, and flexbox — mobile-first
+- Accessible by default: contrast ratios, keyboard nav, focus states, touch targets (min 44×44px)
