@@ -587,8 +587,9 @@ footer :focus-visible,
    ========================================== */
 .map-section {
   background:var(--black);
-  padding:96px 0;
-  position:relative; overflow:hidden;
+  padding:96px 0 80px;
+  position:relative;
+  /* no overflow:hidden — tooltip must escape stacking context */
 }
 .map-section__noise {
   position:absolute; inset:0;
@@ -597,10 +598,42 @@ footer :focus-visible,
   pointer-events:none;
 }
 .map-layout {
-  display:grid; grid-template-columns:320px 1fr;
-  gap:60px; align-items:center;
+  display:flex; flex-direction:column; gap:0;
 }
-.map-stats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; }
+.map-header {
+  display:flex; flex-wrap:wrap; justify-content:space-between;
+  align-items:flex-end; gap:24px 48px; margin-bottom:36px;
+}
+.map-header__lead { flex:1 1 300px; }
+.map-header__side { flex:0 1 320px; display:flex; flex-direction:column; justify-content:flex-end; gap:16px; }
+.map-canvas-wrap {
+  position:relative; width:100%;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:4px; overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+.map-zoom-controls {
+  position:absolute; bottom:16px; right:16px;
+  display:flex; flex-direction:column; gap:4px; z-index:10;
+}
+.map-zoom-btn {
+  width:32px; height:32px;
+  background:rgba(20,20,20,.85); border:1px solid rgba(255,255,255,.15);
+  color:white; font-size:18px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:3px; cursor:pointer; transition:background .15s;
+  user-select:none;
+}
+.map-zoom-btn:hover { background:var(--green); border-color:var(--green); }
+.map-hint {
+  position:absolute; bottom:16px; left:16px;
+  font-size:10px; color:rgba(255,255,255,.25);
+  letter-spacing:.1em; text-transform:uppercase; pointer-events:none;
+}
+.map-stats {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:12px; margin-top:20px;
+}
 .map-stat {
   padding:18px 20px;
   background:rgba(255,255,255,.05);
@@ -615,9 +648,9 @@ footer :focus-visible,
   font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
   color:rgba(255,255,255,.35); margin-top:5px;
 }
-#ws-world-map { height:440px; }
-/* jsVectorMap overrides */
-.jvectormap-tip {
+#ws-world-map { height:520px; display:block; }
+/* jsVectorMap tooltip — class is jvm-tooltip, already appended to <body> by the lib */
+.jvm-tooltip {
   background:var(--near-black) !important;
   border:1px solid rgba(255,255,255,.15) !important;
   color:white !important;
@@ -625,8 +658,8 @@ footer :focus-visible,
   font-size:13px !important;
   padding:8px 14px !important;
   border-radius:3px !important;
-  z-index:100000 !important;
-  position:absolute !important;
+  z-index:99999 !important;
+  pointer-events:none !important;
 }
 
 /* ==========================================
@@ -1100,8 +1133,8 @@ footer :focus-visible,
   .timeline-year { width:50px; font-size:20px; }
   .timeline-year::after { right:-22px; }
   .timeline-item { gap:28px; }
-  .map-layout { grid-template-columns:260px 1fr; gap:40px; }
-  #ws-world-map { height:360px; }
+  #ws-world-map { height:420px; }
+  .map-stats { grid-template-columns:repeat(4,1fr); }
 }
 @media (max-width:768px) {
   :root { --nav-h:60px; --px:20px; }
@@ -1124,8 +1157,11 @@ footer :focus-visible,
   .timeline-year { text-align:left; width:auto; }
   .timeline-year::after { display:none; }
   .page-hero { min-height:40vh; padding-bottom:44px; }
-  .map-layout { grid-template-columns:1fr; }
-  #ws-world-map { height:280px; }
+  #ws-world-map { height:340px; }
+  .map-stats { grid-template-columns:1fr 1fr; }
+  .map-header { flex-direction:column; align-items:flex-start; }
+  .map-header__side { flex:none; width:100%; }
+  .map-hint { display:none; }
   /* Touch targets */
   .btn { min-height:44px; min-width:44px; }
   .nav__hamburger { min-height:44px; min-width:44px; }
@@ -1138,9 +1174,7 @@ footer :focus-visible,
   .value-grid { grid-template-columns:1fr; }
   /* Stats section tighter */
   .stats-bar { padding:20px 0; }
-  /* Map sidebar stacks below map */
-  .map-layout { gap:32px; }
-  .map-sidebar { order:2; }
+  .map-zoom-controls { bottom:12px; right:12px; }
   /* Footer social links larger tap area */
   .social-btn { min-width:44px; min-height:44px; }
 }
