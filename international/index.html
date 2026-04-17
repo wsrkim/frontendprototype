@@ -4,118 +4,210 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>International — Wingstop</title>
-  <meta name="description" content="Wingstop's bold flavors span 20+ countries across North America, Europe, the Middle East, and Asia Pacific.">
+  <meta name="description" content="Wingstop's bold flavors span 20+ countries across the Americas, EMEA, and Asia Pacific.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
   <style>
+    /* ── Dark page overrides ── */
+    body { background:var(--black); }
+
+    /* Stats strip */
     .intl-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      border: 1px solid var(--border);
-      background: var(--border);
-      margin-bottom: 80px;
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      margin-bottom:0;
     }
     .intl-stat {
-      background: var(--cream);
-      padding: 40px 32px;
+      background:transparent;
+      padding:40px 32px;
+      border-right:1px solid rgba(255,255,255,.08);
     }
-    .intl-stat__num { color:var(--text);
-      font-family: var(--font-display);
-      font-size: clamp(44px, 6vw, 72px);
-      font-weight: 900; line-height: 1;
-      display: block;
+    .intl-stat:last-child { border-right:none; }
+    .intl-stat__num {
+      font-family:var(--font-disp); font-size:clamp(44px,6vw,72px);
+      font-weight:900; line-height:1; color:white; display:block;
     }
     .intl-stat__lbl {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: .16em; text-transform: uppercase;
-      color: var(--green); margin-top: 8px;
+      font-size:11px; font-weight:600; letter-spacing:.16em;
+      text-transform:uppercase; color:var(--green-light); margin-top:8px;
     }
 
-    .regions-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    /* Section headings on dark */
+    .intl-section { background:var(--black); padding:80px 0; }
+    .intl-section .overline { color:var(--green-light); }
+    .intl-section h2 { color:white; }
+    .intl-section .lead { color:rgba(255,255,255,.55); }
+    .intl-section-alt { background:rgba(255,255,255,.025); padding:80px 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); }
+    .intl-section-alt .overline { color:var(--green-light); }
+    .intl-section-alt h2 { color:white; }
+
+    /* ── US Flagship ── */
+    .us-flagship {
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:4px; padding:40px 48px;
+      display:flex; align-items:center; gap:40px;
+      margin-bottom:16px; position:relative; overflow:hidden;
+      transition:border-color .3s;
+    }
+    .us-flagship:hover { border-color:rgba(0,105,56,.5); }
+    .us-flagship::after {
+      content:'US';
+      position:absolute; right:32px; top:50%; transform:translateY(-50%);
+      font-family:var(--font-disp); font-size:clamp(80px,14vw,180px);
+      font-weight:900; color:rgba(255,255,255,.03); line-height:1; pointer-events:none;
+    }
+    .us-flagship__flag { font-size:52px; flex-shrink:0; }
+    .us-flagship__body { flex:1; min-width:0; }
+    .us-flagship__tag {
+      font-size:10px; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--green-light); margin-bottom:6px;
+    }
+    .us-flagship__name {
+      font-family:var(--font-disp); font-size:clamp(36px,5vw,60px);
+      font-weight:900; text-transform:uppercase; color:white; line-height:1;
+    }
+    .us-flagship__sub {
+      font-size:13px; color:rgba(255,255,255,.4);
+      margin-top:8px; letter-spacing:.04em;
+    }
+    .us-flagship__stats { display:flex; gap:32px; flex-shrink:0; }
+    .us-stat { text-align:center; }
+    .us-stat__num {
+      font-family:var(--font-disp); font-size:clamp(28px,4vw,48px);
+      font-weight:900; color:white; line-height:1;
+    }
+    .us-stat__lbl {
+      font-size:10px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:rgba(255,255,255,.3); margin-top:4px;
     }
 
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    /* ── Regions 3-col ── */
+    .regions-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .region-card {
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:3px; padding:28px 28px 32px;
+      position:relative; overflow:hidden;
+      transition:all .3s var(--ease);
     }
+    .region-card:hover {
+      background:rgba(255,255,255,.05);
+      border-color:rgba(0,105,56,.4);
+      transform:translateY(-3px);
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .region-card__num {
+      font-family:var(--font-disp); font-size:80px; font-weight:900;
+      line-height:1; color:rgba(255,255,255,.03);
+      position:absolute; right:16px; top:8px; pointer-events:none;
+    }
+    .region-card__tag {
+      font-size:10px; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--green-light); margin-bottom:8px;
+    }
+    .region-card__title {
+      font-family:var(--font-disp); font-size:clamp(22px,2.5vw,30px);
+      font-weight:900; text-transform:uppercase; color:white;
+      line-height:1.1; margin-bottom:6px;
+    }
+    .region-card__subtitle {
+      font-size:11px; color:rgba(255,255,255,.3); letter-spacing:.06em;
+      text-transform:uppercase; margin-bottom:20px;
+    }
+    .region-card__count {
+      font-family:var(--font-disp); font-size:44px; font-weight:900;
+      line-height:1; color:white;
+    }
+    .region-card__count-lbl {
+      font-size:10px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:20px;
+    }
+    .region-card__sub-label {
+      font-size:9px; font-weight:700; letter-spacing:.16em;
+      text-transform:uppercase; color:rgba(255,255,255,.25);
+      margin-bottom:6px; margin-top:14px;
+    }
+    .region-card__markets { display:flex; flex-wrap:wrap; gap:6px; }
+    .market-chip {
+      font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+      padding:5px 10px; background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1); border-radius:2px;
+      color:rgba(255,255,255,.55); transition:all .2s;
+    }
+    .market-chip:hover { background:var(--green); border-color:var(--green); color:white; }
+
+    /* ── Market Spotlight dark cards ── */
+    .spotlight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
     .spotlight-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: all .3s var(--ease);
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:4px; overflow:hidden; transition:all .3s var(--ease);
     }
     .spotlight-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,.08);
-      border-color: var(--green);
+      transform:translateY(-4px);
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+      border-color:rgba(0,105,56,.4);
     }
     .spotlight-card__flag {
-      height: 120px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 60px;
-      background: var(--cream);
+      height:110px; display:flex; align-items:center;
+      justify-content:center; font-size:56px;
     }
-    .spotlight-card__body { padding: 20px 24px; }
+    .spotlight-card__body { padding:20px 22px 24px; }
     .spotlight-card__country {
-      font-family: var(--font-display);
-      font-size: 22px; font-weight: 700;
-      text-transform: uppercase; margin-bottom: 4px;
+      font-family:var(--font-disp); font-size:22px; font-weight:700;
+      text-transform:uppercase; color:white; margin-bottom:2px;
     }
     .spotlight-card__since {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-muted); margin-bottom: 12px;
+      font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:10px;
     }
-    .spotlight-card__locs {
-      font-size: 13px; color: var(--text-muted); line-height: 1.6;
-    }
+    .spotlight-card__locs { font-size:13px; color:rgba(255,255,255,.5); line-height:1.65; }
 
-    .coming-soon-grid {
-      display: flex; flex-wrap: wrap; gap: 12px;
-    }
+    /* ── Coming Soon ── */
+    .coming-soon-grid { display:flex; flex-wrap:wrap; gap:10px; }
     .cs-chip {
-      padding: 10px 22px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      font-size: 13px; font-weight: 600;
-      letter-spacing: .06em;
-      color: var(--text-muted);
-      display: flex; align-items: center; gap: 8px;
-      transition: all .2s;
+      padding:10px 20px; background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1); border-radius:2px;
+      font-size:13px; font-weight:600; letter-spacing:.06em;
+      color:rgba(255,255,255,.55); display:flex; align-items:center; gap:8px;
+      transition:all .2s;
     }
-    .cs-chip:hover { border-color: var(--green); color: var(--green); }
+    .cs-chip:hover { border-color:var(--green-light); color:var(--green-light); }
     .cs-chip--confirmed {
-      border-color: rgba(0,105,56,.3);
-      background: rgba(0,105,56,.06);
-      color: var(--text);
-    }
-    .cs-chip--confirmed .dot { opacity: 1; animation: pulse-dot 1.8s ease-in-out infinite; }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: .4; transform: scale(1.4); }
+      border-color:rgba(26,143,82,.4);
+      background:rgba(26,143,82,.08); color:rgba(255,255,255,.85);
     }
     .cs-chip .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--green-light); opacity: .6;
+      width:6px; height:6px; border-radius:50%;
+      background:var(--green-light); opacity:.5;
+    }
+    .cs-chip--confirmed .dot { opacity:1; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.3; transform:scale(1.5); }
     }
 
-    @media (max-width: 900px) {
-      .intl-stats { grid-template-columns: repeat(2, 1fr); }
-      .regions-grid { grid-template-columns: 1fr; }
-      .spotlight-grid { grid-template-columns: repeat(2, 1fr); }
+    /* ── Responsive ── */
+    @media (max-width:1024px) {
+      .regions-grid { grid-template-columns:repeat(2,1fr); }
     }
-    @media (max-width: 560px) {
-      .intl-stats { grid-template-columns: 1fr 1fr; }
-      .spotlight-grid { grid-template-columns: 1fr; }
+    @media (max-width:900px) {
+      .intl-stats { grid-template-columns:repeat(2,1fr); }
+      .spotlight-grid { grid-template-columns:repeat(2,1fr); }
+      .us-flagship { flex-direction:column; align-items:flex-start; gap:24px; padding:28px; }
+      .us-flagship::after { display:none; }
+    }
+    @media (max-width:640px) {
+      .intl-stat { padding:28px 20px; }
+      .regions-grid { grid-template-columns:1fr; }
+      .spotlight-grid { grid-template-columns:1fr; }
+      .us-flagship__stats { gap:20px; }
+    }
+    @media (max-width:480px) {
+      .intl-stats { grid-template-columns:1fr 1fr; }
     }
   </style>
 </head>
@@ -132,7 +224,7 @@
     <ul class="nav__links">
       <li><a href="../about/"         class="nav__link">About</a></li>
       <li><a href="../events/"        class="nav__link">Events</a></li>
-      <li><a href="../international/" class="nav__link">International</a></li>
+      <li><a href="../international/" class="nav__link active">International</a></li>
       <li class="nav__dropdown">
         <a href="#" class="nav__link nav__dropdown-trigger">More <span class="nav__dropdown-arrow">▾</span></a>
         <div class="nav__dropdown-menu">
@@ -160,8 +252,10 @@
 
 <!-- ══ PAGE HERO ══ -->
 <section class="page-hero">
-  <div class="page-hero__bg"><div class="page-hero__pattern"></div><div class="page-hero__glow-inner"></div>
-    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-display);font-size:clamp(140px,24vw,300px);font-weight:900;color:rgba(0,0,0,.12);line-height:1;pointer-events:none;user-select:none;">GLOBAL<br>FLAVOR</div>
+  <div class="page-hero__bg">
+    <div class="page-hero__pattern"></div>
+    <div class="page-hero__glow-inner"></div>
+    <div style="position:absolute;right:-40px;bottom:-20px;font-family:var(--font-disp);font-size:clamp(120px,20vw,280px);font-weight:900;color:rgba(0,0,0,.14);line-height:1;pointer-events:none;user-select:none;">GLOBAL<br>FLAVOR</div>
   </div>
   <div class="page-hero__content">
     <div class="page-hero__eyebrow fade-up">
@@ -171,62 +265,85 @@
     <h1 class="disp-xl fade-up d1">The World<br>Eats <span class="text-green">Wings.</span></h1>
     <p class="lead fade-up d2" style="max-width:520px;margin-top:20px;">
       From Texas to Tokyo, our bold flavors have crossed every ocean.
-      Wingstop's international footprint is growing — and we're just getting started.
+      Wingstop's international footprint spans 20+ countries — and we're just getting started.
     </p>
   </div>
 </section>
 
 <!-- ══ GLOBAL STATS ══ -->
-<div class="container">
-  <div class="intl-stats fade-in" style="margin-top:0;">
-    <div class="intl-stat">
-      <span class="intl-stat__num" data-count="20" data-suffix="+">20+</span>
-      <span class="intl-stat__lbl">Countries</span>
-    </div>
-    <div class="intl-stat">
-      <span class="intl-stat__num" data-count="700" data-suffix="+">700+</span>
-      <span class="intl-stat__lbl">Int'l Locations</span>
-    </div>
-    <div class="intl-stat">
-      <span class="intl-stat__num" data-count="5">5</span>
-      <span class="intl-stat__lbl">Continents</span>
-    </div>
-    <div class="intl-stat">
-      <span class="intl-stat__num" data-count="2007">2007</span>
-      <span class="intl-stat__lbl">Int'l Since</span>
-    </div>
+<div class="intl-stats fade-in">
+  <div class="intl-stat">
+    <span class="intl-stat__num" data-count="20" data-suffix="+">20+</span>
+    <span class="intl-stat__lbl">Countries</span>
+  </div>
+  <div class="intl-stat">
+    <span class="intl-stat__num" data-count="700" data-suffix="+">700+</span>
+    <span class="intl-stat__lbl">Int'l Locations</span>
+  </div>
+  <div class="intl-stat">
+    <span class="intl-stat__num" data-count="5">5</span>
+    <span class="intl-stat__lbl">Continents</span>
+  </div>
+  <div class="intl-stat">
+    <span class="intl-stat__num" data-count="2007">2007</span>
+    <span class="intl-stat__lbl">Int'l Since</span>
   </div>
 </div>
 
 <!-- ══ REGIONS ══ -->
-<section class="section">
+<section class="intl-section" id="regions">
   <div class="container">
-    <div class="sh">
-      <p class="overline fade-up">Where We Are</p>
-      <h2 class="disp-lg fade-up d1">Our Regions</h2>
+
+    <p class="overline fade-up">Where We Are</p>
+    <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;margin-bottom:32px;">Our Regions</h2>
+
+    <!-- US — Flagship, separate -->
+    <div class="us-flagship fade-up d2">
+      <div class="us-flagship__flag">🇺🇸</div>
+      <div class="us-flagship__body">
+        <div class="us-flagship__tag">Flagship Market</div>
+        <div class="us-flagship__name">United States</div>
+        <div class="us-flagship__sub">The home of Wingstop. Est. 1994 · Garland, Texas.</div>
+      </div>
+      <div class="us-flagship__stats">
+        <div class="us-stat">
+          <div class="us-stat__num" data-count="1900" data-suffix="+">1,900+</div>
+          <div class="us-stat__lbl">Locations</div>
+        </div>
+        <div class="us-stat">
+          <div class="us-stat__num">50</div>
+          <div class="us-stat__lbl">States</div>
+        </div>
+      </div>
     </div>
+
+    <!-- 3 international regions -->
     <div class="regions-grid">
 
-      <div class="region-card fade-up">
+      <!-- AMRS -->
+      <div class="region-card fade-up d1">
         <div class="region-card__num" aria-hidden="true">01</div>
-        <div class="region-card__region">Americas</div>
-        <h3 class="region-card__title">North & Latin<br>America</h3>
-        <div class="region-card__count" data-count="1200" data-suffix="+">1,200+</div>
+        <div class="region-card__tag">Region</div>
+        <h3 class="region-card__title">AMRS</h3>
+        <div class="region-card__subtitle">Americas International</div>
+        <div class="region-card__count" data-count="100" data-suffix="+">100+</div>
         <div class="region-card__count-lbl">Locations</div>
         <div class="region-card__markets">
-          <span class="market-chip">🇺🇸 United States</span>
           <span class="market-chip">🇲🇽 Mexico</span>
           <span class="market-chip">🇨🇦 Canada</span>
           <span class="market-chip">🇵🇷 Puerto Rico</span>
         </div>
       </div>
 
-      <div class="region-card fade-up d1">
+      <!-- EMEA -->
+      <div class="region-card fade-up d2">
         <div class="region-card__num" aria-hidden="true">02</div>
-        <div class="region-card__region">Europe</div>
-        <h3 class="region-card__title">Europe</h3>
-        <div class="region-card__count" data-count="150" data-suffix="+">150+</div>
+        <div class="region-card__tag">Region</div>
+        <h3 class="region-card__title">EMEA</h3>
+        <div class="region-card__subtitle">Europe, Middle East &amp; Africa</div>
+        <div class="region-card__count" data-count="350" data-suffix="+">350+</div>
         <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__sub-label">Europe</div>
         <div class="region-card__markets">
           <span class="market-chip">🇬🇧 United Kingdom</span>
           <span class="market-chip">🇪🇸 Spain</span>
@@ -235,14 +352,7 @@
           <span class="market-chip">🇮🇹 Italy</span>
           <span class="market-chip">🇮🇪 Ireland</span>
         </div>
-      </div>
-
-      <div class="region-card fade-up d2">
-        <div class="region-card__num" aria-hidden="true">03</div>
-        <div class="region-card__region">Middle East & North Africa</div>
-        <h3 class="region-card__title">MENA</h3>
-        <div class="region-card__count" data-count="200" data-suffix="+">200+</div>
-        <div class="region-card__count-lbl">Locations</div>
+        <div class="region-card__sub-label">Middle East</div>
         <div class="region-card__markets">
           <span class="market-chip">🇸🇦 Saudi Arabia</span>
           <span class="market-chip">🇰🇼 Kuwait</span>
@@ -252,10 +362,12 @@
         </div>
       </div>
 
+      <!-- APAC -->
       <div class="region-card fade-up d3">
-        <div class="region-card__num" aria-hidden="true">04</div>
-        <div class="region-card__region">Asia Pacific</div>
-        <h3 class="region-card__title">Asia<br>Pacific</h3>
+        <div class="region-card__num" aria-hidden="true">03</div>
+        <div class="region-card__tag">Region</div>
+        <h3 class="region-card__title">APAC</h3>
+        <div class="region-card__subtitle">Asia Pacific</div>
         <div class="region-card__count" data-count="180" data-suffix="+">180+</div>
         <div class="region-card__count-lbl">Locations</div>
         <div class="region-card__markets">
@@ -272,76 +384,85 @@
 </section>
 
 <!-- ══ MARKET SPOTLIGHT ══ -->
-<section class="section bg-dark1">
+<section class="intl-section-alt" id="spotlight">
   <div class="container">
-    <div class="sh">
-      <p class="overline fade-up">Market Spotlight</p>
-      <h2 class="disp-lg fade-up d1">Where We Shine</h2>
-    </div>
+    <p class="overline fade-up">Market Spotlight</p>
+    <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;margin-bottom:32px;">Where We Shine</h2>
     <div class="spotlight-grid">
+
       <div class="spotlight-card fade-up">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169,#C8102E);">🇬🇧</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#012169 0%,#C8102E 100%);">🇬🇧</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">United Kingdom</div>
-          <div class="spotlight-card__since">Market Since 2019</div>
-          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow, Leeds and growing. One of our highest-velocity European markets.</p>
+          <div class="spotlight-card__since">EMEA · Market Since 2019</div>
+          <p class="spotlight-card__locs">London, Manchester, Birmingham, Glasgow — one of our highest-velocity European markets and a key gateway for EMEA growth.</p>
         </div>
       </div>
+
       <div class="spotlight-card fade-up d1">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#002395,#ED2939);">🇫🇷</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#002395 0%,#ED2939 100%);">🇫🇷</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">France</div>
-          <div class="spotlight-card__since">Market Since 2021</div>
-          <p class="spotlight-card__locs">Paris locations at the heart of Wingstop's European expansion into continental markets.</p>
+          <div class="spotlight-card__since">EMEA · Market Since 2021</div>
+          <p class="spotlight-card__locs">Paris at the heart of our continental European expansion, proving Wingstop's bold flavors transcend borders.</p>
         </div>
       </div>
+
       <div class="spotlight-card fade-up d2">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006C35,#CE1126);">🇸🇦</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006C35 0%,#CE1126 100%);">🇸🇦</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">Saudi Arabia</div>
-          <div class="spotlight-card__since">Market Since 2012</div>
-          <p class="spotlight-card__locs">One of our strongest international markets with 80+ locations and massive brand loyalty.</p>
+          <div class="spotlight-card__since">EMEA · Market Since 2012</div>
+          <p class="spotlight-card__locs">Our earliest and strongest EMEA market — 80+ locations built on massive brand loyalty and repeat traffic.</p>
         </div>
       </div>
+
       <div class="spotlight-card fade-up d3">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#EF3340,#FFFFFF);">🇸🇬</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#EF3340 0%,#ffffff44 100%);">🇸🇬</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">Singapore</div>
-          <div class="spotlight-card__since">Market Since 2013</div>
-          <p class="spotlight-card__locs">Asia Pacific hub. Our Singapore locations rank among the highest per-capita wing consumption worldwide.</p>
+          <div class="spotlight-card__since">APAC · Market Since 2013</div>
+          <p class="spotlight-card__locs">APAC hub. Singapore locations rank among the highest per-capita wing consumption of any market worldwide.</p>
         </div>
       </div>
+
       <div class="spotlight-card fade-up d4">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006847,#FFFFFF,#CE1126);">🇲🇽</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#006847 0%,#CE1126 100%);">🇲🇽</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">Mexico</div>
-          <div class="spotlight-card__since">Market Since 2010</div>
-          <p class="spotlight-card__locs">Our largest Latin American market with locations across CDMX, Guadalajara, Monterrey and beyond.</p>
+          <div class="spotlight-card__since">AMRS · Market Since 2010</div>
+          <p class="spotlight-card__locs">Our largest AMRS market — CDMX, Guadalajara, Monterrey and beyond. The boldest flavors travel well south of the border.</p>
         </div>
       </div>
+
       <div class="spotlight-card fade-up d5">
-        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#003478,#CD2E3A);">🇰🇷</div>
+        <div class="spotlight-card__flag" style="background:linear-gradient(135deg,#003478 0%,#CD2E3A 100%);">🇰🇷</div>
         <div class="spotlight-card__body">
           <div class="spotlight-card__country">South Korea</div>
-          <div class="spotlight-card__since">Asia Pacific Market</div>
-          <p class="spotlight-card__locs">A market where bold heat and global flavors meet one of the world's most passionate food cultures.</p>
+          <div class="spotlight-card__since">APAC Market</div>
+          <p class="spotlight-card__locs">Bold heat meets one of the world's most passionate food cultures. South Korea is one of APAC's fastest-growing markets.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- ══ COMING SOON ══ -->
-<section class="section">
+<section class="intl-section" id="expansion">
   <div class="container">
-    <div style="max-width:760px;">
+    <div style="max-width:800px;">
       <p class="overline fade-up">Expansion</p>
-      <h2 class="disp-lg fade-up d1">Coming Soon</h2>
-      <p class="lead fade-up d2" style="margin-top:16px;margin-bottom:36px;">
+      <h2 class="disp-lg fade-up d1" style="color:white;margin-top:10px;">Coming Soon</h2>
+      <p class="fade-up d2" style="color:rgba(255,255,255,.5);font-size:15px;line-height:1.8;margin-top:16px;margin-bottom:36px;">
         Bold flavors don't stop at borders. Here's where Wingstop is headed next.
       </p>
       <div class="coming-soon-grid fade-up d3">
-        <span class="cs-chip cs-chip--confirmed"><span class="dot"></span>🇮🇳 India <span style="font-size:9px;opacity:.6;margin-left:4px;letter-spacing:.06em;">DEAL SIGNED · 1,000+ UNITS</span></span>
+        <span class="cs-chip cs-chip--confirmed">
+          <span class="dot"></span>
+          🇮🇳 India
+          <span style="font-size:9px;opacity:.55;margin-left:4px;letter-spacing:.06em;text-transform:uppercase;">Deal Signed · 1,000+ Units</span>
+        </span>
         <span class="cs-chip"><span class="dot"></span>🇪🇨 Ecuador</span>
         <span class="cs-chip"><span class="dot"></span>🇯🇲 Jamaica</span>
         <span class="cs-chip"><span class="dot"></span>🇵🇦 Panama</span>
@@ -361,14 +482,13 @@
         We're looking for passionate franchise partners who believe in bold flavor and bold growth.
       </p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;">
-        <a href="#" class="btn btn-outline btn-lg fade-up d3" style="border-color:rgba(255,255,255,.5);">Franchise Inquiry</a>
+        <a href="#" class="btn btn-outline btn-lg fade-up d3" style="border-color:rgba(255,255,255,.5);color:white;">Franchise Inquiry</a>
         <a href="#" class="btn fade-up d4" style="background:white;color:var(--green);padding:17px 42px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;">Download Deck</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
 </main>
 
 <footer class="footer">
